@@ -1,6 +1,6 @@
 // Inlined into every generated trip page. Pure ES2020, no dependencies.
-// Reads <script id="trip-data" type="application/json">, restores overrides
-// from localStorage, wires up swap / reset / shuffle / print buttons.
+// Reads the trip-data JSON block (#trip-data), restores overrides from
+// localStorage, wires up swap / reset / shuffle / print buttons.
 
 (function () {
   "use strict";

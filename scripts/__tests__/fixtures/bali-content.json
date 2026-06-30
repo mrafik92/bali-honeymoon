@@ -1,0 +1,144 @@
+{
+  "title": "Our Bali Honeymoon — March 2027",
+  "subtitle": "Our Honeymoon Adventure",
+  "datesLong": "March 2027 · 14 Days",
+  "datesShort": "March 1–14, 2027",
+  "startDate": "2027-03-01",
+  "endDate": "2027-03-14",
+  "tripSlug": "bali-march-2027",
+  "seed": 1,
+  "splurgeCount": 3,
+  "driveCapMinutes": 60,
+  "heroImg": "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1920&q=80",
+  "overviewTitle": "14-Day Journey",
+  "overviewTagline": "Three destinations, one unforgettable honeymoon",
+  "weatherNote": "<strong style=\"color:#b8865b;\">March weather:</strong> End of wet season &mdash; warm (27&ndash;32&deg;C), occasional showers, lush &amp; green",
+  "budgetTagline": "For two people · 14 days · Budget-friendly style",
+  "budgetTable": "<tr><td><strong>Flights</strong></td><td>Round-trip for 2 (varies by origin)</td><td class=\"num-col\">$1,400&ndash;$2,000</td></tr>\n<tr><td><strong>Accommodation</strong></td><td>13 nights &times; avg $35/night (guesthouses + 1 luxury splurge)</td><td class=\"num-col\">$580</td></tr>\n<tr><td><strong>Food &amp; Drink</strong></td><td>$30/day for two (local warungs + 3 splurge dinners)</td><td class=\"num-col\">$420</td></tr>\n<tr><td><strong>Transport</strong></td><td>Airport transfers, ferries, Gojek, scooter rental</td><td class=\"num-col\">$150</td></tr>\n<tr><td><strong>Activities</strong></td><td>Cooking class, manta snorkeling, spa, temple entries</td><td class=\"num-col\">$200</td></tr>\n<tr><td><strong>Travel Insurance</strong></td><td>Comprehensive for 2 weeks</td><td class=\"num-col\">$80</td></tr>\n<tr><td><strong>Miscellaneous</strong></td><td>SIM card, tips, souvenirs, laundry</td><td class=\"num-col\">$100</td></tr>",
+  "budgetNote": "All prices approximate for March 2027 &middot; $1 &asymp; 16,000 IDR &middot; Booking ahead on Agoda/Booking.com saves 15&ndash;30%",
+  "footerClosing": "See you in Bali — March 2027",
+  "restSuggestions": [
+    "Pool & book",
+    "Couples spa near hotel",
+    "Short walk in the neighborhood",
+    "Sunset cocktail at hotel bar",
+    "Late breakfast and lazy morning"
+  ],
+  "regions": [
+    {
+      "id": "ubud",
+      "name": "Ubud",
+      "num": 1,
+      "days": "1&ndash;6",
+      "nights": 5,
+      "nightsRange": [5, 6],
+      "tagline": "The cultural heart of Bali",
+      "bannerImg": "https://images.unsplash.com/photo-1555400038-63f5ba517a47?auto=format&fit=crop&w=1100&q=80",
+      "gettingThere": [
+        "<span class=\"label\">Airport to Ubud:</span> Grab/Gojek <span class=\"price\">$13&ndash;19</span> <span class=\"sep\">|</span> or private transfer <span class=\"price\">$25&ndash;30</span>",
+        "<span class=\"label\">Travel time:</span> 1.5&ndash;2 hours (38 km)",
+        "<span class=\"label\">Budget tip:</span> Kura-Kura shuttle bus from Kuta <span class=\"price\">$6/person</span> (takes 3&ndash;4h)",
+        "<span class=\"label\">Getting around:</span> Scooter rental <span class=\"price\">$3&ndash;5/day</span> <span class=\"sep\">|</span> Gojek rides <span class=\"price\">$1&ndash;3</span>"
+      ],
+      "hotels": [
+        { "id": "eden-house", "name": "Eden House Ubud", "img": "https://images.unsplash.com/photo-1737808773486-ca1065f37217?auto=format&fit=crop&w=260&q=80", "rating": "9.5", "platform": "Booking.com", "platformClass": "", "price": "$35&ndash;50", "features": ["King bed","Breakfast","Balcony","Rice views","Yoga"], "desc": "Traditional Balinese guesthouse, family-run, surrounded by rice fields 5min from center.", "couplesNote": "9.2/10" },
+        { "id": "bisma-eight", "name": "Bisma Eight (luxury splurge)", "img": "https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=260&q=80", "rating": "9.4", "platform": "Booking.com", "platformClass": "", "price": "$180&ndash;240", "features": ["Infinity Pool","Jungle view","Breakfast","Spa","Adults-only"], "desc": "Adults-only design hotel with an Infinity Pool overlooking the jungle canopy &mdash; one splurge night, one moment you'll remember forever.", "couplesNote": "9.5/10" },
+        { "id": "omank-agus", "name": "Omank Agus Homestay", "img": "https://images.unsplash.com/photo-1668277155881-9d3bccb1683a?auto=format&fit=crop&w=260&q=80", "rating": "9.3", "platform": "Booking.com", "platformClass": "", "price": "$25&ndash;35", "features": ["Garden","Sun terrace","AC","Free WiFi","10min walk"], "desc": "Quiet family homestay, 10min walk to Ubud Palace. Highly rated for location &amp; value.", "couplesNote": "9.3/10" },
+        { "id": "tegal-sari", "name": "Tegal Sari Accommodation", "img": "https://images.unsplash.com/photo-1737531049186-a20c1f203f50?auto=format&fit=crop&w=260&q=80", "rating": "8.7", "platform": "Agoda", "platformClass": "agoda", "price": "$27&ndash;53", "features": ["Rice paddy views","Central","Pool","Balinese style"], "desc": "Iconic budget stay right by the rice fields. Book on Agoda for lowest rates.", "couplesNote": null }
+      ],
+      "hotelTipBox": "<strong>&#128161; Pro Tip:</strong> Most nights at <strong>Eden House</strong>, splurge ONE night at <strong>Bisma Eight</strong> for the infinity pool over the jungle.",
+      "attractions": [
+        { "id": "tegalalang", "name": "Tegalalang Rice Terraces", "score": 9, "img": "https://images.unsplash.com/photo-1680100595862-9c8803a9e7da?auto=format&fit=crop&w=220&q=80", "vibe": "Like walking through a living painting &mdash; layer after layer of luminous green stretching into the valley.", "detail": "Go before 8am when the light is golden and the crowds are gone.", "price": "Free (small donation)", "drive": { "eden-house": 22 } },
+        { "id": "campuhan",   "name": "Campuhan Ridge Walk",      "score": 8, "img": "https://images.unsplash.com/photo-1565065550777-08b14ae05e2c?auto=format&fit=crop&w=220&q=80", "vibe": "A peaceful ridge path suspended between two river valleys &mdash; just you, the breeze, and the sound of birds at dawn.", "detail": "Best at 6am &mdash; the light filters through morning mist.", "price": "Free", "drive": { "eden-house": 5 } },
+        { "id": "monkey",     "name": "Sacred Monkey Forest",     "score": 8, "img": "https://images.unsplash.com/photo-1599853225442-3f30dd13a34d?auto=format&fit=crop&w=220&q=80", "vibe": "Ancient temple grounds where over 1,200 long-tailed macaques roam freely through the jungle &mdash; equal parts magical and mischievous.", "detail": "Keep your belongings close &mdash; the monkeys are clever!", "price": "$5 entry", "drive": { "eden-house": 8 } },
+        { "id": "tirta",      "name": "Tirta Empul Water Temple", "score": 7, "img": "https://images.unsplash.com/photo-1641082918149-24470fe02c39?auto=format&fit=crop&w=220&q=80", "vibe": "A sacred spring where locals and visitors alike walk through cleansing fountains &mdash; a deeply moving Balinese ritual.", "detail": "Dress respectfully &mdash; sarongs are provided.", "price": "$5 entry", "drive": { "eden-house": 35 } },
+        { "id": "tegenungan", "name": "Tegenungan Waterfall",     "score": 7, "img": "https://images.unsplash.com/photo-1564462369672-a1cbdfff0c9d?auto=format&fit=crop&w=220&q=80", "vibe": "A powerful curtain of water crashing into a deep emerald pool &mdash; you can swim right up to it.", "detail": "15 min drive from Ubud &mdash; best in the morning.", "price": "$1.50 entry", "drive": { "eden-house": 18 } },
+        { "id": "cooking",    "name": "Balinese Cooking Class",   "score": 9, "img": "https://images.unsplash.com/photo-1762994576926-b8268190a2c9?auto=format&fit=crop&w=220&q=80", "vibe": "Starting at the market buying fresh spices, then cooking together in an open-air kitchen surrounded by rice fields &mdash; a couples highlight.", "detail": "Paon Bali is top-rated &mdash; includes market tour.", "price": "$35&ndash;50/person", "drive": { "eden-house": 10 } },
+        { "id": "palace",     "name": "Ubud Palace &amp; Art Market", "score": 7, "img": "https://images.unsplash.com/photo-1641563103042-a0390d1847cc?auto=format&fit=crop&w=220&q=80", "vibe": "The ornate palace in the heart of town opens onto a vibrant market where artisans sell handmade silk scarves, wooden carvings, and silver jewelry.", "detail": "Palace is free &mdash; Kecak dance performances at 7:30pm.", "price": "Free &middot; Dance $7", "drive": { "eden-house": 6 } },
+        { "id": "spa",        "name": "Couples Spa Treatment",    "score": 7, "img": "https://images.unsplash.com/photo-1712226652059-a34d334e6cd0?auto=format&fit=crop&w=220&q=80", "vibe": "A candlelit room with the scent of frangipani &mdash; both of you side by side, melting into a 90-minute Balinese massage.", "detail": "Ubud Traditional Massage is $8&ndash;12 &mdash; hotel spas are $50+.", "price": "$8&ndash;12 / 90 min", "drive": { "eden-house": 5 } }
+      ],
+      "restaurants": [
+        { "id": "ibu-oka",    "name": "Warung Babi Guling Ibu Oka", "tier": "cheap",   "drive": { "eden-house": 8 } },
+        { "id": "warung-bu",  "name": "Warung Bu Mangku",           "tier": "cheap",   "drive": { "eden-house": 12 } },
+        { "id": "locavore",   "name": "Locavore",                   "tier": "splurge", "drive": { "eden-house": 6 } },
+        { "id": "naughty-nu", "name": "Naughty Nuri's",             "tier": "mid",     "drive": { "eden-house": 9 } }
+      ],
+      "localQuote": null,
+      "socialEmbeds": []
+    },
+    {
+      "id": "nusapenida",
+      "name": "Nusa Penida",
+      "num": 2,
+      "days": "7&ndash;9",
+      "nights": 3,
+      "nightsRange": [2, 3],
+      "tagline": "Wild cliffs &amp; turquoise waters",
+      "bannerImg": "https://images.unsplash.com/photo-1576363399501-0dd08fc750e1?auto=format&fit=crop&w=1100&q=80",
+      "gettingThere": [
+        "<span class=\"label\">Ubud &rarr; Sanur Port:</span> Grab/Gojek <span class=\"price\">$11&ndash;15</span> (1h)",
+        "<span class=\"label\">Sanur &rarr; Nusa Penida:</span> Fast boat <span class=\"price\">$7&ndash;12/person</span> <span class=\"sep\">|</span> 30&ndash;45 min",
+        "<span class=\"label\">Penida &rarr; Seminyak:</span> Combined ferry+bus <span class=\"price\">$12&ndash;17/person</span> <span class=\"sep\">|</span> ~2.5h",
+        "<span class=\"label\">On island:</span> Scooter rental <span class=\"price\">$5&ndash;8/day</span> <span class=\"sep\">|</span> private driver <span class=\"price\">$30&ndash;40/day</span>"
+      ],
+      "hotels": [
+        { "id": "kamasan", "name": "Kamasan Cottage", "img": "https://images.unsplash.com/photo-1621855970408-e8f226ed1512?auto=format&fit=crop&w=260&q=80", "rating": "8.5", "platform": "Booking.com", "platformClass": "", "price": "$25", "features": ["Pool","Garden","Breakfast","AC","Parking"], "desc": "The mid-range sweet spot &mdash; pool, breakfast included, great value.", "couplesNote": null },
+        { "id": "pondok-kana", "name": "Pondok Kana &amp; Hostel", "img": "https://images.unsplash.com/photo-1698904673701-533b64e59d7b?auto=format&fit=crop&w=260&q=80", "rating": "8.3", "platform": "Booking.com", "platformClass": "", "price": "$16", "features": ["Beachfront","Private bathroom","Garden","Free WiFi"], "desc": "Beachfront with private double rooms. Great value &amp; close to ferry drop-off.", "couplesNote": "8.7/10" },
+        { "id": "maskot", "name": "Maskot Penida Cottage", "img": "https://images.unsplash.com/photo-1578235169908-d9482dc9e76f?auto=format&fit=crop&w=260&q=80", "rating": "8.0", "platform": "Booking.com", "platformClass": "", "price": "$10", "features": ["Private bungalow","AC","Restaurant","Scooter rental"], "desc": "Cheapest decent private bungalow on the island. Basic but clean.", "couplesNote": null }
+      ],
+      "hotelTipBox": "<strong>&#128161; Pro Tip:</strong> Roads are rough &mdash; hire a <strong>private driver ($30&ndash;40/day)</strong> instead of a scooter. Book <strong>Kamasan Cottage</strong> for the best comfort-to-price ratio. Ferries from $7 on 12Go.asia.",
+      "attractions": [
+        { "id": "kelingking", "name": "Kelingking Beach (T-Rex Cliff)", "score": 10, "img": "https://images.unsplash.com/photo-1697931728907-ae18fd18d864?auto=format&fit=crop&w=220&q=80", "vibe": "A cliff perfectly shaped like a T-Rex plunging into turquoise water &mdash; the most iconic view in all of Bali.", "detail": "Steep 30&ndash;45 min hike down to a hidden white-sand beach.", "price": "$0.70 entry", "drive": { "kamasan": 35 } },
+        { "id": "broken",     "name": "Angel's Billabong &amp; Broken Beach", "score": 8, "img": "https://images.unsplash.com/photo-1604500693431-647f9e76dafc?auto=format&fit=crop&w=220&q=80", "vibe": "A natural infinity pool carved into the cliff &mdash; at low tide it's a crystal-clear jacuzzi overlooking the ocean.", "detail": "Two spots are 5 min apart &mdash; check tides before going.", "price": "Free", "drive": { "kamasan": 40 } },
+        { "id": "crystal",    "name": "Crystal Bay", "score": 7, "img": "https://images.unsplash.com/photo-1755289445781-516b60f56616?auto=format&fit=crop&w=220&q=80", "vibe": "Calm turquoise water with 300+ coral species just offshore &mdash; snorkel straight from the beach.", "detail": "Best afternoon spot to relax after the morning cliff hikes.", "price": "Free", "drive": { "kamasan": 25 } },
+        { "id": "diamond",    "name": "Diamond Beach &amp; Atuh Beach", "score": 8, "img": "https://images.unsplash.com/photo-1634337385991-9c28ad464e88?auto=format&fit=crop&w=220&q=80", "vibe": "White sand framed by jagged diamond-shaped cliffs &mdash; quieter than the west side, pure tropical paradise.", "detail": "On the east coast &mdash; combine with Rumah Pohon treehouse.", "price": "$2 entry", "drive": { "kamasan": 50 } },
+        { "id": "manta",      "name": "Snorkeling with Manta Rays", "score": 9, "img": "https://images.unsplash.com/photo-1692810122329-2294f71543b6?auto=format&fit=crop&w=220&q=80", "vibe": "Gliding silently above a manta ray the size of a car as it sweeps past beneath you &mdash; one of those moments where time stops.", "detail": "Manta Point tour &mdash; 2h, best March&ndash;November.", "price": "$13&ndash;22/person", "drive": { "kamasan": 20 } },
+        { "id": "teletubbies","name": "Teletubbies Hill &amp; Rumah Pohon", "score": 7, "img": "https://images.unsplash.com/photo-1747873202807-3fced6233f35?auto=format&fit=crop&w=220&q=80", "vibe": "Rolling green hills that look like they belong in a fantasy film, with a wooden treehouse perched on the clifftop edge.", "detail": "Rumah Pohon offers the &quot;Thousand Islands&quot; viewpoint.", "price": "Free", "drive": { "kamasan": 45 } }
+      ],
+      "restaurants": [
+        { "id": "penida-co",  "name": "Penida Colada",   "tier": "cheap",   "drive": { "kamasan": 15 } },
+        { "id": "warung-pa",  "name": "Warung Pak Made", "tier": "cheap",   "drive": { "kamasan": 6 } },
+        { "id": "amok",       "name": "Amok Sunset",     "tier": "splurge", "drive": { "kamasan": 30 } }
+      ],
+      "localQuote": null,
+      "socialEmbeds": []
+    },
+    {
+      "id": "seminyak",
+      "name": "Seminyak",
+      "num": 3,
+      "days": "10&ndash;14",
+      "nights": 5,
+      "nightsRange": [4, 5],
+      "tagline": "Sunsets, dining &amp; romance",
+      "bannerImg": "https://images.unsplash.com/photo-1742226595493-e34465d05d67?auto=format&fit=crop&w=1100&q=80",
+      "gettingThere": [
+        "<span class=\"label\">Nusa Penida &rarr; Seminyak:</span> Combined ferry+bus ticket <span class=\"price\">$12&ndash;17/person</span> (2.5h)",
+        "<span class=\"label\">Seminyak &rarr; Airport:</span> Gojek/Grab <span class=\"price\">$6&ndash;10</span> <span class=\"sep\">|</span> 25&ndash;40 min (10 km)",
+        "<span class=\"label\">Getting around:</span> Walkable in central areas <span class=\"sep\">|</span> Gojek <span class=\"price\">$1&ndash;3</span>"
+      ],
+      "hotels": [
+        { "id": "hepburn", "name": "The Hepburn Seminyak", "img": "https://images.unsplash.com/photo-1742226595493-e34465d05d67?auto=format&fit=crop&w=260&q=80", "rating": "9.6", "platform": "Booking.com", "platformClass": "", "price": "$35&ndash;55", "features": ["Shared pool","Breakfast","Boutique","AC","12min beach"], "desc": "Recently renovated boutique guesthouse with stunning pool area. Top-rated on Booking.com.", "couplesNote": "9.8/10" },
+        { "id": "comoda", "name": "Comoda Seminyak", "img": "https://images.unsplash.com/photo-1553881271-048146b55cff?auto=format&fit=crop&w=260&q=80", "rating": "9.6", "platform": "Agoda", "platformClass": "agoda", "price": "$40&ndash;60", "features": ["Pool view","Breakfast in room","Balcony","AC"], "desc": "Charming boutique hotel with pool-view rooms &amp; breakfast delivered to your room.", "couplesNote": null },
+        { "id": "k-hostel", "name": "K Hostel Seminyak", "img": "https://images.unsplash.com/photo-1621855970408-e8f226ed1512?auto=format&fit=crop&w=260&q=80", "rating": "9.1", "platform": "Booking.com", "platformClass": "", "price": "$20&ndash;35", "features": ["Private rooms","AC","Super clean","19min beach"], "desc": "Adults-only with private doubles. Couples rate location 9.9 &mdash; best budget deal.", "couplesNote": "9.9/10" }
+      ],
+      "hotelTipBox": "<strong>&#128161; Pro Tip:</strong> <strong>The Hepburn</strong> (9.6 rating) is the top couples pick. For cheapest private room, <strong>K Hostel</strong> at $20/night is unbeatable. Seminyak is very walkable.",
+      "attractions": [
+        { "id": "potato",     "name": "Sunset at Potato Head / KU DE TA", "score": 9, "img": "https://images.unsplash.com/photo-1571984405176-5958bd9ac31d?auto=format&fit=crop&w=220&q=80", "vibe": "Lying on a daybed by the infinity pool as the sky turns orange over the ocean &mdash; cocktails in hand, your first sunset.", "detail": "Potato Head is iconic &mdash; KU DE TA is more intimate.", "price": "Drinks from $8", "drive": { "hepburn": 8 } },
+        { "id": "beach",      "name": "Seminyak Beach",        "score": 8, "img": "https://images.unsplash.com/photo-1662950267280-0cdf5f7139b4?auto=format&fit=crop&w=220&q=80", "vibe": "Miles of golden sand stretching into the sunset &mdash; grab a colorful beanbag, order a Bintang, and just watch the waves roll in.", "detail": "La Plancha has the beanbags &mdash; perfect for sunset.", "price": "Free", "drive": { "hepburn": 5 } },
+        { "id": "eat-street", "name": "Eat Street (Jalan Kayu Aya)", "score": 7, "img": "https://images.unsplash.com/photo-1591192216392-6634923b93c7?auto=format&fit=crop&w=220&q=80", "vibe": "A lively street lined with candlelit restaurants, cocktail bars, and boutique stores &mdash; every night feels like date night.", "detail": "From local warungs to fine dining &mdash; something for every mood.", "price": "Meals $3&ndash;30", "drive": { "hepburn": 3 } },
+        { "id": "brunch",     "name": "Revolver Espresso / Sisterfields", "score": 7, "img": "https://images.unsplash.com/photo-1668277155881-9d3bccb1683a?auto=format&fit=crop&w=220&q=80", "vibe": "The best brunch in Bali &mdash; smoothie bowls topped with fresh fruit, avocado toast, and flat whites that rival Melbourne.", "detail": "Revolver has a speakeasy vibe &mdash; Sisterfields is bright and airy.", "price": "$5&ndash;10/person", "drive": { "hepburn": 6 } },
+        { "id": "spa-sem",    "name": "Couples Spa Day",       "score": 8, "img": "https://images.unsplash.com/photo-1780541027382-cf422369bdaa?auto=format&fit=crop&w=220&q=80", "vibe": "Side by side on a candlelit treatment table, frangipani-scented oil &mdash; this is the kind of spa day you'll both remember.", "detail": "Prana Spa or Bodyworks &mdash; book a 2h couple's package.", "price": "$40&ndash;60 / couple", "drive": { "hepburn": 4 } },
+        { "id": "uluwatu",    "name": "Uluwatu Sunset Kecak",  "score": 9, "img": "https://images.unsplash.com/photo-1657339929654-999031103072?auto=format&fit=crop&w=220&q=80", "vibe": "An ancient cliff temple at the southern tip of Bali, hosting the most dramatic Kecak fire dance as the sun sets behind dancers and ocean.", "detail": "Show starts at 6pm &mdash; arrive by 5:15 for good seats.", "price": "$8 entry", "drive": { "hepburn": 55 } }
+      ],
+      "restaurants": [
+        { "id": "made-warung","name": "Made's Warung",     "tier": "cheap",   "drive": { "hepburn": 4 } },
+        { "id": "warung-eny", "name": "Warung Eny",        "tier": "cheap",   "drive": { "hepburn": 7 } },
+        { "id": "mejekawi",   "name": "Mejekawi at Ku De Ta", "tier": "splurge", "drive": { "hepburn": 8 } },
+        { "id": "motel-mex",  "name": "Motel Mexicola",    "tier": "mid",     "drive": { "hepburn": 5 } }
+      ],
+      "localQuote": null,
+      "socialEmbeds": []
+    }
+  ]
+}
