@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Test Trip</title>
+</head>
+<body>
+<nav><a href="#overview">Overview</a> <a href="#dayplan">Plan</a></nav>
+<section id="overview"><div>x</div></section>
+<section id="dayplan"><div>x</div></section>
+<article aria-label="Day 1, transfer, arrival">
+  Hotel: A villa with Infinity Pool and breakfast.
+</article>
+<script id="trip-data" type="application/json">
+{
+  "tripSlug": "test",
+  "seed": 1,
+  "startDate": "2027-03-01",
+  "endDate": "2027-03-04",
+  "regionHotel": { "r": "h1" },
+  "activities": { "r": [{ "id": "a1", "name": "x", "drive": { "h1": 10 } }] },
+  "restaurants": { "r": [
+    { "id": "d1", "name": "d", "tier": "cheap", "drive": { "h1": 5 } },
+    { "id": "d2", "name": "s", "tier": "splurge", "drive": { "h1": 8 } }
+  ] },
+  "splurgeCount": 1,
+  "days": [
+    { "n": 1, "date": "2027-03-01", "region": "r", "status": "transfer", "activityId": null, "dinnerId": "d1", "restSuggestion": null },
+    { "n": 2, "date": "2027-03-02", "region": "r", "status": "rest",     "activityId": null, "dinnerId": "d1", "restSuggestion": "Pool & book" },
+    { "n": 3, "date": "2027-03-03", "region": "r", "status": "active",   "activityId": "a1", "dinnerId": "d2", "restSuggestion": null },
+    { "n": 4, "date": "2027-03-04", "region": "r", "status": "transfer", "activityId": null, "dinnerId": "d1", "restSuggestion": null }
+  ]
+}
+</script>
+</body>
+</html>
