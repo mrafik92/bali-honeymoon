@@ -1,0 +1,70 @@
+{
+  "tripSlug": "bali-march-2027",
+  "startDate": "2027-03-01",
+  "endDate": "2027-03-14",
+  "seed": 1,
+  "regions": [
+    { "id": "ubud", "name": "Ubud", "nightsRange": [5, 6] },
+    { "id": "penida", "name": "Nusa Penida", "nightsRange": [2, 3] },
+    { "id": "seminyak", "name": "Seminyak", "nightsRange": [4, 5] }
+  ],
+  "hotels": {
+    "ubud": "eden-house",
+    "penida": "kamasan",
+    "seminyak": "hepburn"
+  },
+  "activities": {
+    "ubud": [
+      { "id": "tegalalang", "name": "Tegalalang Rice Terraces", "score": 9, "drive": { "eden-house": 22 } },
+      { "id": "campuhan",   "name": "Campuhan Ridge Walk",      "score": 8, "drive": { "eden-house": 5 } },
+      { "id": "monkey",     "name": "Sacred Monkey Forest",     "score": 8, "drive": { "eden-house": 8 } },
+      { "id": "tirta",      "name": "Tirta Empul",              "score": 7, "drive": { "eden-house": 35 } },
+      { "id": "tegenungan", "name": "Tegenungan Waterfall",     "score": 7, "drive": { "eden-house": 18 } },
+      { "id": "cooking",    "name": "Balinese Cooking Class",   "score": 9, "drive": { "eden-house": 10 } },
+      { "id": "spa",        "name": "Couples Spa",              "score": 7, "drive": { "eden-house": 5 } }
+    ],
+    "penida": [
+      { "id": "kelingking", "name": "Kelingking Beach",                       "score": 10, "drive": { "kamasan": 35 } },
+      { "id": "broken",     "name": "Broken Beach & Angel's Billabong",      "score": 8,  "drive": { "kamasan": 40 } },
+      { "id": "crystal",    "name": "Crystal Bay",                            "score": 7,  "drive": { "kamasan": 25 } },
+      { "id": "diamond",    "name": "Diamond Beach",                          "score": 8,  "drive": { "kamasan": 50 } },
+      { "id": "manta",      "name": "Snorkeling with Mantas",                 "score": 9,  "drive": { "kamasan": 20 } }
+    ],
+    "seminyak": [
+      { "id": "potato",     "name": "Sunset at Potato Head",    "score": 9, "drive": { "hepburn": 8 } },
+      { "id": "beach",      "name": "Seminyak Beach",           "score": 8, "drive": { "hepburn": 5 } },
+      { "id": "eat-street", "name": "Eat Street (Jl. Kayu Aya)","score": 7, "drive": { "hepburn": 3 } },
+      { "id": "brunch",     "name": "Revolver Brunch",          "score": 7, "drive": { "hepburn": 6 } },
+      { "id": "spa-sem",    "name": "Couples Spa Day",          "score": 8, "drive": { "hepburn": 4 } },
+      { "id": "uluwatu",    "name": "Uluwatu Sunset Kecak",     "score": 9, "drive": { "hepburn": 55 } }
+    ]
+  },
+  "restaurants": {
+    "ubud": [
+      { "id": "ibu-oka",    "name": "Warung Babi Guling Ibu Oka", "tier": "cheap",   "drive": { "eden-house": 8 } },
+      { "id": "warung-bu",  "name": "Warung Bu Mangku",           "tier": "cheap",   "drive": { "eden-house": 12 } },
+      { "id": "locavore",   "name": "Locavore",                   "tier": "splurge", "drive": { "eden-house": 6 } },
+      { "id": "naughty-nu", "name": "Naughty Nuri's",             "tier": "mid",     "drive": { "eden-house": 9 } }
+    ],
+    "penida": [
+      { "id": "penida-co",  "name": "Penida Colada",              "tier": "cheap",   "drive": { "kamasan": 15 } },
+      { "id": "warung-pa",  "name": "Warung Pak Made",            "tier": "cheap",   "drive": { "kamasan": 6 } },
+      { "id": "amok",       "name": "Amok Sunset",                "tier": "splurge", "drive": { "kamasan": 30 } }
+    ],
+    "seminyak": [
+      { "id": "made-warung","name": "Made's Warung",              "tier": "cheap",   "drive": { "hepburn": 4 } },
+      { "id": "warung-eny", "name": "Warung Eny",                 "tier": "cheap",   "drive": { "hepburn": 7 } },
+      { "id": "mejekawi",   "name": "Mejekawi at Ku De Ta",       "tier": "splurge", "drive": { "hepburn": 8 } },
+      { "id": "motel-mex",  "name": "Motel Mexicola",             "tier": "mid",     "drive": { "hepburn": 5 } }
+    ]
+  },
+  "splurgeCount": 3,
+  "driveCapMinutes": 60,
+  "restSuggestions": [
+    "Pool & book",
+    "Couples spa near hotel",
+    "Short walk in the neighborhood",
+    "Sunset cocktail at hotel bar",
+    "Late breakfast and lazy morning"
+  ]
+}
