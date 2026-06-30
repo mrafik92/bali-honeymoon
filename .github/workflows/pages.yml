@@ -1,0 +1,71 @@
+name: Deploy Pages
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Rebuild trips index
+        run: node scripts/build-index.mjs
+
+      - name: Validate every trip page (skip legacy pages without #trip-data)
+        if: hashFiles('scripts/validate-page.mjs') != ''
+        run: |
+          for f in trips/*/index.html; do
+            if grep -q 'id="trip-data"' "$f"; then
+              node scripts/validate-page.mjs "$f"
+            else
+              echo "skipping validation: $f has no #trip-data (legacy page)"
+            fi
+          done
+
+      - name: Check images on every trip page (always)
+        run: |
+          for f in trips/*/index.html; do
+            bash scripts/check-images.sh "$f"
+          done
+
+      - name: Commit rebuilt index if changed
+        run: |
+          if [[ -n "$(git status --porcelain index.html)" ]]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add index.html
+            git commit -m "ci: rebuild trips index"
+            git push
+          fi
+
+      - uses: actions/configure-pages@v5
+
+      - name: Stage publishable files
+        run: |
+          mkdir -p _site
+          cp index.html _site/index.html
+          cp -r trips _site/trips
+          touch _site/.nojekyll
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - uses: actions/deploy-pages@v4
