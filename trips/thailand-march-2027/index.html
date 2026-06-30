@@ -1,0 +1,1854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Thailand Honeymoon — March 2027</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      color: #1a1a2e;
+      background: #faf9f7;
+      line-height: 1.7;
+      touch-action: manipulation;
+    }
+    h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 600; }
+
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.30) 0%, rgba(0,0,0,0.55) 70%, rgba(0,0,0,0.75) 100%);
+      z-index: 1;
+    }
+    .hero-video {
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transform: translate(-50%, -50%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      padding: 0 24px;
+    }
+    .hero-content h1 {
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      font-weight: 600;
+      letter-spacing: 2px;
+      margin-bottom: 0.3em;
+    }
+    .hero-content .sub {
+      font-size: clamp(1rem, 2.5vw, 1.4rem);
+      font-weight: 300;
+      opacity: 0.9;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 1.5em;
+    }
+    .hero-content .date {
+      font-size: 1.05rem;
+      opacity: 0.8;
+      border-top: 1px solid rgba(255,255,255,0.3);
+      padding-top: 1.5em;
+      display: inline-block;
+    }
+    .scroll-indicator {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      color: #fff;
+      font-size: 0.8rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      opacity: 0.7;
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(8px)} }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250,249,247,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid #e8e3dd;
+      padding: 0 24px;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 4px;
+      max-width: 1000px;
+      margin: 0 auto;
+      overflow-x: auto;
+      padding: 0;
+    }
+    nav li a {
+      display: block;
+      padding: 14px 18px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: #555;
+      white-space: nowrap;
+      transition: color 0.2s;
+    }
+    nav li a:hover { color: #b8865b; }
+
+    section { max-width: 1100px; margin: 0 auto; padding: 70px 24px; scroll-margin-top: 60px; }
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .section-title h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      color: #1a1a2e;
+      text-wrap: balance;
+    }
+    .section-title p {
+      color: #777;
+      font-size: 1rem;
+      margin-top: 8px;
+    }
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 2px;
+      background: #b8865b;
+      margin: 16px auto 0;
+    }
+
+    .timeline-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 10px;
+    }
+    .timeline-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 28px 20px;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+      border: 1px solid #eeeae4;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .timeline-card:hover { transform: translateY(-3px); box-shadow: 0 6px 24px rgba(0,0,0,0.07); }
+    .timeline-card .days { font-size: 0.8rem; color: #b8865b; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; }
+    .timeline-card h3 { font-size: 1.25rem; margin: 8px 0; }
+    .timeline-card p { font-size: 0.9rem; color: #666; }
+
+    .area-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .area-header .num {
+      flex-shrink: 0;
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      background: #b8865b;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+    }
+    .area-header h2 { margin-bottom: 2px; }
+    .area-header p { color: #888; font-size: 0.9rem; }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+    @media (max-width: 768px) { .content-grid { grid-template-columns: 1fr; } }
+
+    .info-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 24px;
+      border: 1px solid #eeeae4;
+      margin-bottom: 20px;
+    }
+    .info-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .info-card ul { list-style: none; }
+    .info-card li {
+      padding: 6px 0;
+      font-size: 0.92rem;
+      color: #444;
+      border-bottom: 1px solid #f5f2ed;
+    }
+    .info-card li:last-child { border: none; }
+    .info-card li .label { font-weight: 500; color: #1a1a2e; }
+    .info-card li .price { color: #b8865b; font-weight: 500; }
+    .info-card li .sep { color: #ccc; margin: 0 6px; }
+
+    .img-banner {
+      width: 100%;
+      height: 240px;
+      border-radius: 14px;
+      object-fit: cover;
+      margin-bottom: 20px;
+    }
+
+    .hotel-card {
+      background: #fff;
+      border-radius: 14px;
+      border: 1px solid #eeeae4;
+      overflow: hidden;
+      margin-bottom: 12px;
+      display: flex;
+      gap: 0;
+      transition: box-shadow 0.2s;
+    }
+    .hotel-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+    .hotel-card-img {
+      width: 130px;
+      min-height: 130px;
+      flex-shrink: 0;
+      object-fit: cover;
+    }
+    .hotel-card-body {
+      padding: 14px 16px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .hotel-card-body .name-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 3px;
+    }
+    .hotel-card-body .name-row h4 { font-size: 0.95rem; font-weight: 600; }
+    .rating-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+      background: #1a1a2e;
+      color: #fff;
+      font-size: 0.68rem;
+      font-weight: 600;
+      padding: 2px 7px;
+      border-radius: 4px;
+    }
+    .rating-badge .star { color: #f5c842; font-size: 0.55rem; }
+    .platform-badge {
+      display: inline-block;
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 3px;
+      background: #e8f0fe;
+      color: #1a73e8;
+    }
+    .platform-badge.agoda { background: #fef3e2; color: #e67e22; }
+    .hotel-card-body .price-line { font-size: 0.88rem; margin: 2px 0 3px; }
+    .hotel-card-body .price-line .price { font-weight: 600; color: #b8865b; font-size: 1rem; }
+    .hotel-card-body .features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3px;
+      margin: 3px 0;
+    }
+    .hotel-card-body .features span {
+      font-size: 0.65rem;
+      background: #f5f2ed;
+      padding: 2px 7px;
+      border-radius: 4px;
+      color: #555;
+    }
+    .hotel-card-body .desc { font-size: 0.8rem; color: #666; margin-top: 2px; }
+    .hotel-card-body .couples-note { font-size: 0.72rem; color: #b8865b; margin-top: 2px; }
+    @media (max-width: 600px) {
+      .hotel-card { flex-direction: column; }
+      .hotel-card-img { width: 100%; height: 110px; }
+    }
+
+    .tip-box {
+      background: #fdf8f3;
+      border-left: 3px solid #b8865b;
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-top: 14px;
+      font-size: 0.85rem;
+      color: #555;
+    }
+    .tip-box strong { color: #1a1a2e; }
+
+    .spot-card {
+      display: flex;
+      gap: 12px;
+      background: #fff;
+      border-radius: 12px;
+      border: 1px solid #eeeae4;
+      overflow: hidden;
+      margin-bottom: 12px;
+      transition: box-shadow 0.2s;
+    }
+    .spot-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+    .spot-card-img {
+      width: 110px;
+      min-height: 110px;
+      flex-shrink: 0;
+      object-fit: cover;
+    }
+    .spot-card-body { padding: 12px 14px; flex: 1; display: flex; flex-direction: column; justify-content: center; }
+    .spot-card-body h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 2px; }
+    .spot-card-body .vibe {
+      font-size: 0.82rem;
+      color: #888;
+      font-style: italic;
+      margin-bottom: 4px;
+    }
+    .spot-card-body .detail {
+      font-size: 0.82rem;
+      color: #555;
+    }
+    .spot-card-body .price-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: #b8865b;
+      background: #fdf8f3;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-top: 4px;
+    }
+    @media (max-width: 600px) {
+      .spot-card { flex-direction: column; }
+      .spot-card-img { width: 100%; height: 110px; }
+    }
+
+    .budget-table-wrap { overflow-x: auto; margin-top: 10px; }
+    .budget-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      background: #fff;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid #eeeae4;
+    }
+    .budget-table thead { background: #1a1a2e; color: #fff; }
+    .budget-table th {
+      padding: 16px 20px;
+      text-align: left;
+      font-weight: 500;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .budget-table td {
+      padding: 14px 20px;
+      border-bottom: 1px solid #f0ece6;
+    }
+    .budget-table tbody tr:last-child td { border: none; }
+    .budget-table tfoot { background: #f8f5f0; font-weight: 600; }
+    .budget-table tfoot td { padding: 16px 20px; }
+    .budget-table .num-col { text-align: right; font-variant-numeric: tabular-nums; }
+    .budget-table .total-row td { border-top: 2px solid #b8865b; }
+    .budget-note { text-align: center; color: #888; font-size: 0.85rem; margin-top: 20px; }
+
+    footer {
+      text-align: center;
+      padding: 60px 24px 40px;
+      color: #999;
+      font-size: 0.85rem;
+      border-top: 1px solid #eeeae4;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    footer .hearts { font-size: 1.3rem; }
+
+    @media (max-width: 600px) {
+      section { padding: 50px 16px; }
+      .info-card { padding: 18px; }
+      nav li a { padding: 12px 10px; font-size: 0.7rem; }
+    }
+
+    /* ── Day-by-day section ──────────────────────────────────────────── */
+    #dayplan .dayplan-controls { display: flex; gap: 12px; justify-content: center; margin-bottom: 32px; flex-wrap: wrap; }
+    #dayplan .dayplan-controls button { background: #fff; border: 1px solid #d4cfc7; color: #1a1a2e; padding: 8px 16px; border-radius: 999px; font-family: inherit; font-size: .9rem; cursor: pointer; transition: background .15s; }
+    #dayplan .dayplan-controls button:hover { background: #f0ebe3; }
+    .day-grid { display: grid; grid-template-columns: 1fr; gap: 16px; max-width: 900px; margin: 0 auto; }
+    @media (min-width: 900px) { .day-grid { grid-template-columns: 1fr 1fr; } }
+    .day-card { background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,.06); padding: 18px 20px; display: flex; flex-direction: column; gap: 12px; }
+    .day-card-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .day-num { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: #b8865b; letter-spacing: 1px; }
+    .day-tags { display: flex; gap: 8px; }
+    .region-tag, .status-badge { font-size: .75rem; letter-spacing: 1px; text-transform: uppercase; padding: 3px 10px; border-radius: 999px; }
+    .region-tag { background: #f0ebe3; color: #1a1a2e; }
+    .status-badge { color: #fff; }
+    .day-card-active .status-badge { background: #2e8b57; }
+    .day-card-rest   .status-badge { background: #b8865b; }
+    .day-card-transfer .status-badge { background: #6b7a8f; }
+    .day-card-activity, .day-card-dinner { font-size: .95rem; }
+    .day-card-activity .muted, .day-card-dinner .muted { color: #888; font-size: .85rem; }
+    .day-card .swap-btn { background: none; border: none; color: #b8865b; font: inherit; cursor: pointer; padding: 4px 0; text-decoration: underline; display: block; margin-top: 6px; }
+    .swap-pool { display: none; margin-top: 8px; padding: 8px; background: #faf6f0; border-radius: 6px; max-height: 240px; overflow-y: auto; }
+    .swap-pool.open { display: block; }
+    .swap-pool .swap-option { display: flex; gap: 10px; padding: 6px; cursor: pointer; border-radius: 4px; }
+    .swap-pool .swap-option:hover { background: #f0ebe3; }
+    .rest-suggestion, .transfer-note { color: #555; font-style: italic; }
+
+    /* ── Local quote callout ─────────────────────────────────────────── */
+    .local-quote { font-family: 'Playfair Display', serif; font-style: italic; border-left: 3px solid #b8865b; padding: 12px 16px; margin-top: 16px; color: #555; background: #faf6f0; border-radius: 0 8px 8px 0; }
+    .local-quote cite { display: block; font-style: normal; font-family: 'Inter', sans-serif; font-size: .8rem; color: #888; margin-top: 6px; letter-spacing: 1px; }
+
+    /* ── Social embeds ───────────────────────────────────────────────── */
+    .social-embeds { margin-top: 16px; }
+    .social-embeds summary { cursor: pointer; font-size: .9rem; color: #b8865b; padding: 6px 0; }
+    .social-embeds[open] { max-height: 600px; overflow-y: auto; }
+
+    /* ── Print stylesheet ────────────────────────────────────────────── */
+    @media print {
+      nav, .hero-video, .hero, .scroll-indicator, .social-embeds, .swap-btn, .dayplan-controls { display: none !important; }
+      body { background: #fff; padding: 0 12mm; font-size: 11pt; }
+      .day-card { page-break-inside: avoid; box-shadow: none; border: 1px solid #ccc; margin-bottom: 6mm; }
+      .img-banner, .trip-hero { display: none; }
+      h1, h2 { color: #000; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="hero">
+  <img
+    class="hero-video"
+    src="https://images.unsplash.com/photo-1762950297550-1d8d7cce12ae?auto=format&fit=crop&w=1920&q=80"
+    alt="Our Thailand Honeymoon — March 2027"
+    width="1920" height="1080"
+    fetchpriority="high"
+  >
+  <div class="hero-content">
+    <p class="sub">Our Honeymoon Adventure</p>
+    <h1>Our Thailand Honeymoon — March 2027</h1>
+    <span class="date">March 2027 · 14 Days</span>
+  </div>
+  <div class="scroll-indicator">Scroll</div>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#dayplan">Day-by-Day</a></li>
+    <li><a href="#bangkok">Bangkok</a></li>
+    <li><a href="#chiangmai">Chiang Mai</a></li>
+    <li><a href="#krabi">Krabi &amp; Railay</a></li>
+    <li><a href="#budget">Budget</a></li>
+  </ul>
+</nav>
+
+<section id="overview">
+  <div class="section-title">
+    <h2>14-Day Honeymoon Journey</h2>
+    <p>From temple-lit city nights to limestone-cliff beach mornings</p>
+  </div>
+  <div class="timeline-grid">
+    <div class="timeline-card">
+  <div class="days">Days 1&ndash;3</div>
+  <h3>Bangkok</h3>
+  <p>Temples, river, neon &amp; night-market romance</p>
+</div>
+    <div class="timeline-card">
+  <div class="days">Days 4&ndash;7</div>
+  <h3>Chiang Mai</h3>
+  <p>Lanna temples, jungle &amp; slow mountain mornings</p>
+</div>
+    <div class="timeline-card">
+  <div class="days">Days 8&ndash;14</div>
+  <h3>Krabi &amp; Railay</h3>
+  <p>Limestone cliffs, longtail boats &amp; Andaman sunsets</p>
+</div>
+  </div>
+  <div style="text-align:center;margin-top:32px;color:#888;font-size:0.92rem;">
+    <strong style="color:#b8865b;">March weather:</strong> The sweet spot &mdash; hot &amp; dry in Bangkok (28&ndash;34&deg;C), warm crisp evenings in Chiang Mai (18&ndash;30&deg;C), beach-perfect in Krabi (26&ndash;32&deg;C). End of dry season, before the April heat peak.
+  </div>
+</section>
+
+<section id="dayplan">
+  <div class="section-title">
+    <h2>Day-by-Day</h2>
+    <p>Paced to give you energy &mdash; one thing per active day, rest in between</p>
+  </div>
+  <div class="dayplan-controls">
+    <button id="plan-reset" type="button">Reset</button>
+    <button id="plan-shuffle" type="button">Shuffle</button>
+    <button id="plan-print" type="button">Print</button>
+  </div>
+  <div class="day-grid">
+    <article class="day-card day-card-transfer" data-day="1" aria-label="Day 1, transfer, transfer">
+  <header class="day-card-head">
+    <div class="day-num">DAY 01 &middot; Mar 1</div>
+    <div class="day-tags"><span class="region-tag">Bangkok</span><span class="status-badge">&#9992;&#65039; TRANSFER</span></div>
+  </header>
+  <div class="day-card-activity"><div class="transfer-note">&#9992;&#65039; Transfer day &mdash; see region section for logistics.</div></div>
+  <div class="day-card-dinner">&#127869; <strong>Khao Gaeng Jek Pui (Curry Stall)</strong><div class="muted">cheap &middot; 16 min</div></div>
+</article>
+    <article class="day-card day-card-rest" data-day="2" aria-label="Day 2, rest, rest">
+  <header class="day-card-head">
+    <div class="day-num">DAY 02 &middot; Mar 2</div>
+    <div class="day-tags"><span class="region-tag">Bangkok</span><span class="status-badge">&#127807; REST</span></div>
+  </header>
+  <div class="day-card-activity"><div class="rest-suggestion">&#127807; Short walk in the neighborhood</div></div>
+  <div class="day-card-dinner">&#127869; <strong>Khao Gaeng Jek Pui (Curry Stall)</strong><div class="muted">cheap &middot; 16 min</div></div>
+</article>
+    <article class="day-card day-card-active" data-day="3" aria-label="Day 3, active, Yaowarat Chinatown Food Walk">
+  <header class="day-card-head">
+    <div class="day-num">DAY 03 &middot; Mar 3</div>
+    <div class="day-tags"><span class="region-tag">Bangkok</span><span class="status-badge">&#128247; ACTIVE</span></div>
+  </header>
+  <div class="day-card-activity"><strong>Yaowarat Chinatown Food Walk</strong><div class="muted">&#128666; 18 min from riva-surya</div></div>
+  <div class="day-card-dinner">&#127869; <strong>Sky Bar at Lebua (Sirocco)</strong><div class="muted">splurge &middot; 20 min</div></div>
+</article>
+    <article class="day-card day-card-transfer" data-day="4" aria-label="Day 4, transfer, transfer">
+  <header class="day-card-head">
+    <div class="day-num">DAY 04 &middot; Mar 4</div>
+    <div class="day-tags"><span class="region-tag">Chiang Mai</span><span class="status-badge">&#9992;&#65039; TRANSFER</span></div>
+  </header>
+  <div class="day-card-activity"><div class="transfer-note">&#9992;&#65039; Transfer day &mdash; see region section for logistics.</div></div>
+  <div class="day-card-dinner">&#127869; <strong>Huen Muan Jai (Northern Thai)</strong><div class="muted">mid &middot; 15 min</div></div>
+</article>
+    <article class="day-card day-card-rest" data-day="5" aria-label="Day 5, rest, rest">
+  <header class="day-card-head">
+    <div class="day-num">DAY 05 &middot; Mar 5</div>
+    <div class="day-tags"><span class="region-tag">Chiang Mai</span><span class="status-badge">&#127807; REST</span></div>
+  </header>
+  <div class="day-card-activity"><div class="rest-suggestion">&#127807; Beach day with cocktails</div></div>
+  <div class="day-card-dinner">&#127869; <strong>Khao Soi Mae Sai (Michelin)</strong><div class="muted">cheap &middot; 10 min</div></div>
+</article>
+    <article class="day-card day-card-rest" data-day="6" aria-label="Day 6, rest, rest">
+  <header class="day-card-head">
+    <div class="day-num">DAY 06 &middot; Mar 6</div>
+    <div class="day-tags"><span class="region-tag">Chiang Mai</span><span class="status-badge">&#127807; REST</span></div>
+  </header>
+  <div class="day-card-activity"><div class="rest-suggestion">&#127807; Hammock and a chilled mango</div></div>
+  <div class="day-card-dinner">&#127869; <strong>Khao Soi Mae Sai (Michelin)</strong><div class="muted">cheap &middot; 10 min</div></div>
+</article>
+    <article class="day-card day-card-active" data-day="7" aria-label="Day 7, active, Wat Phra That Doi Suthep at Sunset">
+  <header class="day-card-head">
+    <div class="day-num">DAY 07 &middot; Mar 7</div>
+    <div class="day-tags"><span class="region-tag">Chiang Mai</span><span class="status-badge">&#128247; ACTIVE</span></div>
+  </header>
+  <div class="day-card-activity"><strong>Wat Phra That Doi Suthep at Sunset</strong><div class="muted">&#128666; 35 min from tamarind-village</div></div>
+  <div class="day-card-dinner">&#127869; <strong>David's Kitchen at 909</strong><div class="muted">splurge &middot; 18 min</div></div>
+</article>
+    <article class="day-card day-card-transfer" data-day="8" aria-label="Day 8, transfer, transfer">
+  <header class="day-card-head">
+    <div class="day-num">DAY 08 &middot; Mar 8</div>
+    <div class="day-tags"><span class="region-tag">Krabi &amp; Railay</span><span class="status-badge">&#9992;&#65039; TRANSFER</span></div>
+  </header>
+  <div class="day-card-activity"><div class="transfer-note">&#9992;&#65039; Transfer day &mdash; see region section for logistics.</div></div>
+  <div class="day-card-dinner">&#127869; <strong>Ao Nang Night Market (Cheap Eats)</strong><div class="muted">cheap &middot; 15 min</div></div>
+</article>
+    <article class="day-card day-card-rest" data-day="9" aria-label="Day 9, rest, rest">
+  <header class="day-card-head">
+    <div class="day-num">DAY 09 &middot; Mar 9</div>
+    <div class="day-tags"><span class="region-tag">Krabi &amp; Railay</span><span class="status-badge">&#127807; REST</span></div>
+  </header>
+  <div class="day-card-activity"><div class="rest-suggestion">&#127807; Short walk in the neighborhood</div></div>
+  <div class="day-card-dinner">&#127869; <strong>Carnivore Steak &amp; Grill (Ao Nang)</strong><div class="muted">mid &middot; 18 min</div></div>
+</article>
+    <article class="day-card day-card-rest" data-day="10" aria-label="Day 10, rest, rest">
+  <header class="day-card-head">
+    <div class="day-num">DAY 10 &middot; Mar 10</div>
+    <div class="day-tags"><span class="region-tag">Krabi &amp; Railay</span><span class="status-badge">&#127807; REST</span></div>
+  </header>
+  <div class="day-card-activity"><div class="rest-suggestion">&#127807; Sunset cocktail at hotel bar</div></div>
+  <div class="day-card-dinner">&#127869; <strong>Ao Nang Night Market (Cheap Eats)</strong><div class="muted">cheap &middot; 15 min</div></div>
+</article>
+    <article class="day-card day-card-active" data-day="11" aria-label="Day 11, active, Hong Islands Kayak &amp; Lagoon">
+  <header class="day-card-head">
+    <div class="day-num">DAY 11 &middot; Mar 11</div>
+    <div class="day-tags"><span class="region-tag">Krabi &amp; Railay</span><span class="status-badge">&#128247; ACTIVE</span></div>
+  </header>
+  <div class="day-card-activity"><strong>Hong Islands Kayak &amp; Lagoon</strong><div class="muted">&#128666; 25 min from phulay-bay</div></div>
+  <div class="day-card-dinner">&#127869; <strong>Krua Thara Seafood (Ao Nang)</strong><div class="muted">mid &middot; 20 min</div></div>
+</article>
+    <article class="day-card day-card-rest" data-day="12" aria-label="Day 12, rest, rest">
+  <header class="day-card-head">
+    <div class="day-num">DAY 12 &middot; Mar 12</div>
+    <div class="day-tags"><span class="region-tag">Krabi &amp; Railay</span><span class="status-badge">&#127807; REST</span></div>
+  </header>
+  <div class="day-card-activity"><div class="rest-suggestion">&#127807; Beach day with cocktails</div></div>
+  <div class="day-card-dinner">&#127869; <strong>Ao Nang Night Market (Cheap Eats)</strong><div class="muted">cheap &middot; 15 min</div></div>
+</article>
+    <article class="day-card day-card-active" data-day="13" aria-label="Day 13, active, Railay Beach &amp; Phra Nang Cave">
+  <header class="day-card-head">
+    <div class="day-num">DAY 13 &middot; Mar 13</div>
+    <div class="day-tags"><span class="region-tag">Krabi &amp; Railay</span><span class="status-badge">&#128247; ACTIVE</span></div>
+  </header>
+  <div class="day-card-activity"><strong>Railay Beach &amp; Phra Nang Cave</strong><div class="muted">&#128666; 35 min from phulay-bay</div></div>
+  <div class="day-card-dinner">&#127869; <strong>Sunset Set Dinner at Phulay Bay</strong><div class="muted">splurge &middot; 0 min</div></div>
+</article>
+    <article class="day-card day-card-transfer" data-day="14" aria-label="Day 14, transfer, transfer">
+  <header class="day-card-head">
+    <div class="day-num">DAY 14 &middot; Mar 14</div>
+    <div class="day-tags"><span class="region-tag">Krabi &amp; Railay</span><span class="status-badge">&#9992;&#65039; TRANSFER</span></div>
+  </header>
+  <div class="day-card-activity"><div class="transfer-note">&#9992;&#65039; Transfer day &mdash; see region section for logistics.</div></div>
+  <div class="day-card-dinner">&#127869; <strong>Lae Lay Grill (Sunset View)</strong><div class="muted">mid &middot; 22 min</div></div>
+</article>
+  </div>
+</section>
+
+<section id="bangkok">
+  <div class="area-header">
+    <div class="num">1</div>
+    <div>
+      <h2>Bangkok</h2>
+      <p>Days 1&ndash;3 &middot; 3 nights &middot; Temples, river, neon &amp; night-market romance</p>
+    </div>
+  </div>
+  <img class="img-banner" src="https://images.unsplash.com/photo-1768392810963-017c92313d79?auto=format&fit=crop&w=1100&q=80" alt="Bangkok" width="1100" height="240" loading="lazy">
+  <div class="content-grid">
+    <div>
+      <div class="info-card">
+        <h3>&#128666; Getting There</h3>
+        <ul><li><span class="label">Airport to Riverside:</span> Airport Rail Link + taxi <span class="price">$8&ndash;12</span> <span class="sep">|</span> private transfer <span class="price">$25&ndash;35</span></li>
+          <li><span class="label">Travel time:</span> 45&ndash;60 min from BKK (Suvarnabhumi)</li>
+          <li><span class="label">Getting around:</span> BTS Skytrain <span class="price">$1&ndash;2</span> <span class="sep">|</span> MRT <span class="price">$1&ndash;2</span> <span class="sep">|</span> Grab <span class="price">$2&ndash;6</span></li>
+          <li><span class="label">River boats:</span> Chao Phraya Express <span class="price">$0.50</span> <span class="sep">|</span> Hotel shuttles often free</li>
+          <li><span class="label">To Chiang Mai:</span> 1h flight <span class="price">$45&ndash;75</span> (AirAsia / Thai Smile / Nok)</li></ul>
+      </div>
+      <div class="info-card">
+        <h3>&#127968; Where to Stay</h3>
+        <div class="hotel-card">
+  <img class="hotel-card-img" src="https://images.unsplash.com/photo-1584132915807-fd1f5fbc078f?auto=format&fit=crop&w=260&q=80" alt="Riva Surya Bangkok" loading="lazy" width="130" height="130">
+  <div class="hotel-card-body">
+    <div class="name-row">
+      <h4>Riva Surya Bangkok</h4>
+      <span class="rating-badge"><span class="star">&#9733;</span> 8.7</span>
+      <span class="platform-badge ">Booking.com</span>
+    </div>
+    <div class="price-line">from <span class="price">$70&ndash;95</span> / night</div>
+    <div class="features"><span>Riverside</span><span>Pool</span><span>Breakfast</span><span>King bed</span><span>Free WiFi</span></div>
+    <div class="desc">Boutique riverside hotel in Banglamphu with a saltwater pool overlooking the Chao Phraya &mdash; walking distance to Khao San &amp; the old city.</div>
+    <div class="couples-note">&#9829; Couples rate it 9.0/10</div>
+  </div>
+</div>
+        <div class="hotel-card">
+  <img class="hotel-card-img" src="https://images.unsplash.com/photo-1651376318405-f1055f37a511?auto=format&fit=crop&w=260&q=80" alt="The Bedrooms Boutique Hotel" loading="lazy" width="130" height="130">
+  <div class="hotel-card-body">
+    <div class="name-row">
+      <h4>The Bedrooms Boutique Hotel</h4>
+      <span class="rating-badge"><span class="star">&#9733;</span> 8.4</span>
+      <span class="platform-badge ">Booking.com</span>
+    </div>
+    <div class="price-line">from <span class="price">$45&ndash;65</span> / night</div>
+    <div class="features"><span>Boutique</span><span>Breakfast</span><span>Sukhumvit</span><span>BTS 5min</span><span>Quiet</span></div>
+    <div class="desc">Charming dark-wood boutique on Sukhumvit, 5 min walk to On Nut BTS &mdash; couples-favorite for the value &amp; location.</div>
+    <div class="couples-note">&#9829; Couples rate it 8.9/10</div>
+  </div>
+</div>
+        <div class="hotel-card">
+  <img class="hotel-card-img" src="https://images.unsplash.com/photo-1776761731066-c89caa8d25e6?auto=format&fit=crop&w=260&q=80" alt="Siam Kempinski Bangkok (Splurge)" loading="lazy" width="130" height="130">
+  <div class="hotel-card-body">
+    <div class="name-row">
+      <h4>Siam Kempinski Bangkok (Splurge)</h4>
+      <span class="rating-badge"><span class="star">&#9733;</span> 9.4</span>
+      <span class="platform-badge ">Booking.com</span>
+    </div>
+    <div class="price-line">from <span class="price">$180&ndash;240</span> / night</div>
+    <div class="features"><span>Cabana Pool</span><span>Spa</span><span>Breakfast</span><span>Central</span><span>Splurge</span></div>
+    <div class="desc">Lush garden oasis next to Siam Paragon &mdash; honeymoon-perfect for one luxury night with breakfast in the cabana suite garden.</div>
+    <div class="couples-note">&#9829; Couples rate it 9.4/10</div>
+  </div>
+</div>
+        <div class="hotel-card">
+  <img class="hotel-card-img" src="https://images.unsplash.com/photo-1658082729531-1dfad860a5ca?auto=format&fit=crop&w=260&q=80" alt="Talakkia Boutique Hotel (Chinatown)" loading="lazy" width="130" height="130">
+  <div class="hotel-card-body">
+    <div class="name-row">
+      <h4>Talakkia Boutique Hotel (Chinatown)</h4>
+      <span class="rating-badge"><span class="star">&#9733;</span> 8.0</span>
+      <span class="platform-badge agoda">Agoda</span>
+    </div>
+    <div class="price-line">from <span class="price">$45&ndash;65</span> / night</div>
+    <div class="features"><span>Terrace bar</span><span>Chinatown</span><span>Bargain</span><span>AC</span><span>Free WiFi</span></div>
+    <div class="desc">Industrial-cool boutique stay in Talad Noi/Chinatown with rooftop bar &mdash; you walk out into Yaowarat street food at night.</div>
+    
+  </div>
+</div>
+        <div class="tip-box"><strong>&#128161; Pro Tip:</strong> Stay 2 nights at <strong>Riva Surya</strong> by the river for the sunset views, then upgrade for ONE luxury night at <strong>Siam Kempinski</strong> to plug into central Bangkok before the flight north.</div>
+      </div>
+    </div>
+    <div>
+      <div class="info-card">
+        <h3>&#128247; What to Visit in Bangkok</h3>
+        <div class="spot-card">
+  <img class="spot-card-img" src="https://images.unsplash.com/photo-1762950297550-1d8d7cce12ae?auto=format&fit=crop&w=220&q=80" alt="Wat Arun at Sunset" loading="lazy" width="110" height="110">
+  <div class="spot-card-body">
+    <h4>Wat Arun at Sunset</h4>
+    <div class="vibe">The Temple of Dawn glowing rose-gold across the Chao Phraya as the sky melts into violet &mdash; one of Asia's most photographed sunsets.</div>
+    <div class="detail">Cross the river on the &thorn;3 ferry from Tha Tien pier. Climb the prang for the view.</div>
+    <span class="price-tag">$3 entry</span>
+  </div>
+</div>
+        <div class="spot-card">
+  <img class="spot-card-img" src="https://images.unsplash.com/photo-1679342969725-0763beed86eb?auto=format&fit=crop&w=220&q=80" alt="Grand Palace &amp; Wat Phra Kaew" loading="lazy" width="110" height="110">
+  <div class="spot-card-body">
+    <h4>Grand Palace &amp; Wat Phra Kaew</h4>
+    <div class="vibe">A 218,400 m&sup2; complex of golden spires &mdash; the spiritual heart of Thailand and home to the sacred Emerald Buddha.</div>
+    <div class="detail">Open 8:30am&ndash;3:30pm. Dress modestly &mdash; covered shoulders &amp; knees.</div>
+    <span class="price-tag">$14 entry</span>
+  </div>
+</div>
+        <div class="spot-card">
+  <img class="spot-card-img" src="https://images.unsplash.com/photo-1704391445538-cf5e763234be?auto=format&fit=crop&w=220&q=80" alt="Wat Pho &amp; Reclining Buddha" loading="lazy" width="110" height="110">
+  <div class="spot-card-body">
+    <h4>Wat Pho &amp; Reclining Buddha</h4>
+    <div class="vibe">A 46-metre gilded reclining Buddha &mdash; serene, immense, and quietly humbling.</div>
+    <div class="detail">Combo with the on-site traditional Thai massage school &mdash; $8 for 30 min.</div>
+    <span class="price-tag">$6 entry</span>
+  </div>
+</div>
+        <div class="spot-card">
+  <img class="spot-card-img" src="https://images.unsplash.com/photo-1652023182652-f06936873eb8?auto=format&fit=crop&w=220&q=80" alt="Chao Phraya Dinner Cruise" loading="lazy" width="110" height="110">
+  <div class="spot-card-body">
+    <h4>Chao Phraya Dinner Cruise</h4>
+    <div class="vibe">Sliding past illuminated Wat Arun, the Grand Palace, and Rama VIII Bridge on a candlelit dinner cruise &mdash; pure honeymoon.</div>
+    <div class="detail">Saffron Cruise &amp; Manohra are the upscale picks &mdash; 2 hours.</div>
+    <span class="price-tag">$45&ndash;75/person</span>
+  </div>
+</div>
+        <div class="spot-card">
+  <img class="spot-card-img" src="https://images.unsplash.com/photo-1658082729531-1dfad860a5ca?auto=format&fit=crop&w=220&q=80" alt="Yaowarat Chinatown Food Walk" loading="lazy" width="110" height="110">
+  <div class="spot-card-body">
+    <h4>Yaowarat Chinatown Food Walk</h4>
+    <div class="vibe">Neon-lit Yaowarat Road after dark, vendors firing woks on the sidewalk, the air thick with garlic, chili, and grilled prawns.</div>
+    <div class="detail">Hit Nai Ek for guay jub, T&amp;K Seafood for grilled prawns, Pa Tong Go Savoey for dessert.</div>
+    <span class="price-tag">Meals $3&ndash;10</span>
+  </div>
+</div>
+        <div class="spot-card">
+  <img class="spot-card-img" src="https://images.unsplash.com/photo-1547640084-1dfcc7ef3b22?auto=format&fit=crop&w=220&q=80" alt="Mahanakhon SkyWalk at Dusk" loading="lazy" width="110" height="110">
+  <div class="spot-card-body">
+    <h4>Mahanakhon SkyWalk at Dusk</h4>
+    <div class="vibe">Step onto a glass floor 314m above Bangkok as the city dissolves into a sea of lights &mdash; not for the faint-hearted.</div>
+    <div class="detail">Go up at 5:30pm to catch sunset AND city lights in one ticket.</div>
+    <span class="price-tag">$22/person</span>
+  </div>
+</div>
+        <div class="spot-card">
+  <img class="spot-card-img" src="https://images.unsplash.com/photo-1585317988215-c54417aaf7a2?auto=format&fit=crop&w=220&q=80" alt="Lumpini Park Swan Boats" loading="lazy" width="110" height="110">
+  <div class="spot-card-body">
+    <h4>Lumpini Park Swan Boats</h4>
+    <div class="vibe">A green oasis in the middle of the megacity &mdash; pedal a paddle-boat on the lake, watch monitor lizards sun themselves on the banks.</div>
+    <div class="detail">Pedal-boats $2 / 30 min. Best at 7am or after 4pm.</div>
+    <span class="price-tag">$2 boat</span>
+  </div>
+</div>
+        <div class="spot-card">
+  <img class="spot-card-img" src="https://plus.unsplash.com/premium_photo-1683133395921-1c38360fc0b2?auto=format&fit=crop&w=220&q=80" alt="Couples Thai Massage at Health Land" loading="lazy" width="110" height="110">
+  <div class="spot-card-body">
+    <h4>Couples Thai Massage at Health Land</h4>
+    <div class="vibe">Side-by-side 2-hour Thai massage &amp; aroma therapy in a candlelit suite &mdash; a soft landing after temple-hopping all day.</div>
+    <div class="detail">Health Land &amp; Asia Herb Association are reliable picks. Book ahead.</div>
+    <span class="price-tag">$35&ndash;55/couple</span>
+  </div>
+</div>
+      </div>
+      <div class="local-quote"><em>"Bangkok reveals its most romantic side in the spaces between its contrasts &mdash; flower markets at first light, temple courtyards steeped in quiet, sunset rooftops above the skyline, and candlelit moments by the river."</em><cite>&mdash; Banyan Tree Bangkok (translated from local guidance)</cite></div>
+      
+    </div>
+  </div>
+</section>
+
+<section id="chiangmai">
+  <div class="area-header">
+    <div class="num">2</div>
+    <div>
+      <h2>Chiang Mai</h2>
+      <p>Days 4&ndash;7 &middot; 4 nights &middot; Lanna temples, jungle &amp; slow mountain mornings</p>
+    </div>
+  </div>
+  <img class="img-banner" src="https://images.unsplash.com/photo-1725107179577-27983a9de258?auto=format&fit=crop&w=1100&q=80" alt="Chiang Mai" width="1100" height="240" loading="lazy">
+  <div class="content-grid">
+    <div>
+      <div class="info-card">
+        <h3>&#128666; Getting There</h3>
+        <ul><li><span class="label">Bangkok &rarr; Chiang Mai:</span> 1h flight <span class="price">$45&ndash;75/person</span> (AirAsia / Thai Smile / Nok)</li>
+          <li><span class="label">CNX airport to Old City:</span> Grab <span class="price">$4&ndash;6</span> <span class="sep">|</span> 15 min</li>
+          <li><span class="label">Getting around:</span> Walkable Old City <span class="sep">|</span> Songthaew (red truck) <span class="price">$1&ndash;2</span></li>
+          <li><span class="label">Scooter rental:</span> <span class="price">$5&ndash;7/day</span> with deposit</li>
+          <li><span class="label">To Krabi:</span> 2h flight to KBV <span class="price">$60&ndash;110</span> (no direct &mdash; via BKK or DMK)</li></ul>
+      </div>
+      <div class="info-card">
+        <h3>&#127968; Where to Stay</h3>
+        <div class="hotel-card">
+  <img class="hotel-card-img" src="https://images.unsplash.com/photo-1564945626082-fb0f7f689de6?auto=format&fit=crop&w=260&q=80" alt="Tamarind Village" loading="lazy" width="130" height="130">
+  <div class="hotel-card-body">
+    <div class="name-row">
+      <h4>Tamarind Village</h4>
+      <span class="rating-badge"><span class="star">&#9733;</span> 9.0</span>
+      <span class="platform-badge ">Booking.com</span>
+    </div>
+    <div class="price-line">from <span class="price">$115&ndash;160</span> / night</div>
+    <div class="features"><span>Old City</span><span>Pool</span><span>Lanna design</span><span>Breakfast</span><span>Spa</span></div>
+    <div class="desc">Boutique Lanna hotel built around a 200-year-old tamarind tree, deep in the Old City &mdash; walk to Wat Phra Singh in 5 min.</div>
+    <div class="couples-note">&#9829; Couples rate it 9.3/10</div>
+  </div>
+</div>
+        <div class="hotel-card">
+  <img class="hotel-card-img" src="https://images.unsplash.com/photo-1615619825584-8300234b1dac?auto=format&fit=crop&w=260&q=80" alt="Rachamankha Hotel" loading="lazy" width="130" height="130">
+  <div class="hotel-card-body">
+    <div class="name-row">
+      <h4>Rachamankha Hotel</h4>
+      <span class="rating-badge"><span class="star">&#9733;</span> 9.3</span>
+      <span class="platform-badge ">Booking.com</span>
+    </div>
+    <div class="price-line">from <span class="price">$180&ndash;250</span> / night</div>
+    <div class="features"><span>Adults-friendly</span><span>Pool</span><span>Library</span><span>Art</span><span>Breakfast</span></div>
+    <div class="desc">Asia's most beautiful small hotel &mdash; 24 rooms around temple-like courtyards. Often called the most romantic stay in the city.</div>
+    <div class="couples-note">&#9829; Couples rate it 9.5/10</div>
+  </div>
+</div>
+        <div class="hotel-card">
+  <img class="hotel-card-img" src="https://images.unsplash.com/photo-1768392810963-017c92313d79?auto=format&fit=crop&w=260&q=80" alt="Art Mai Gallery Nimman" loading="lazy" width="130" height="130">
+  <div class="hotel-card-body">
+    <div class="name-row">
+      <h4>Art Mai Gallery Nimman</h4>
+      <span class="rating-badge"><span class="star">&#9733;</span> 8.8</span>
+      <span class="platform-badge agoda">Agoda</span>
+    </div>
+    <div class="price-line">from <span class="price">$55&ndash;85</span> / night</div>
+    <div class="features"><span>Nimman</span><span>Boutique</span><span>Rooftop</span><span>Pool</span><span>Breakfast</span></div>
+    <div class="desc">Art-themed boutique in Nimmanhaemin &mdash; perfect base for cafes, khao soi joints &amp; Maya Mall.</div>
+    
+  </div>
+</div>
+        <div class="hotel-card">
+  <img class="hotel-card-img" src="https://images.unsplash.com/photo-1779332843569-abcfa4ad376a?auto=format&fit=crop&w=260&q=80" alt="Moose Hotel Nimman" loading="lazy" width="130" height="130">
+  <div class="hotel-card-body">
+    <div class="name-row">
+      <h4>Moose Hotel Nimman</h4>
+      <span class="rating-badge"><span class="star">&#9733;</span> 8.9</span>
+      <span class="platform-badge ">Booking.com</span>
+    </div>
+    <div class="price-line">from <span class="price">$45&ndash;70</span> / night</div>
+    <div class="features"><span>Nimman</span><span>Pool</span><span>Breakfast</span><span>King bed</span><span>Free WiFi</span></div>
+    <div class="desc">Modern boutique on Nimmana Haeminda Road, 2 min walk to Khao Soy Nimman &mdash; one of the best value picks.</div>
+    <div class="couples-note">&#9829; Couples rate it 9.0/10</div>
+  </div>
+</div>
+        <div class="tip-box"><strong>&#128161; Pro Tip:</strong> <strong>Tamarind Village</strong> for the Lanna courtyard atmosphere right inside the Old City moat &mdash; or splurge at <strong>Rachamankha</strong> for the photo-perfect honeymoon stay.</div>
+      </div>
+    </div>
+    <div>
+      <div class="info-card">
+        <h3>&#128247; What to Visit in Chiang Mai</h3>
+        <div class="spot-card">
+  <img class="spot-card-img" src="https://images.unsplash.com/photo-1725107179577-27983a9de258?auto=format&fit=crop&w=220&q=80" alt="Wat Phra That Doi Suthep at Sunset" loading="lazy" width="110" height="110">
+  <div class="spot-card-body">
+    <h4>Wat Phra That Doi Suthep at Sunset</h4>
+    <div class="vibe">Climb the 309-step naga staircase as monks chant for evening prayer &mdash; below, Chiang Mai glitters across the valley at sunset.</div>
+    <div class="detail">Songthaew from Old City $4 round-trip. Best at 5pm.</div>
+    <span class="price-tag">$2 entry</span>
+  </div>
+</div>
+        <div class="spot-card">
+  <img class="spot-card-img" src="https://images.unsplash.com/photo-1768534630301-35f919cbc255?auto=format&fit=crop&w=220&q=80" alt="Elephant Nature Park (Ethical Sanctuary)" loading="lazy" width="110" height="110">
+  <div class="spot-card-body">
+    <h4>Elephant Nature Park (Ethical Sanctuary)</h4>
+    <div class="vibe">Feed and bathe rescued elephants in their forest home &mdash; no riding, no shows, just sharing space with these gentle giants. Many couples rate it the trip highlight.</div>
+    <div class="detail">Book Elephant Nature Park or ChangChill 2+ weeks ahead. Half-day or full-day.</div>
+    <span class="price-tag">$80&ndash;160/person</span>
+  </div>
+</div>
+        <div class="spot-card">
+  <img class="spot-card-img" src="https://images.unsplash.com/photo-1771341040098-6a5eedd41dda?auto=format&fit=crop&w=220&q=80" alt="Thai Cooking Class (Market + Class)" loading="lazy" width="110" height="110">
+  <div class="spot-card-body">
+    <h4>Thai Cooking Class (Market + Class)</h4>
+    <div class="vibe">Start at a fresh market choosing kaffir lime leaves &amp; galangal, then cook 5 dishes together in an open-air kitchen &mdash; couples' favorite.</div>
+    <div class="detail">Asia Scenic, Thai Farm Cooking, &amp; Smart Cook are top-rated.</div>
+    <span class="price-tag">$30&ndash;45/person</span>
+  </div>
+</div>
+        <div class="spot-card">
+  <img class="spot-card-img" src="https://images.unsplash.com/photo-1615619825584-8300234b1dac?auto=format&fit=crop&w=220&q=80" alt="Old City Temple Cycling Tour" loading="lazy" width="110" height="110">
+  <div class="spot-card-body">
+    <h4>Old City Temple Cycling Tour</h4>
+    <div class="vibe">Bicycle the quiet sois of the Old City, hopping from Wat Phra Singh's golden chedi to Wat Chedi Luang's 600-year-old ruined pagoda.</div>
+    <div class="detail">Bike rentals $3/day. Most temples open 6am&ndash;6pm, free or small donation.</div>
+    <span class="price-tag">Free / donation</span>
+  </div>
+</div>
+        <div class="spot-card">
+  <img class="spot-card-img" src="https://images.unsplash.com/photo-1512557150470-a02879355d1c?auto=format&fit=crop&w=220&q=80" alt="Doi Inthanon National Park Day Trip" loading="lazy" width="110" height="110">
+  <div class="spot-card-body">
+    <h4>Doi Inthanon National Park Day Trip</h4>
+    <div class="vibe">Thailand's highest mountain &mdash; cloud forest hikes, twin royal pagodas, waterfalls, and crisp 18&deg;C air at the summit.</div>
+    <div class="detail">Day tour with driver: $35&ndash;50/person. Stop at Wachirathan Waterfall.</div>
+    <span class="price-tag">$5 park entry</span>
+  </div>
+</div>
+        <div class="spot-card">
+  <img class="spot-card-img" src="https://images.unsplash.com/photo-1587047744115-bec859276fd3?auto=format&fit=crop&w=220&q=80" alt="Sunday Walking Street + Night Bazaar" loading="lazy" width="110" height="110">
+  <div class="spot-card-body">
+    <h4>Sunday Walking Street + Night Bazaar</h4>
+    <div class="vibe">Lanterns glowing over Tha Phae Road, artisans selling silver and handwoven scarves, stalls of grilled satay and sticky rice in bamboo.</div>
+    <div class="detail">Sunday is the big one &mdash; 4pm to midnight. Eat your way through.</div>
+    <span class="price-tag">Free (eats $1&ndash;3)</span>
+  </div>
+</div>
+        <div class="spot-card">
+  <img class="spot-card-img" src="https://images.unsplash.com/photo-1516017973299-06458f7db713?auto=format&fit=crop&w=220&q=80" alt="Couples Lanna Spa (Fah Lanna)" loading="lazy" width="110" height="110">
+  <div class="spot-card-body">
+    <h4>Couples Lanna Spa (Fah Lanna)</h4>
+    <div class="vibe">Hidden garden spa just outside the moat &mdash; 2-hour Lanna couples package with herbal compress, hot stone, and floral foot ritual.</div>
+    <div class="detail">Fah Lanna or Oasis Spa &mdash; book a couple's package for 2.5&ndash;3h.</div>
+    <span class="price-tag">$60&ndash;90/couple</span>
+  </div>
+</div>
+      </div>
+      <div class="local-quote"><em>"Recommend this place &mdash; the khao soi broth simmers for 4 hours and the chili paste is pounded fresh every day. There's nothing else like it."</em><cite>&mdash; Khao Soi Nimman via &แม่มณีชวนชิม (translated from Thai)</cite></div>
+      
+    </div>
+  </div>
+</section>
+
+<section id="krabi">
+  <div class="area-header">
+    <div class="num">3</div>
+    <div>
+      <h2>Krabi &amp; Railay</h2>
+      <p>Days 8&ndash;14 &middot; 7 nights &middot; Limestone cliffs, longtail boats &amp; Andaman sunsets</p>
+    </div>
+  </div>
+  <img class="img-banner" src="https://images.unsplash.com/photo-1664542777435-be75eb20ecd5?auto=format&fit=crop&w=1100&q=80" alt="Krabi &amp; Railay" width="1100" height="240" loading="lazy">
+  <div class="content-grid">
+    <div>
+      <div class="info-card">
+        <h3>&#128666; Getting There</h3>
+        <ul><li><span class="label">Chiang Mai &rarr; Krabi:</span> Connecting flight via BKK <span class="price">$60&ndash;110/person</span> (3h total)</li>
+          <li><span class="label">Airport to Phulay Bay/Nong Thale:</span> Private transfer <span class="price">$30&ndash;45</span> <span class="sep">|</span> 35 min</li>
+          <li><span class="label">To Railay:</span> Longtail from Ao Nang <span class="price">$3&ndash;5/person</span> <span class="sep">|</span> 15 min by boat (no road)</li>
+          <li><span class="label">Getting around:</span> Hotel transfer + day tours <span class="sep">|</span> Scooter <span class="price">$7&ndash;10/day</span></li>
+          <li><span class="label">Krabi &rarr; home:</span> Direct to BKK <span class="price">$50&ndash;90</span> or Phuket transfer <span class="price">$30 + flight</span></li></ul>
+      </div>
+      <div class="info-card">
+        <h3>&#127968; Where to Stay</h3>
+        <div class="hotel-card">
+  <img class="hotel-card-img" src="https://images.unsplash.com/photo-1776761731066-c89caa8d25e6?auto=format&fit=crop&w=260&q=80" alt="Phulay Bay, a Ritz-Carlton Reserve (Honeymoon Splurge)" loading="lazy" width="130" height="130">
+  <div class="hotel-card-body">
+    <div class="name-row">
+      <h4>Phulay Bay, a Ritz-Carlton Reserve (Honeymoon Splurge)</h4>
+      <span class="rating-badge"><span class="star">&#9733;</span> 9.6</span>
+      <span class="platform-badge ">Booking.com</span>
+    </div>
+    <div class="price-line">from <span class="price">$680&ndash;1100</span> / night</div>
+    <div class="features"><span>Infinity Pool</span><span>Beach Villa</span><span>Spa</span><span>Butler</span><span>Adults</span></div>
+    <div class="desc">World's first Ritz-Carlton Reserve &mdash; 54 villas with private pools, dedicated butler service, and Andaman sea views from the Royal Beach Villa's Infinity Pool. The honeymoon stay.</div>
+    <div class="couples-note">&#9829; Couples rate it 9.7/10</div>
+  </div>
+</div>
+        <div class="hotel-card">
+  <img class="hotel-card-img" src="https://images.unsplash.com/photo-1445546857131-5fc39d1c51f0?auto=format&fit=crop&w=260&q=80" alt="Rayavadee Krabi" loading="lazy" width="130" height="130">
+  <div class="hotel-card-body">
+    <div class="name-row">
+      <h4>Rayavadee Krabi</h4>
+      <span class="rating-badge"><span class="star">&#9733;</span> 9.4</span>
+      <span class="platform-badge ">Booking.com</span>
+    </div>
+    <div class="price-line">from <span class="price">$520&ndash;850</span> / night</div>
+    <div class="features"><span>Pool Villa</span><span>Private beach</span><span>Spa</span><span>Boat-only</span><span>Honeymoon</span></div>
+    <div class="desc">Hidden between three beaches on the Phranang Peninsula &mdash; accessible only by boat, with 94 two-storey pavilions in tropical gardens.</div>
+    <div class="couples-note">&#9829; Couples rate it 9.5/10</div>
+  </div>
+</div>
+        <div class="hotel-card">
+  <img class="hotel-card-img" src="https://images.unsplash.com/photo-1584132915807-fd1f5fbc078f?auto=format&fit=crop&w=260&q=80" alt="The Tubkaak Krabi Boutique Resort" loading="lazy" width="130" height="130">
+  <div class="hotel-card-body">
+    <div class="name-row">
+      <h4>The Tubkaak Krabi Boutique Resort</h4>
+      <span class="rating-badge"><span class="star">&#9733;</span> 9.2</span>
+      <span class="platform-badge ">Booking.com</span>
+    </div>
+    <div class="price-line">from <span class="price">$220&ndash;360</span> / night</div>
+    <div class="features"><span>Beachfront</span><span>Pool</span><span>Spa</span><span>Adults</span><span>Sunset deck</span></div>
+    <div class="desc">Adults-only 5-star on Tubkaek Beach &mdash; quieter than Ao Nang, with beach picnics and sunset coconut moments built into the package.</div>
+    <div class="couples-note">&#9829; Couples rate it 9.4/10</div>
+  </div>
+</div>
+        <div class="hotel-card">
+  <img class="hotel-card-img" src="https://images.unsplash.com/photo-1651376318405-f1055f37a511?auto=format&fit=crop&w=260&q=80" alt="Anyavee Tubkaek Beach Resort" loading="lazy" width="130" height="130">
+  <div class="hotel-card-body">
+    <div class="name-row">
+      <h4>Anyavee Tubkaek Beach Resort</h4>
+      <span class="rating-badge"><span class="star">&#9733;</span> 8.8</span>
+      <span class="platform-badge agoda">Agoda</span>
+    </div>
+    <div class="price-line">from <span class="price">$95&ndash;140</span> / night</div>
+    <div class="features"><span>Beachfront</span><span>Pool</span><span>Garden</span><span>Spa</span><span>Breakfast</span></div>
+    <div class="desc">Mid-range stunner on the same calm Tubkaek beach &mdash; honeymoon vibe without the splurge price.</div>
+    
+  </div>
+</div>
+        <div class="tip-box"><strong>&#128161; Pro Tip:</strong> Book <strong>Phulay Bay</strong> for the splurge nights with the <strong>Infinity Pool</strong> villa, and consider one boat-only night at <strong>Rayavadee</strong> for the Phranang Peninsula experience. Both go fast &mdash; reserve 4&ndash;5 months ahead.</div>
+      </div>
+    </div>
+    <div>
+      <div class="info-card">
+        <h3>&#128247; What to Visit in Krabi &amp; Railay</h3>
+        <div class="spot-card">
+  <img class="spot-card-img" src="https://images.unsplash.com/photo-1671838416230-e85f3d81b19d?auto=format&fit=crop&w=220&q=80" alt="Railay Beach &amp; Phra Nang Cave" loading="lazy" width="110" height="110">
+  <div class="spot-card-body">
+    <h4>Railay Beach &amp; Phra Nang Cave</h4>
+    <div class="vibe">Step off the longtail onto a cinema-set beach &mdash; soft white sand framed by 300m vertical limestone walls, climbers above, kayaks gliding by.</div>
+    <div class="detail">Longtail from Ao Nang $4 each way. Walk between West and East Railay and Phra Nang.</div>
+    <span class="price-tag">$8 boat round-trip</span>
+  </div>
+</div>
+        <div class="spot-card">
+  <img class="spot-card-img" src="https://images.unsplash.com/photo-1648648777033-c833d650aea7?auto=format&fit=crop&w=220&q=80" alt="Four Islands Longtail Tour" loading="lazy" width="110" height="110">
+  <div class="spot-card-body">
+    <h4>Four Islands Longtail Tour</h4>
+    <div class="vibe">Chicken Island, Tup Island, Mor Island and Poda &mdash; snorkel reefs, walk the famous sandbar at low tide, eat lunch under a palm.</div>
+    <div class="detail">Half or full day. Bring sunscreen, water, dry bag.</div>
+    <span class="price-tag">$22&ndash;30/person</span>
+  </div>
+</div>
+        <div class="spot-card">
+  <img class="spot-card-img" src="https://images.unsplash.com/photo-1664542777435-be75eb20ecd5?auto=format&fit=crop&w=220&q=80" alt="Hong Islands Kayak &amp; Lagoon" loading="lazy" width="110" height="110">
+  <div class="spot-card-body">
+    <h4>Hong Islands Kayak &amp; Lagoon</h4>
+    <div class="vibe">Paddle into the Hong lagoon &mdash; a sea-flooded amphitheatre walled by 100m cliffs, water so still and clear you can see fish 5m down.</div>
+    <div class="detail">Speedboat + kayak combo $40&ndash;55. Go early to beat day-trippers.</div>
+    <span class="price-tag">$40&ndash;55/person</span>
+  </div>
+</div>
+        <div class="spot-card">
+  <img class="spot-card-img" src="https://images.unsplash.com/photo-1779332843569-abcfa4ad376a?auto=format&fit=crop&w=220&q=80" alt="Tiger Cave Temple (Wat Tham Sua) Sunrise" loading="lazy" width="110" height="110">
+  <div class="spot-card-body">
+    <h4>Tiger Cave Temple (Wat Tham Sua) Sunrise</h4>
+    <div class="vibe">1,237 steep steps climb a limestone outcrop to a golden Buddha &mdash; a 360&deg; sunrise over the Krabi jungle and karst islands waits at the top.</div>
+    <div class="detail">Start by 5am to summit at dawn. Heavy on the legs &mdash; bring water.</div>
+    <span class="price-tag">Free (donation)</span>
+  </div>
+</div>
+        <div class="spot-card">
+  <img class="spot-card-img" src="https://images.unsplash.com/photo-1768534630301-35f919cbc255?auto=format&fit=crop&w=220&q=80" alt="Ao Thalane Mangrove Kayak" loading="lazy" width="110" height="110">
+  <div class="spot-card-body">
+    <h4>Ao Thalane Mangrove Kayak</h4>
+    <div class="vibe">Glide between towering mangroves and through hidden sea caves on flat water &mdash; cool, shaded, with monkeys and kingfishers overhead.</div>
+    <div class="detail">Half-day guided tour, calm water, suitable for beginners.</div>
+    <span class="price-tag">$25&ndash;35/person</span>
+  </div>
+</div>
+        <div class="spot-card">
+  <img class="spot-card-img" src="https://images.unsplash.com/photo-1516017973299-06458f7db713?auto=format&fit=crop&w=220&q=80" alt="Phi Phi Islands Speedboat Day" loading="lazy" width="110" height="110">
+  <div class="spot-card-body">
+    <h4>Phi Phi Islands Speedboat Day</h4>
+    <div class="vibe">Maya Bay's perfect crescent of sand, monkey beach, Pileh Lagoon's neon water &mdash; the most iconic island day in southern Thailand.</div>
+    <div class="detail">Speedboat day trip with snorkel + lunch. Get the early departure.</div>
+    <span class="price-tag">$50&ndash;75/person</span>
+  </div>
+</div>
+        <div class="spot-card">
+  <img class="spot-card-img" src="https://images.unsplash.com/photo-1714672709462-de21a12a1339?auto=format&fit=crop&w=220&q=80" alt="Ao Nang Beach Sunset Stroll" loading="lazy" width="110" height="110">
+  <div class="spot-card-body">
+    <h4>Ao Nang Beach Sunset Stroll</h4>
+    <div class="vibe">The strip lights flicker on, longtails return with the day's last tourists, the sky turns orange over the karst islands &mdash; toes in the sand with a Chang.</div>
+    <div class="detail">Free. Best beach bars on the south end.</div>
+    <span class="price-tag">Free</span>
+  </div>
+</div>
+        <div class="spot-card">
+  <img class="spot-card-img" src="https://images.unsplash.com/photo-1763562618380-1ee9ab9e3fdb?auto=format&fit=crop&w=220&q=80" alt="Emerald Pool &amp; Hot Springs" loading="lazy" width="110" height="110">
+  <div class="spot-card-body">
+    <h4>Emerald Pool &amp; Hot Springs</h4>
+    <div class="vibe">Crystal-clear spring-fed pool deep in the Khao Pra-Bang Khram rainforest, then nearby cascading natural hot springs.</div>
+    <div class="detail">Day trip from Krabi &mdash; bring swimsuit, water shoes. 2h drive each way.</div>
+    <span class="price-tag">$6 entry</span>
+  </div>
+</div>
+        <div class="spot-card">
+  <img class="spot-card-img" src="https://images.unsplash.com/photo-1516017973299-06458f7db713?auto=format&fit=crop&w=220&q=80" alt="Couples Beachfront Spa at Phulay Bay" loading="lazy" width="110" height="110">
+  <div class="spot-card-body">
+    <h4>Couples Beachfront Spa at Phulay Bay</h4>
+    <div class="vibe">Side-by-side ESPA ritual in an overwater spa pavilion, ocean breeze, then dinner in the Sala on stilts &mdash; the honeymoon postcard.</div>
+    <div class="detail">Phulay Bay or Rayavadee spa &mdash; book a 2h package.</div>
+    <span class="price-tag">$140&ndash;220/couple</span>
+  </div>
+</div>
+      </div>
+      <div class="local-quote"><em>"Roads are rough &mdash; hire a private driver instead of a scooter. Stay at Phulay Bay or Rayavadee for the honeymoon, but a Beach Picnic at Tubkaak Resort with sunset is one of the most romantic things in Krabi."</em><cite>&mdash; Kant Thai travel review (translated from Thai)</cite></div>
+      
+    </div>
+  </div>
+</section>
+
+
+<section id="budget">
+  <div class="section-title">
+    <h2>Budget Estimation</h2>
+    <p>For two people · 14 days · Honeymoon-relaxed style</p>
+  </div>
+  <div class="budget-table-wrap">
+    <table class="budget-table">
+      <thead>
+        <tr><th>Category</th><th>Details</th><th class="num-col">Est. Cost (USD)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Flights</strong></td><td>Round-trip for 2 + 2 internal hops (BKK&rarr;CNX, CNX&rarr;KBV)</td><td class="num-col">$1,800&ndash;$2,400</td></tr>
+<tr><td><strong>Accommodation</strong></td><td>13 nights &middot; mix of boutique &amp; one luxury Krabi villa</td><td class="num-col">$1,800&ndash;$2,500</td></tr>
+<tr><td><strong>Food &amp; Drink</strong></td><td>$40/day for two (Michelin street food + 3 splurges)</td><td class="num-col">$560</td></tr>
+<tr><td><strong>Transport</strong></td><td>Airport transfers, BTS/MRT, songthaews, longtail boats</td><td class="num-col">$220</td></tr>
+<tr><td><strong>Activities</strong></td><td>Elephant park, cooking class, Hong Islands tour, spas, temples</td><td class="num-col">$520</td></tr>
+<tr><td><strong>Travel Insurance</strong></td><td>Comprehensive for 2 weeks</td><td class="num-col">$100</td></tr>
+<tr><td><strong>Miscellaneous</strong></td><td>SIM card, tips, souvenirs, laundry</td><td class="num-col">$150</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="budget-note">All prices approximate for March 2027 &middot; $1 &asymp; 36 THB &middot; Internal Thai flights are cheap (~$45 each) &middot; Book luxury Krabi villa 4&ndash;5 months ahead</p>
+</section>
+
+<footer>
+  <div class="hearts">&hearts; &hearts; &hearts;</div>
+  <p style="margin-top:8px;">See you in Thailand &mdash; March 2027</p>
+  <p style="margin-top:4px;">Made with love for our honeymoon planning</p>
+</footer>
+
+<script id="trip-data" type="application/json">
+{
+  "tripSlug": "thailand-march-2027",
+  "seed": 7,
+  "startDate": "2027-03-01",
+  "endDate": "2027-03-14",
+  "title": "Our Thailand Honeymoon — March 2027",
+  "datesLong": "March 2027 · 14 Days",
+  "heroImg": "https://images.unsplash.com/photo-1762950297550-1d8d7cce12ae?auto=format&fit=crop&w=1920&q=80",
+  "splurgeCount": 3,
+  "regions": [
+    {
+      "id": "bangkok",
+      "name": "Bangkok"
+    },
+    {
+      "id": "chiangmai",
+      "name": "Chiang Mai"
+    },
+    {
+      "id": "krabi",
+      "name": "Krabi &amp; Railay"
+    }
+  ],
+  "regionHotel": {
+    "bangkok": "riva-surya",
+    "chiangmai": "tamarind-village",
+    "krabi": "phulay-bay"
+  },
+  "activities": {
+    "bangkok": [
+      {
+        "id": "wat-arun-sunset",
+        "name": "Wat Arun at Sunset",
+        "score": 10,
+        "drive": {
+          "riva-surya": 12
+        }
+      },
+      {
+        "id": "grand-palace",
+        "name": "Grand Palace &amp; Wat Phra Kaew",
+        "score": 9,
+        "drive": {
+          "riva-surya": 8
+        }
+      },
+      {
+        "id": "wat-pho",
+        "name": "Wat Pho &amp; Reclining Buddha",
+        "score": 9,
+        "drive": {
+          "riva-surya": 10
+        }
+      },
+      {
+        "id": "chao-phraya-cruise",
+        "name": "Chao Phraya Dinner Cruise",
+        "score": 9,
+        "drive": {
+          "riva-surya": 15
+        }
+      },
+      {
+        "id": "yaowarat",
+        "name": "Yaowarat Chinatown Food Walk",
+        "score": 10,
+        "drive": {
+          "riva-surya": 18
+        }
+      },
+      {
+        "id": "mahanakhon",
+        "name": "Mahanakhon SkyWalk at Dusk",
+        "score": 8,
+        "drive": {
+          "riva-surya": 30
+        }
+      },
+      {
+        "id": "lumpini",
+        "name": "Lumpini Park Swan Boats",
+        "score": 7,
+        "drive": {
+          "riva-surya": 25
+        }
+      },
+      {
+        "id": "couples-spa-bkk",
+        "name": "Couples Thai Massage at Health Land",
+        "score": 8,
+        "drive": {
+          "riva-surya": 28
+        }
+      }
+    ],
+    "chiangmai": [
+      {
+        "id": "doi-suthep",
+        "name": "Wat Phra That Doi Suthep at Sunset",
+        "score": 10,
+        "drive": {
+          "tamarind-village": 35
+        }
+      },
+      {
+        "id": "elephant-sanctuary",
+        "name": "Elephant Nature Park (Ethical Sanctuary)",
+        "score": 10,
+        "drive": {
+          "tamarind-village": 55
+        }
+      },
+      {
+        "id": "cooking-class",
+        "name": "Thai Cooking Class (Market + Class)",
+        "score": 9,
+        "drive": {
+          "tamarind-village": 12
+        }
+      },
+      {
+        "id": "old-city-temples",
+        "name": "Old City Temple Cycling Tour",
+        "score": 8,
+        "drive": {
+          "tamarind-village": 3
+        }
+      },
+      {
+        "id": "doi-inthanon",
+        "name": "Doi Inthanon National Park Day Trip",
+        "score": 8,
+        "drive": {
+          "tamarind-village": 58
+        }
+      },
+      {
+        "id": "night-bazaar",
+        "name": "Sunday Walking Street + Night Bazaar",
+        "score": 7,
+        "drive": {
+          "tamarind-village": 8
+        }
+      },
+      {
+        "id": "couples-spa-cm",
+        "name": "Couples Lanna Spa (Fah Lanna)",
+        "score": 8,
+        "drive": {
+          "tamarind-village": 5
+        }
+      }
+    ],
+    "krabi": [
+      {
+        "id": "railay-day",
+        "name": "Railay Beach &amp; Phra Nang Cave",
+        "score": 10,
+        "drive": {
+          "phulay-bay": 35
+        }
+      },
+      {
+        "id": "four-islands",
+        "name": "Four Islands Longtail Tour",
+        "score": 9,
+        "drive": {
+          "phulay-bay": 25
+        }
+      },
+      {
+        "id": "hong-islands",
+        "name": "Hong Islands Kayak &amp; Lagoon",
+        "score": 10,
+        "drive": {
+          "phulay-bay": 25
+        }
+      },
+      {
+        "id": "tiger-cave",
+        "name": "Tiger Cave Temple (Wat Tham Sua) Sunrise",
+        "score": 8,
+        "drive": {
+          "phulay-bay": 40
+        }
+      },
+      {
+        "id": "ao-thalane-kayak",
+        "name": "Ao Thalane Mangrove Kayak",
+        "score": 8,
+        "drive": {
+          "phulay-bay": 30
+        }
+      },
+      {
+        "id": "phi-phi-day",
+        "name": "Phi Phi Islands Speedboat Day",
+        "score": 9,
+        "drive": {
+          "phulay-bay": 30
+        }
+      },
+      {
+        "id": "ao-nang-sunset",
+        "name": "Ao Nang Beach Sunset Stroll",
+        "score": 7,
+        "drive": {
+          "phulay-bay": 18
+        }
+      },
+      {
+        "id": "emerald-pool",
+        "name": "Emerald Pool &amp; Hot Springs",
+        "score": 8,
+        "drive": {
+          "phulay-bay": 58
+        }
+      },
+      {
+        "id": "couples-spa-krabi",
+        "name": "Couples Beachfront Spa at Phulay Bay",
+        "score": 8,
+        "drive": {
+          "phulay-bay": 0
+        }
+      }
+    ]
+  },
+  "restaurants": {
+    "bangkok": [
+      {
+        "id": "nai-ek-roll",
+        "name": "Nai Ek Roll Noodle (Michelin Bib)",
+        "tier": "cheap",
+        "drive": {
+          "riva-surya": 18
+        }
+      },
+      {
+        "id": "lim-lao-ngow",
+        "name": "Lim Lao Ngow Fishball Noodle",
+        "tier": "cheap",
+        "drive": {
+          "riva-surya": 20
+        }
+      },
+      {
+        "id": "jek-pui",
+        "name": "Khao Gaeng Jek Pui (Curry Stall)",
+        "tier": "cheap",
+        "drive": {
+          "riva-surya": 16
+        }
+      },
+      {
+        "id": "supanniga",
+        "name": "Supanniga Eating Room",
+        "tier": "mid",
+        "drive": {
+          "riva-surya": 22
+        }
+      },
+      {
+        "id": "baan-khanitha",
+        "name": "Baan Khanitha Garden Restaurant",
+        "tier": "mid",
+        "drive": {
+          "riva-surya": 25
+        }
+      },
+      {
+        "id": "sky-bar-lebua",
+        "name": "Sky Bar at Lebua (Sirocco)",
+        "tier": "splurge",
+        "drive": {
+          "riva-surya": 20
+        }
+      }
+    ],
+    "chiangmai": [
+      {
+        "id": "khao-soi-mae-sai",
+        "name": "Khao Soi Mae Sai (Michelin)",
+        "tier": "cheap",
+        "drive": {
+          "tamarind-village": 10
+        }
+      },
+      {
+        "id": "khao-soy-nimman",
+        "name": "Khao Soy Nimman",
+        "tier": "cheap",
+        "drive": {
+          "tamarind-village": 12
+        }
+      },
+      {
+        "id": "huen-muan-jai",
+        "name": "Huen Muan Jai (Northern Thai)",
+        "tier": "mid",
+        "drive": {
+          "tamarind-village": 15
+        }
+      },
+      {
+        "id": "khanom-jeen",
+        "name": "Khanom Jeen San Pa Khoi",
+        "tier": "cheap",
+        "drive": {
+          "tamarind-village": 14
+        }
+      },
+      {
+        "id": "david-dhevi",
+        "name": "David's Kitchen at 909",
+        "tier": "splurge",
+        "drive": {
+          "tamarind-village": 18
+        }
+      }
+    ],
+    "krabi": [
+      {
+        "id": "ruen-mai",
+        "name": "Ruen Mai (Authentic Southern Thai)",
+        "tier": "cheap",
+        "drive": {
+          "phulay-bay": 28
+        }
+      },
+      {
+        "id": "krua-thara",
+        "name": "Krua Thara Seafood (Ao Nang)",
+        "tier": "mid",
+        "drive": {
+          "phulay-bay": 20
+        }
+      },
+      {
+        "id": "may-mark",
+        "name": "May &amp; Mark House (Ao Nang)",
+        "tier": "cheap",
+        "drive": {
+          "phulay-bay": 16
+        }
+      },
+      {
+        "id": "carnivore",
+        "name": "Carnivore Steak &amp; Grill (Ao Nang)",
+        "tier": "mid",
+        "drive": {
+          "phulay-bay": 18
+        }
+      },
+      {
+        "id": "lae-lay-grill",
+        "name": "Lae Lay Grill (Sunset View)",
+        "tier": "mid",
+        "drive": {
+          "phulay-bay": 22
+        }
+      },
+      {
+        "id": "phulay-dinner",
+        "name": "Sunset Set Dinner at Phulay Bay",
+        "tier": "splurge",
+        "drive": {
+          "phulay-bay": 0
+        }
+      },
+      {
+        "id": "ao-nang-night",
+        "name": "Ao Nang Night Market (Cheap Eats)",
+        "tier": "cheap",
+        "drive": {
+          "phulay-bay": 15
+        }
+      }
+    ]
+  },
+  "days": [
+    {
+      "n": 1,
+      "date": "2027-03-01",
+      "region": "bangkok",
+      "status": "transfer",
+      "activityId": null,
+      "dinnerId": "jek-pui",
+      "restSuggestion": null
+    },
+    {
+      "n": 2,
+      "date": "2027-03-02",
+      "region": "bangkok",
+      "status": "rest",
+      "activityId": null,
+      "dinnerId": "jek-pui",
+      "restSuggestion": "Short walk in the neighborhood"
+    },
+    {
+      "n": 3,
+      "date": "2027-03-03",
+      "region": "bangkok",
+      "status": "active",
+      "activityId": "yaowarat",
+      "dinnerId": "sky-bar-lebua",
+      "restSuggestion": null
+    },
+    {
+      "n": 4,
+      "date": "2027-03-04",
+      "region": "chiangmai",
+      "status": "transfer",
+      "activityId": null,
+      "dinnerId": "huen-muan-jai",
+      "restSuggestion": null
+    },
+    {
+      "n": 5,
+      "date": "2027-03-05",
+      "region": "chiangmai",
+      "status": "rest",
+      "activityId": null,
+      "dinnerId": "khao-soi-mae-sai",
+      "restSuggestion": "Beach day with cocktails"
+    },
+    {
+      "n": 6,
+      "date": "2027-03-06",
+      "region": "chiangmai",
+      "status": "rest",
+      "activityId": null,
+      "dinnerId": "khao-soi-mae-sai",
+      "restSuggestion": "Hammock and a chilled mango"
+    },
+    {
+      "n": 7,
+      "date": "2027-03-07",
+      "region": "chiangmai",
+      "status": "active",
+      "activityId": "doi-suthep",
+      "dinnerId": "david-dhevi",
+      "restSuggestion": null
+    },
+    {
+      "n": 8,
+      "date": "2027-03-08",
+      "region": "krabi",
+      "status": "transfer",
+      "activityId": null,
+      "dinnerId": "ao-nang-night",
+      "restSuggestion": null
+    },
+    {
+      "n": 9,
+      "date": "2027-03-09",
+      "region": "krabi",
+      "status": "rest",
+      "activityId": null,
+      "dinnerId": "carnivore",
+      "restSuggestion": "Short walk in the neighborhood"
+    },
+    {
+      "n": 10,
+      "date": "2027-03-10",
+      "region": "krabi",
+      "status": "rest",
+      "activityId": null,
+      "dinnerId": "ao-nang-night",
+      "restSuggestion": "Sunset cocktail at hotel bar"
+    },
+    {
+      "n": 11,
+      "date": "2027-03-11",
+      "region": "krabi",
+      "status": "active",
+      "activityId": "hong-islands",
+      "dinnerId": "krua-thara",
+      "restSuggestion": null
+    },
+    {
+      "n": 12,
+      "date": "2027-03-12",
+      "region": "krabi",
+      "status": "rest",
+      "activityId": null,
+      "dinnerId": "ao-nang-night",
+      "restSuggestion": "Beach day with cocktails"
+    },
+    {
+      "n": 13,
+      "date": "2027-03-13",
+      "region": "krabi",
+      "status": "active",
+      "activityId": "railay-day",
+      "dinnerId": "phulay-dinner",
+      "restSuggestion": null
+    },
+    {
+      "n": 14,
+      "date": "2027-03-14",
+      "region": "krabi",
+      "status": "transfer",
+      "activityId": null,
+      "dinnerId": "lae-lay-grill",
+      "restSuggestion": null
+    }
+  ]
+}
+</script>
+<script>
+// Inlined into every generated trip page. Pure ES2020, no dependencies.
+// Reads the trip-data JSON block (#trip-data), restores overrides from
+// localStorage, wires up swap / reset / shuffle / print buttons.
+
+(function () {
+  "use strict";
+
+  const dataEl = document.getElementById("trip-data");
+  if (!dataEl) return; // page has no plan
+  const trip = JSON.parse(dataEl.textContent);
+  const KEY = "trip:" + trip.tripSlug;
+
+  // Restore overrides if any
+  let overrides = {};
+  try { overrides = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch { overrides = {}; }
+
+  function applyOverrides(days) {
+    if (!overrides.days) return days;
+    return days.map((d) => {
+      const o = overrides.days.find((x) => x.n === d.n);
+      return o ? { ...d, ...o } : d;
+    });
+  }
+
+  function saveOverride(dayN, patch) {
+    overrides.days = overrides.days || [];
+    const i = overrides.days.findIndex((x) => x.n === dayN);
+    if (i >= 0) overrides.days[i] = { ...overrides.days[i], ...patch, n: dayN };
+    else overrides.days.push({ ...patch, n: dayN });
+    localStorage.setItem(KEY, JSON.stringify(overrides));
+  }
+
+  // ── eligibility ────────────────────────────────────────────────────────
+  function eligibleActivities(region, dayN, currentDays) {
+    const hotel = trip.regionHotel[region];
+    const usedIds = new Set(currentDays.filter((d) => d.region === region && d.activityId && d.n !== dayN).map((d) => d.activityId));
+    return (trip.activities[region] || [])
+      .filter((a) => (a.drive[hotel] ?? Infinity) <= 60)
+      .filter((a) => !usedIds.has(a.id));
+  }
+  function eligibleRestaurants(region) {
+    const hotel = trip.regionHotel[region];
+    return (trip.restaurants[region] || [])
+      .slice()
+      .sort((a, b) => (a.drive[hotel] ?? Infinity) - (b.drive[hotel] ?? Infinity));
+  }
+
+  // ── render helpers ─────────────────────────────────────────────────────
+  function findActivity(region, id) {
+    return ((trip.activities || {})[region] || []).find((a) => a.id === id);
+  }
+  function findRestaurant(region, id) {
+    return ((trip.restaurants || {})[region] || []).find((r) => r.id === id);
+  }
+
+  function renderActivityBlock(d) {
+    if (d.status === "rest") {
+      return `<div class="rest-suggestion"><span>🌿</span> ${d.restSuggestion || "Rest day"}</div>`;
+    }
+    if (d.status === "transfer") {
+      return `<div class="transfer-note"><span>✈️</span> Transfer day — travel logistics in the region section below.</div>`;
+    }
+    const a = findActivity(d.region, d.activityId);
+    if (!a) return `<em>(no activity)</em>`;
+    const hotel = trip.regionHotel[d.region];
+    const drive = a.drive[hotel] ?? "?";
+    const mapsLink = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(a.name)}`;
+    return `<div class="activity-row">
+      <strong>${a.name}</strong>
+      <div class="muted">🚗 ${drive} min from ${hotel} &middot; <a href="${mapsLink}" target="_blank" rel="noopener">map</a></div>
+      <button class="swap-btn" data-swap="activity" data-day="${d.n}" aria-expanded="false">swap activity ▾</button>
+      <div class="swap-pool" data-pool-day="${d.n}" data-pool-kind="activity"></div>
+    </div>`;
+  }
+
+  function renderDinnerBlock(d) {
+    const r = findRestaurant(d.region, d.dinnerId);
+    if (!r) return `<em>(no dinner)</em>`;
+    const hotel = trip.regionHotel[d.region];
+    return `<div class="dinner-row">
+      🍽 <strong>${r.name}</strong>
+      <div class="muted">${r.tier} &middot; ${r.drive[hotel] ?? "?"} min</div>
+      <button class="swap-btn" data-swap="dinner" data-day="${d.n}" aria-expanded="false">swap dinner ▾</button>
+      <div class="swap-pool" data-pool-day="${d.n}" data-pool-kind="dinner"></div>
+    </div>`;
+  }
+
+  function dayCardHtml(d) {
+    const statusBadge = d.status === "active" ? "📸 ACTIVE" : d.status === "rest" ? "🌿 REST" : "✈️ TRANSFER";
+    const region = (trip.regions || []).find((r) => r.id === d.region);
+    const regionName = region ? region.name : d.region;
+    const a = findActivity(d.region, d.activityId);
+    const dateShort = (() => { const dt = new Date(d.date + "T00:00:00Z"); return dt.toLocaleDateString("en", { month: "short", day: "numeric", timeZone: "UTC" }); })();
+    return `<article class="day-card day-card-${d.status}" data-day="${d.n}" aria-label="Day ${d.n}, ${d.status}, ${a ? a.name : d.status}">
+      <header class="day-card-head">
+        <div class="day-num">DAY ${String(d.n).padStart(2, "0")} &middot; ${dateShort}</div>
+        <div class="day-tags"><span class="region-tag">${regionName}</span><span class="status-badge">${statusBadge}</span></div>
+      </header>
+      <div class="day-card-activity">${renderActivityBlock(d)}</div>
+      <div class="day-card-dinner">${renderDinnerBlock(d)}</div>
+    </article>`;
+  }
+
+  function renderAllDays() {
+    const grid = document.querySelector(".day-grid");
+    if (!grid) return;
+    const days = applyOverrides(trip.days);
+    grid.innerHTML = days.map(dayCardHtml).join("\n");
+    wireUp();
+  }
+
+  function showSwapPool(btn, kind, dayN) {
+    const pool = btn.parentElement.querySelector(".swap-pool");
+    const isOpen = pool.classList.toggle("open");
+    btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    if (!isOpen) return;
+    const days = applyOverrides(trip.days);
+    const d = days.find((x) => x.n === dayN);
+    if (!d) return;
+    let options = [];
+    if (kind === "activity") {
+      options = eligibleActivities(d.region, dayN, days);
+      pool.innerHTML = options.length
+        ? options.map((a) => `<div class="swap-option" data-pick="${a.id}">${a.name} <span class="muted">${a.drive[trip.regionHotel[d.region]]}min</span></div>`).join("")
+        : `<em>No other eligible activities for this hotel. Try Shuffle or change another day first.</em>`;
+    } else {
+      options = eligibleRestaurants(d.region);
+      pool.innerHTML = options.map((r) => `<div class="swap-option" data-pick="${r.id}">${r.name} <span class="muted">${r.tier} &middot; ${r.drive[trip.regionHotel[d.region]] ?? "?"}min</span></div>`).join("");
+    }
+    pool.querySelectorAll(".swap-option").forEach((opt) => {
+      opt.addEventListener("click", () => {
+        const id = opt.getAttribute("data-pick");
+        if (kind === "activity") saveOverride(dayN, { activityId: id });
+        else saveOverride(dayN, { dinnerId: id });
+        renderAllDays();
+      });
+    });
+  }
+
+  function wireUp() {
+    document.querySelectorAll(".swap-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const kind = btn.getAttribute("data-swap");
+        const dayN = Number(btn.getAttribute("data-day"));
+        showSwapPool(btn, kind, dayN);
+      });
+    });
+  }
+
+  const resetBtn = document.getElementById("plan-reset");
+  if (resetBtn) resetBtn.addEventListener("click", () => {
+    localStorage.removeItem(KEY);
+    overrides = {};
+    renderAllDays();
+  });
+
+  const printBtn = document.getElementById("plan-print");
+  if (printBtn) printBtn.addEventListener("click", () => window.print());
+
+  const shuffleBtn = document.getElementById("plan-shuffle");
+  if (shuffleBtn) shuffleBtn.addEventListener("click", () => {
+    // Client-side shuffle: rotate eligible activities through active days within each region.
+    const days = applyOverrides(trip.days);
+    const rng = Math.random;
+    const byRegion = {};
+    for (const d of days) {
+      if (d.status === "active") (byRegion[d.region] = byRegion[d.region] || []).push(d);
+    }
+    for (const region in byRegion) {
+      const activeDays = byRegion[region];
+      const pool = eligibleActivities(region, -1, []).slice();
+      for (let i = pool.length - 1; i > 0; i--) {
+        const j = Math.floor(rng() * (i + 1));
+        [pool[i], pool[j]] = [pool[j], pool[i]];
+      }
+      for (let i = 0; i < activeDays.length; i++) {
+        if (pool[i]) saveOverride(activeDays[i].n, { activityId: pool[i].id });
+      }
+    }
+    renderAllDays();
+  });
+
+  // Initial render replaces server-rendered static cards
+  renderAllDays();
+})();
+
+</script>
+
+</body>
+</html>
