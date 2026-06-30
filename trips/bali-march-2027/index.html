@@ -406,6 +406,49 @@
       .info-card { padding: 18px; }
       nav li a { padding: 12px 10px; font-size: 0.7rem; }
     }
+
+    /* ── Day-by-day section ──────────────────────────────────────────── */
+    #dayplan .dayplan-controls { display: flex; gap: 12px; justify-content: center; margin-bottom: 32px; flex-wrap: wrap; }
+    #dayplan .dayplan-controls button { background: #fff; border: 1px solid #d4cfc7; color: #1a1a2e; padding: 8px 16px; border-radius: 999px; font-family: inherit; font-size: .9rem; cursor: pointer; transition: background .15s; }
+    #dayplan .dayplan-controls button:hover { background: #f0ebe3; }
+    .day-grid { display: grid; grid-template-columns: 1fr; gap: 16px; max-width: 900px; margin: 0 auto; }
+    @media (min-width: 900px) { .day-grid { grid-template-columns: 1fr 1fr; } }
+    .day-card { background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,.06); padding: 18px 20px; display: flex; flex-direction: column; gap: 12px; }
+    .day-card-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .day-num { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: #b8865b; letter-spacing: 1px; }
+    .day-tags { display: flex; gap: 8px; }
+    .region-tag, .status-badge { font-size: .75rem; letter-spacing: 1px; text-transform: uppercase; padding: 3px 10px; border-radius: 999px; }
+    .region-tag { background: #f0ebe3; color: #1a1a2e; }
+    .status-badge { color: #fff; }
+    .day-card-active .status-badge { background: #2e8b57; }
+    .day-card-rest   .status-badge { background: #b8865b; }
+    .day-card-transfer .status-badge { background: #6b7a8f; }
+    .day-card-activity, .day-card-dinner { font-size: .95rem; }
+    .day-card-activity .muted, .day-card-dinner .muted { color: #888; font-size: .85rem; }
+    .day-card .swap-btn { background: none; border: none; color: #b8865b; font: inherit; cursor: pointer; padding: 4px 0; text-decoration: underline; display: block; margin-top: 6px; }
+    .swap-pool { display: none; margin-top: 8px; padding: 8px; background: #faf6f0; border-radius: 6px; max-height: 240px; overflow-y: auto; }
+    .swap-pool.open { display: block; }
+    .swap-pool .swap-option { display: flex; gap: 10px; padding: 6px; cursor: pointer; border-radius: 4px; }
+    .swap-pool .swap-option:hover { background: #f0ebe3; }
+    .rest-suggestion, .transfer-note { color: #555; font-style: italic; }
+
+    /* ── Local quote callout ─────────────────────────────────────────── */
+    .local-quote { font-family: 'Playfair Display', serif; font-style: italic; border-left: 3px solid #b8865b; padding: 12px 16px; margin-top: 16px; color: #555; background: #faf6f0; border-radius: 0 8px 8px 0; }
+    .local-quote cite { display: block; font-style: normal; font-family: 'Inter', sans-serif; font-size: .8rem; color: #888; margin-top: 6px; letter-spacing: 1px; }
+
+    /* ── Social embeds ───────────────────────────────────────────────── */
+    .social-embeds { margin-top: 16px; }
+    .social-embeds summary { cursor: pointer; font-size: .9rem; color: #b8865b; padding: 6px 0; }
+    .social-embeds[open] { max-height: 600px; overflow-y: auto; }
+
+    /* ── Print stylesheet ────────────────────────────────────────────── */
+    @media print {
+      nav, .hero-video, .hero, .scroll-indicator, .social-embeds, .swap-btn, .dayplan-controls { display: none !important; }
+      body { background: #fff; padding: 0 12mm; font-size: 11pt; }
+      .day-card { page-break-inside: avoid; box-shadow: none; border: 1px solid #ccc; margin-bottom: 6mm; }
+      .img-banner, .trip-hero { display: none; }
+      h1, h2 { color: #000; }
+    }
   </style>
 </head>
 <body>
@@ -414,14 +457,14 @@
   <img
     class="hero-video"
     src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1920&q=80"
-    alt="Bali rice terraces"
+    alt="Our Bali Honeymoon — March 2027"
     width="1920" height="1080"
     fetchpriority="high"
   >
   <div class="hero-content">
     <p class="sub">Our Honeymoon Adventure</p>
-    <h1>Bali &amp; Nusa Penida</h1>
-    <span class="date">March 2027 &nbsp;·&nbsp; 14 Days</span>
+    <h1>Our Bali Honeymoon — March 2027</h1>
+    <span class="date">March 1&ndash;14, 2027 · 14 Days</span>
   </div>
   <div class="scroll-indicator">Scroll</div>
 </header>
@@ -429,6 +472,7 @@
 <nav>
   <ul>
     <li><a href="#overview">Overview</a></li>
+    <li><a href="#dayplan">Day-by-Day</a></li>
     <li><a href="#ubud">Ubud</a></li>
     <li><a href="#nusapenida">Nusa Penida</a></li>
     <li><a href="#seminyak">Seminyak</a></li>
@@ -439,27 +483,153 @@
 <section id="overview">
   <div class="section-title">
     <h2>14-Day Journey</h2>
-    <p>Three destinations, one unforgettable honeymoon</p>
+    <p>Three destinations, one unforgettable honeymoon &mdash; cultural heart, wild island, sunset coast</p>
   </div>
   <div class="timeline-grid">
     <div class="timeline-card">
-      <div class="days">Days 1 &mdash; 6</div>
-      <h3>Ubud</h3>
-      <p>Rice terraces, temples, waterfalls &amp; Balinese culture</p>
-    </div>
+  <div class="days">Days 1&ndash;6</div>
+  <h3>Ubud</h3>
+  <p>The cultural heart of Bali</p>
+</div>
     <div class="timeline-card">
-      <div class="days">Days 7 &mdash; 9</div>
-      <h3>Nusa Penida</h3>
-      <p>Dramatic cliffs, hidden beaches &amp; manta rays</p>
-    </div>
+  <div class="days">Days 7&ndash;9</div>
+  <h3>Nusa Penida</h3>
+  <p>Wild cliffs &amp; turquoise waters</p>
+</div>
     <div class="timeline-card">
-      <div class="days">Days 10 &mdash; 14</div>
-      <h3>Seminyak</h3>
-      <p>Sunsets, beach clubs, dining &amp; relaxation</p>
-    </div>
+  <div class="days">Days 10&ndash;14</div>
+  <h3>Seminyak</h3>
+  <p>Sunsets, dining &amp; romance</p>
+</div>
   </div>
   <div style="text-align:center;margin-top:32px;color:#888;font-size:0.92rem;">
-    <strong style="color:#b8865b;">March weather:</strong> End of wet season &mdash; warm (27&ndash;32&deg;C), occasional showers, lush &amp; green
+    <strong style="color:#b8865b;">March weather:</strong> End of wet season &mdash; warm (27&ndash;32&deg;C), occasional showers, lush &amp; green &middot; rice paddies are at their most vivid this month
+  </div>
+</section>
+
+<section id="dayplan">
+  <div class="section-title">
+    <h2>Day-by-Day</h2>
+    <p>Paced to give you energy &mdash; one thing per active day, rest in between</p>
+  </div>
+  <div class="dayplan-controls">
+    <button id="plan-reset" type="button">Reset</button>
+    <button id="plan-shuffle" type="button">Shuffle</button>
+    <button id="plan-print" type="button">Print</button>
+  </div>
+  <div class="day-grid">
+    <article class="day-card day-card-transfer" data-day="1" aria-label="Day 1, transfer, transfer">
+  <header class="day-card-head">
+    <div class="day-num">DAY 01 &middot; Mar 1</div>
+    <div class="day-tags"><span class="region-tag">Ubud</span><span class="status-badge">✈️ TRANSFER</span></div>
+  </header>
+  <div class="day-card-activity"><div class="transfer-note">✈️ Transfer day — see region section for logistics.</div></div>
+  <div class="day-card-dinner">🍽 <strong>Warung Babi Guling Ibu Oka</strong><div class="muted">cheap · 8 min</div></div>
+</article>
+    <article class="day-card day-card-rest" data-day="2" aria-label="Day 2, rest, rest">
+  <header class="day-card-head">
+    <div class="day-num">DAY 02 &middot; Mar 2</div>
+    <div class="day-tags"><span class="region-tag">Ubud</span><span class="status-badge">🌿 REST</span></div>
+  </header>
+  <div class="day-card-activity"><div class="rest-suggestion">🌿 Sunset cocktail at hotel bar</div></div>
+  <div class="day-card-dinner">🍽 <strong>Warung Babi Guling Ibu Oka</strong><div class="muted">cheap · 8 min</div></div>
+</article>
+    <article class="day-card day-card-active" data-day="3" aria-label="Day 3, active, Tegalalang Rice Terraces">
+  <header class="day-card-head">
+    <div class="day-num">DAY 03 &middot; Mar 3</div>
+    <div class="day-tags"><span class="region-tag">Ubud</span><span class="status-badge">📸 ACTIVE</span></div>
+  </header>
+  <div class="day-card-activity"><strong>Tegalalang Rice Terraces</strong><div class="muted">🚗 22 min from eden-house</div></div>
+  <div class="day-card-dinner">🍽 <strong>Naughty Nuri's</strong><div class="muted">mid · 9 min</div></div>
+</article>
+    <article class="day-card day-card-rest" data-day="4" aria-label="Day 4, rest, rest">
+  <header class="day-card-head">
+    <div class="day-num">DAY 04 &middot; Mar 4</div>
+    <div class="day-tags"><span class="region-tag">Ubud</span><span class="status-badge">🌿 REST</span></div>
+  </header>
+  <div class="day-card-activity"><div class="rest-suggestion">🌿 Pool & book</div></div>
+  <div class="day-card-dinner">🍽 <strong>Warung Babi Guling Ibu Oka</strong><div class="muted">cheap · 8 min</div></div>
+</article>
+    <article class="day-card day-card-active" data-day="5" aria-label="Day 5, active, Balinese Cooking Class (Paon Bali)">
+  <header class="day-card-head">
+    <div class="day-num">DAY 05 &middot; Mar 5</div>
+    <div class="day-tags"><span class="region-tag">Ubud</span><span class="status-badge">📸 ACTIVE</span></div>
+  </header>
+  <div class="day-card-activity"><strong>Balinese Cooking Class (Paon Bali)</strong><div class="muted">🚗 10 min from eden-house</div></div>
+  <div class="day-card-dinner">🍽 <strong>Locavore</strong><div class="muted">splurge · 6 min</div></div>
+</article>
+    <article class="day-card day-card-rest" data-day="6" aria-label="Day 6, rest, rest">
+  <header class="day-card-head">
+    <div class="day-num">DAY 06 &middot; Mar 6</div>
+    <div class="day-tags"><span class="region-tag">Ubud</span><span class="status-badge">🌿 REST</span></div>
+  </header>
+  <div class="day-card-activity"><div class="rest-suggestion">🌿 Short walk in the neighborhood</div></div>
+  <div class="day-card-dinner">🍽 <strong>Warung Babi Guling Ibu Oka</strong><div class="muted">cheap · 8 min</div></div>
+</article>
+    <article class="day-card day-card-transfer" data-day="7" aria-label="Day 7, transfer, transfer">
+  <header class="day-card-head">
+    <div class="day-num">DAY 07 &middot; Mar 7</div>
+    <div class="day-tags"><span class="region-tag">Nusa Penida</span><span class="status-badge">✈️ TRANSFER</span></div>
+  </header>
+  <div class="day-card-activity"><div class="transfer-note">✈️ Transfer day — see region section for logistics.</div></div>
+  <div class="day-card-dinner">🍽 <strong>Warung Pak Made</strong><div class="muted">cheap · 6 min</div></div>
+</article>
+    <article class="day-card day-card-rest" data-day="8" aria-label="Day 8, rest, rest">
+  <header class="day-card-head">
+    <div class="day-num">DAY 08 &middot; Mar 8</div>
+    <div class="day-tags"><span class="region-tag">Nusa Penida</span><span class="status-badge">🌿 REST</span></div>
+  </header>
+  <div class="day-card-activity"><div class="rest-suggestion">🌿 Late breakfast and lazy morning</div></div>
+  <div class="day-card-dinner">🍽 <strong>Warung Pak Made</strong><div class="muted">cheap · 6 min</div></div>
+</article>
+    <article class="day-card day-card-active" data-day="9" aria-label="Day 9, active, Kelingking Beach (T-Rex Cliff)">
+  <header class="day-card-head">
+    <div class="day-num">DAY 09 &middot; Mar 9</div>
+    <div class="day-tags"><span class="region-tag">Nusa Penida</span><span class="status-badge">📸 ACTIVE</span></div>
+  </header>
+  <div class="day-card-activity"><strong>Kelingking Beach (T-Rex Cliff)</strong><div class="muted">🚗 35 min from kamasan</div></div>
+  <div class="day-card-dinner">🍽 <strong>Amok Sunset</strong><div class="muted">splurge · 30 min</div></div>
+</article>
+    <article class="day-card day-card-transfer" data-day="10" aria-label="Day 10, transfer, transfer">
+  <header class="day-card-head">
+    <div class="day-num">DAY 10 &middot; Mar 10</div>
+    <div class="day-tags"><span class="region-tag">Seminyak</span><span class="status-badge">✈️ TRANSFER</span></div>
+  </header>
+  <div class="day-card-activity"><div class="transfer-note">✈️ Transfer day — see region section for logistics.</div></div>
+  <div class="day-card-dinner">🍽 <strong>Motel Mexicola</strong><div class="muted">mid · 5 min</div></div>
+</article>
+    <article class="day-card day-card-rest" data-day="11" aria-label="Day 11, rest, rest">
+  <header class="day-card-head">
+    <div class="day-num">DAY 11 &middot; Mar 11</div>
+    <div class="day-tags"><span class="region-tag">Seminyak</span><span class="status-badge">🌿 REST</span></div>
+  </header>
+  <div class="day-card-activity"><div class="rest-suggestion">🌿 Short walk in the neighborhood</div></div>
+  <div class="day-card-dinner">🍽 <strong>Made's Warung</strong><div class="muted">cheap · 4 min</div></div>
+</article>
+    <article class="day-card day-card-rest" data-day="12" aria-label="Day 12, rest, rest">
+  <header class="day-card-head">
+    <div class="day-num">DAY 12 &middot; Mar 12</div>
+    <div class="day-tags"><span class="region-tag">Seminyak</span><span class="status-badge">🌿 REST</span></div>
+  </header>
+  <div class="day-card-activity"><div class="rest-suggestion">🌿 Sunset cocktail at hotel bar</div></div>
+  <div class="day-card-dinner">🍽 <strong>Made's Warung</strong><div class="muted">cheap · 4 min</div></div>
+</article>
+    <article class="day-card day-card-active" data-day="13" aria-label="Day 13, active, Sunset at Potato Head / KU DE TA">
+  <header class="day-card-head">
+    <div class="day-num">DAY 13 &middot; Mar 13</div>
+    <div class="day-tags"><span class="region-tag">Seminyak</span><span class="status-badge">📸 ACTIVE</span></div>
+  </header>
+  <div class="day-card-activity"><strong>Sunset at Potato Head / KU DE TA</strong><div class="muted">🚗 8 min from hepburn</div></div>
+  <div class="day-card-dinner">🍽 <strong>Mejekawi at Ku De Ta</strong><div class="muted">splurge · 8 min</div></div>
+</article>
+    <article class="day-card day-card-transfer" data-day="14" aria-label="Day 14, transfer, transfer">
+  <header class="day-card-head">
+    <div class="day-num">DAY 14 &middot; Mar 14</div>
+    <div class="day-tags"><span class="region-tag">Seminyak</span><span class="status-badge">✈️ TRANSFER</span></div>
+  </header>
+  <div class="day-card-activity"><div class="transfer-note">✈️ Transfer day — see region section for logistics.</div></div>
+  <div class="day-card-dinner">🍽 <strong>SugarSand (sunset Japanese)</strong><div class="muted">mid · 6 min</div></div>
+</article>
   </div>
 </section>
 
@@ -471,173 +641,169 @@
       <p>Days 1&ndash;6 &middot; 5 nights &middot; The cultural heart of Bali</p>
     </div>
   </div>
-  <img class="img-banner" src="https://images.unsplash.com/photo-1555400038-63f5ba517a47?auto=format&fit=crop&w=1100&q=80" alt="Ubud monkey forest" width="1100" height="240" loading="lazy">
-
+  <img class="img-banner" src="https://images.unsplash.com/photo-1555400038-63f5ba517a47?auto=format&fit=crop&w=1100&q=80" alt="Ubud" width="1100" height="240" loading="lazy">
   <div class="content-grid">
     <div>
       <div class="info-card">
         <h3>&#128666; Getting There</h3>
-        <ul>
-          <li><span class="label">Airport to Ubud:</span> Grab/Gojek <span class="price">$13&ndash;19</span> <span class="sep">|</span> or private transfer <span class="price">$25&ndash;30</span></li>
+        <ul><li><span class="label">Airport to Ubud:</span> Grab/Gojek <span class="price">$13&ndash;19</span> <span class="sep">|</span> or private transfer <span class="price">$25&ndash;30</span></li>
           <li><span class="label">Travel time:</span> 1.5&ndash;2 hours (38 km)</li>
           <li><span class="label">Budget tip:</span> Kura-Kura shuttle bus from Kuta <span class="price">$6/person</span> (takes 3&ndash;4h)</li>
-          <li><span class="label">Getting around:</span> Scooter rental <span class="price">$3&ndash;5/day</span> <span class="sep">|</span> Gojek rides <span class="price">$1&ndash;3</span></li>
-        </ul>
+          <li><span class="label">Getting around:</span> Scooter rental <span class="price">$3&ndash;5/day</span> <span class="sep">|</span> Gojek rides <span class="price">$1&ndash;3</span></li></ul>
       </div>
-
       <div class="info-card">
         <h3>&#127968; Where to Stay</h3>
-
         <div class="hotel-card">
-          <img class="hotel-card-img" src="https://images.unsplash.com/photo-1737808773486-ca1065f37217?auto=format&fit=crop&w=260&q=80" alt="Eden House Ubud" loading="lazy" width="130" height="130">
-          <div class="hotel-card-body">
-            <div class="name-row">
-              <h4>Eden House Ubud</h4>
-              <span class="rating-badge"><span class="star">&#9733;</span> 9.5</span>
-              <span class="platform-badge">Booking.com</span>
-            </div>
-            <div class="price-line">from <span class="price">$35&ndash;50</span> / night</div>
-            <div class="features">
-              <span>King bed</span><span>Breakfast</span><span>Balcony</span><span>Rice views</span><span>Yoga</span>
-            </div>
-            <div class="desc">Traditional Balinese guesthouse, family-run, surrounded by rice fields 5min from center.</div>
-            <div class="couples-note">&#9829; Couples rate it 9.2/10</div>
-          </div>
-        </div>
-
+  <img class="hotel-card-img" src="https://images.unsplash.com/photo-1737808773486-ca1065f37217?auto=format&fit=crop&w=260&q=80" alt="Eden House Ubud" loading="lazy" width="130" height="130">
+  <div class="hotel-card-body">
+    <div class="name-row">
+      <h4>Eden House Ubud</h4>
+      <span class="rating-badge"><span class="star">&#9733;</span> 9.5</span>
+      <span class="platform-badge ">Booking.com</span>
+    </div>
+    <div class="price-line">from <span class="price">$35&ndash;50</span> / night</div>
+    <div class="features"><span>King bed</span><span>Breakfast</span><span>Balcony</span><span>Rice views</span><span>Yoga</span></div>
+    <div class="desc">Traditional Balinese guesthouse, family-run, surrounded by rice fields 5min from center.</div>
+    <div class="couples-note">&#9829; Couples rate it 9.2/10</div>
+  </div>
+</div>
         <div class="hotel-card">
-          <img class="hotel-card-img" src="https://images.unsplash.com/photo-1668277155881-9d3bccb1683a?auto=format&fit=crop&w=260&q=80" alt="Omank Agus Homestay" loading="lazy" width="130" height="130">
-          <div class="hotel-card-body">
-            <div class="name-row">
-              <h4>Omank Agus Homestay</h4>
-              <span class="rating-badge"><span class="star">&#9733;</span> 9.3</span>
-              <span class="platform-badge">Booking.com</span>
-            </div>
-            <div class="price-line">from <span class="price">$25&ndash;35</span> / night</div>
-            <div class="features"><span>Garden</span><span>Sun terrace</span><span>AC</span><span>Free WiFi</span><span>10min walk</span></div>
-            <div class="desc">Quiet family homestay, 10min walk to Ubud Palace. Highly rated for location &amp; value.</div>
-            <div class="couples-note">&#9829; Couples rate it 9.3/10</div>
-          </div>
-        </div>
-
+  <img class="hotel-card-img" src="https://images.unsplash.com/photo-1668276490368-409a6002756d?auto=format&fit=crop&w=260&q=80" alt="Kayon Jungle Resort (luxury splurge)" loading="lazy" width="130" height="130">
+  <div class="hotel-card-body">
+    <div class="name-row">
+      <h4>Kayon Jungle Resort (luxury splurge)</h4>
+      <span class="rating-badge"><span class="star">&#9733;</span> 9.6</span>
+      <span class="platform-badge ">Booking.com</span>
+    </div>
+    <div class="price-line">from <span class="price">$320&ndash;420</span> / night</div>
+    <div class="features"><span>Infinity Pool</span><span>Forest Pool Villa</span><span>Adults-only</span><span>Butler service</span><span>River views</span><span>Spa</span></div>
+    <div class="desc">Adults-only jungle resort above the Petanu River gorge &mdash; Forest Pool Villas have private infinity-edge plunge pools that flow into the canopy. 64% of guests are couples; butler service makes the romantic evening setup effortless.</div>
+    <div class="couples-note">&#9829; Couples rate it 9.7/10</div>
+  </div>
+</div>
         <div class="hotel-card">
-          <img class="hotel-card-img" src="https://images.unsplash.com/photo-1737531049186-a20c1f203f50?auto=format&fit=crop&w=260&q=80" alt="Tegal Sari Ubud" loading="lazy" width="130" height="130">
-          <div class="hotel-card-body">
-            <div class="name-row">
-              <h4>Tegal Sari Accommodation</h4>
-              <span class="rating-badge"><span class="star">&#9733;</span> 8.7</span>
-              <span class="platform-badge agoda">Agoda</span>
-            </div>
-            <div class="price-line">from <span class="price">$27&ndash;53</span> / night</div>
-            <div class="features"><span>Rice paddy views</span><span>Central</span><span>Pool</span><span>Balinese style</span></div>
-            <div class="desc">Iconic budget stay right by the rice fields. Book on Agoda for lowest rates.</div>
-          </div>
-        </div>
-
+  <img class="hotel-card-img" src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=260&q=80" alt="Bisma Eight (design splurge)" loading="lazy" width="130" height="130">
+  <div class="hotel-card-body">
+    <div class="name-row">
+      <h4>Bisma Eight (design splurge)</h4>
+      <span class="rating-badge"><span class="star">&#9733;</span> 9.4</span>
+      <span class="platform-badge ">Booking.com</span>
+    </div>
+    <div class="price-line">from <span class="price">$180&ndash;240</span> / night</div>
+    <div class="features"><span>Infinity Pool</span><span>Jungle view</span><span>Breakfast</span><span>Spa</span><span>Adults-only</span></div>
+    <div class="desc">Adults-only design hotel with an Infinity Pool overlooking the jungle canopy &mdash; the more affordable splurge option, with breakfast and a great spa.</div>
+    <div class="couples-note">&#9829; Couples rate it 9.5/10</div>
+  </div>
+</div>
         <div class="hotel-card">
-          <img class="hotel-card-img" src="https://images.unsplash.com/photo-1654703943019-e519711ea124?auto=format&fit=crop&w=260&q=80" alt="Puri Garden Ubud" loading="lazy" width="130" height="130">
-          <div class="hotel-card-body">
-            <div class="name-row">
-              <h4>Puri Garden Hotel &amp; Hostel</h4>
-              <span class="rating-badge"><span class="star">&#9733;</span> 9.0</span>
-              <span class="platform-badge agoda">Agoda</span>
-            </div>
-            <div class="price-line">from <span class="price">$24</span> / night</div>
-            <div class="features"><span>Pool</span><span>Yoga</span><span>Restaurant</span><span>Social</span><span>AC</span></div>
-            <div class="desc">Top-rated budget stay with beautiful pool and garden. Great for meeting other travelers.</div>
-          </div>
-        </div>
-
-        <div class="tip-box">
-          <strong>&#128161; Pro Tip:</strong> For romance on a budget, book <strong>Eden House</strong> on Booking.com. For the absolute cheapest, grab a <strong>Tegal Sari</strong> deal on Agoda (from $27/night).
-        </div>
+  <img class="hotel-card-img" src="https://images.unsplash.com/photo-1668277155881-9d3bccb1683a?auto=format&fit=crop&w=260&q=80" alt="Omank Agus Homestay" loading="lazy" width="130" height="130">
+  <div class="hotel-card-body">
+    <div class="name-row">
+      <h4>Omank Agus Homestay</h4>
+      <span class="rating-badge"><span class="star">&#9733;</span> 9.3</span>
+      <span class="platform-badge ">Booking.com</span>
+    </div>
+    <div class="price-line">from <span class="price">$25&ndash;35</span> / night</div>
+    <div class="features"><span>Garden</span><span>Sun terrace</span><span>AC</span><span>Free WiFi</span><span>10min walk</span></div>
+    <div class="desc">Quiet family homestay, 10min walk to Ubud Palace. Highly rated for location &amp; value.</div>
+    <div class="couples-note">&#9829; Couples rate it 9.3/10</div>
+  </div>
+</div>
+        <div class="hotel-card">
+  <img class="hotel-card-img" src="https://images.unsplash.com/photo-1737531049186-a20c1f203f50?auto=format&fit=crop&w=260&q=80" alt="Tegal Sari Accommodation" loading="lazy" width="130" height="130">
+  <div class="hotel-card-body">
+    <div class="name-row">
+      <h4>Tegal Sari Accommodation</h4>
+      <span class="rating-badge"><span class="star">&#9733;</span> 8.7</span>
+      <span class="platform-badge agoda">Agoda</span>
+    </div>
+    <div class="price-line">from <span class="price">$27&ndash;53</span> / night</div>
+    <div class="features"><span>Rice paddy views</span><span>Central</span><span>Pool</span><span>Balinese style</span></div>
+    <div class="desc">Iconic budget stay right by the rice fields. Book on Agoda for lowest rates.</div>
+    
+  </div>
+</div>
+        <div class="tip-box"><strong>&#128161; Pro Tip:</strong> Most nights at <strong>Eden House</strong> ($35), then splurge ONE night at <strong>Kayon Jungle</strong> for the private Forest Pool Villa with infinity plunge pool. Time the splurge for night 5 (the calm before the Penida transfer).</div>
       </div>
     </div>
-
     <div>
       <div class="info-card">
         <h3>&#128247; What to Visit in Ubud</h3>
-
         <div class="spot-card">
-          <img class="spot-card-img" src="https://images.unsplash.com/photo-1680100595862-9c8803a9e7da?auto=format&fit=crop&w=220&q=80" alt="Tegalalang Rice Terraces" loading="lazy" width="110" height="110">
-          <div class="spot-card-body">
-            <h4>Tegalalang Rice Terraces</h4>
-            <div class="vibe">Like walking through a living painting &mdash; layer after layer of luminous green stretching into the valley.</div>
-            <div class="detail">Go before 8am when the light is golden and the crowds are gone.</div>
-            <span class="price-tag">Free (small donation)</span>
-          </div>
-        </div>
-
+  <img class="spot-card-img" src="https://images.unsplash.com/photo-1680100595862-9c8803a9e7da?auto=format&fit=crop&w=220&q=80" alt="Tegalalang Rice Terraces" loading="lazy" width="110" height="110">
+  <div class="spot-card-body">
+    <h4>Tegalalang Rice Terraces</h4>
+    <div class="vibe">Like walking through a living painting &mdash; layer after layer of luminous green stretching into the valley.</div>
+    <div class="detail">Go before 8am when the light is golden and the crowds are gone.</div>
+    <span class="price-tag">Free (small donation)</span>
+  </div>
+</div>
         <div class="spot-card">
-          <img class="spot-card-img" src="https://images.unsplash.com/photo-1565065550777-08b14ae05e2c?auto=format&fit=crop&w=220&q=80" alt="Campuhan Ridge Walk" loading="lazy" width="110" height="110">
-          <div class="spot-card-body">
-            <h4>Campuhan Ridge Walk</h4>
-            <div class="vibe">A peaceful ridge path suspended between two river valleys &mdash; just you, the breeze, and the sound of birds at dawn.</div>
-            <div class="detail">Best at 6am &mdash; the light filters through morning mist.</div>
-            <span class="price-tag">Free</span>
-          </div>
-        </div>
-
+  <img class="spot-card-img" src="https://images.unsplash.com/photo-1565065550777-08b14ae05e2c?auto=format&fit=crop&w=220&q=80" alt="Campuhan Ridge Walk" loading="lazy" width="110" height="110">
+  <div class="spot-card-body">
+    <h4>Campuhan Ridge Walk</h4>
+    <div class="vibe">A peaceful ridge path suspended between two river valleys &mdash; just you, the breeze, and the sound of birds at dawn.</div>
+    <div class="detail">Best at 6am &mdash; the light filters through morning mist.</div>
+    <span class="price-tag">Free</span>
+  </div>
+</div>
         <div class="spot-card">
-          <img class="spot-card-img" src="https://images.unsplash.com/photo-1599853225442-3f30dd13a34d?auto=format&fit=crop&w=220&q=80" alt="Sacred Monkey Forest" loading="lazy" width="110" height="110">
-          <div class="spot-card-body">
-            <h4>Sacred Monkey Forest</h4>
-            <div class="vibe">Ancient temple grounds where over 1,200 long-tailed macaques roam freely through the jungle &mdash; equal parts magical and mischievous.</div>
-            <div class="detail">Keep your belongings close &mdash; the monkeys are clever!</div>
-            <span class="price-tag">$5 entry</span>
-          </div>
-        </div>
-
+  <img class="spot-card-img" src="https://images.unsplash.com/photo-1599853225442-3f30dd13a34d?auto=format&fit=crop&w=220&q=80" alt="Sacred Monkey Forest" loading="lazy" width="110" height="110">
+  <div class="spot-card-body">
+    <h4>Sacred Monkey Forest</h4>
+    <div class="vibe">Ancient temple grounds where over 1,200 long-tailed macaques roam freely through the jungle &mdash; equal parts magical and mischievous.</div>
+    <div class="detail">Keep your belongings close &mdash; the monkeys are clever!</div>
+    <span class="price-tag">$5 entry</span>
+  </div>
+</div>
         <div class="spot-card">
-          <img class="spot-card-img" src="https://images.unsplash.com/photo-1641082918149-24470fe02c39?auto=format&fit=crop&w=220&q=80" alt="Tirta Empul" loading="lazy" width="110" height="110">
-          <div class="spot-card-body">
-            <h4>Tirta Empul Water Temple</h4>
-            <div class="vibe">A sacred spring where locals and visitors alike walk through cleansing fountains &mdash; a deeply moving Balinese ritual.</div>
-            <div class="detail">Dress respectfully &mdash; sarongs are provided.</div>
-            <span class="price-tag">$5 entry</span>
-          </div>
-        </div>
-
+  <img class="spot-card-img" src="https://images.unsplash.com/photo-1641082918149-24470fe02c39?auto=format&fit=crop&w=220&q=80" alt="Tirta Empul Water Temple" loading="lazy" width="110" height="110">
+  <div class="spot-card-body">
+    <h4>Tirta Empul Water Temple</h4>
+    <div class="vibe">A sacred spring where locals and visitors alike walk through cleansing fountains &mdash; a deeply moving Balinese ritual.</div>
+    <div class="detail">Dress respectfully &mdash; sarongs are provided.</div>
+    <span class="price-tag">$5 entry</span>
+  </div>
+</div>
         <div class="spot-card">
-          <img class="spot-card-img" src="https://images.unsplash.com/photo-1564462369672-a1cbdfff0c9d?auto=format&fit=crop&w=220&q=80" alt="Tegenungan Waterfall" loading="lazy" width="110" height="110">
-          <div class="spot-card-body">
-            <h4>Tegenungan Waterfall</h4>
-            <div class="vibe">A powerful curtain of water crashing into a deep emerald pool &mdash; you can swim right up to it.</div>
-            <div class="detail">15 min drive from Ubud &mdash; best in the morning.</div>
-            <span class="price-tag">$1.50 entry</span>
-          </div>
-        </div>
-
+  <img class="spot-card-img" src="https://images.unsplash.com/photo-1564462369672-a1cbdfff0c9d?auto=format&fit=crop&w=220&q=80" alt="Tibumana Waterfall (hidden gem)" loading="lazy" width="110" height="110">
+  <div class="spot-card-body">
+    <h4>Tibumana Waterfall (hidden gem)</h4>
+    <div class="vibe">A peaceful curtain-style waterfall tucked deep in the Bangli jungle &mdash; less crowded than Tegenungan, with butterflies and vines on the trail in.</div>
+    <div class="detail">30 min drive from Ubud &mdash; bring water shoes for the cool natural pool.</div>
+    <span class="price-tag">$1.30 entry</span>
+  </div>
+</div>
         <div class="spot-card">
-          <img class="spot-card-img" src="https://images.unsplash.com/photo-1762994576926-b8268190a2c9?auto=format&fit=crop&w=220&q=80" alt="Cooking Class" loading="lazy" width="110" height="110">
-          <div class="spot-card-body">
-            <h4>Balinese Cooking Class</h4>
-            <div class="vibe">Starting at the market buying fresh spices, then cooking together in an open-air kitchen surrounded by rice fields &mdash; a couples highlight.</div>
-            <div class="detail">Paon Bali is top-rated &mdash; includes market tour.</div>
-            <span class="price-tag">$35&ndash;50/person</span>
-          </div>
-        </div>
-
+  <img class="spot-card-img" src="https://images.unsplash.com/photo-1762994576926-b8268190a2c9?auto=format&fit=crop&w=220&q=80" alt="Balinese Cooking Class (Paon Bali)" loading="lazy" width="110" height="110">
+  <div class="spot-card-body">
+    <h4>Balinese Cooking Class (Paon Bali)</h4>
+    <div class="vibe">Starting at the market buying fresh spices, then cooking together in an open-air kitchen surrounded by rice fields &mdash; a couples highlight.</div>
+    <div class="detail">Paon Bali is top-rated &mdash; includes market tour &amp; lunch.</div>
+    <span class="price-tag">$35&ndash;50/person</span>
+  </div>
+</div>
         <div class="spot-card">
-          <img class="spot-card-img" src="https://images.unsplash.com/photo-1641563103042-a0390d1847cc?auto=format&fit=crop&w=220&q=80" alt="Ubud Palace" loading="lazy" width="110" height="110">
-          <div class="spot-card-body">
-            <h4>Ubud Palace &amp; Art Market</h4>
-            <div class="vibe">The ornate palace in the heart of town opens onto a vibrant market where artisans sell handmade silk scarves, wooden carvings, and silver jewelry.</div>
-            <div class="detail">Palace is free &mdash; Kecak dance performances at 7:30pm.</div>
-            <span class="price-tag">Free &middot; Dance $7</span>
-          </div>
-        </div>
-
+  <img class="spot-card-img" src="https://images.unsplash.com/photo-1641563103042-a0390d1847cc?auto=format&fit=crop&w=220&q=80" alt="Ubud Palace &amp; Kecak Dance" loading="lazy" width="110" height="110">
+  <div class="spot-card-body">
+    <h4>Ubud Palace &amp; Kecak Dance</h4>
+    <div class="vibe">The ornate palace in the heart of town hosts a candlelit Kecak dance every evening &mdash; chanting, fire, and gamelan, all under starlight.</div>
+    <div class="detail">Palace is free &mdash; Kecak dance performances at 7:30pm.</div>
+    <span class="price-tag">Free &middot; Dance $7</span>
+  </div>
+</div>
         <div class="spot-card">
-          <img class="spot-card-img" src="https://images.unsplash.com/photo-1712226652059-a34d334e6cd0?auto=format&fit=crop&w=220&q=80" alt="Couples Spa" loading="lazy" width="110" height="110">
-          <div class="spot-card-body">
-            <h4>Couples Spa Treatment</h4>
-            <div class="vibe">A candlelit room with the scent of frangipani &mdash; both of you side by side, melting into a 90-minute Balinese massage.</div>
-            <div class="detail">Ubud Traditional Massage is $8&ndash;12 &mdash; hotel spas are $50+.</div>
-            <span class="price-tag">$8&ndash;12 / 90 min</span>
-          </div>
-        </div>
+  <img class="spot-card-img" src="https://images.unsplash.com/photo-1712226652059-a34d334e6cd0?auto=format&fit=crop&w=220&q=80" alt="Couples Spa Treatment" loading="lazy" width="110" height="110">
+  <div class="spot-card-body">
+    <h4>Couples Spa Treatment</h4>
+    <div class="vibe">A candlelit room with the scent of frangipani &mdash; both of you side by side, melting into a 90-minute Balinese massage.</div>
+    <div class="detail">Ubud Traditional Massage is $8&ndash;12 &mdash; hotel spas are $50+.</div>
+    <span class="price-tag">$8&ndash;12 / 90 min</span>
+  </div>
+</div>
       </div>
+      <div class="local-quote"><em>&ldquo;Hidden behind narrow alleys near Ubud Palace, you'll find Sweet Orange Warung — sitting with a plate of nasi goreng watching the rice fields, you feel completely far from the tourist crowds, just the breeze and the sound of frogs.&rdquo;</em><cite>&mdash; wisataubudbali.com (translated from Bahasa Indonesia)</cite></div>
+      
     </div>
   </div>
 </section>
@@ -650,124 +816,123 @@
       <p>Days 7&ndash;9 &middot; 3 nights &middot; Wild cliffs &amp; turquoise waters</p>
     </div>
   </div>
-  <img class="img-banner" src="https://images.unsplash.com/photo-1576363399501-0dd08fc750e1?auto=format&fit=crop&w=1100&q=80" alt="Kelingking Beach Nusa Penida drone" width="1100" height="240" loading="lazy">
-
+  <img class="img-banner" src="https://images.unsplash.com/photo-1576363399501-0dd08fc750e1?auto=format&fit=crop&w=1100&q=80" alt="Nusa Penida" width="1100" height="240" loading="lazy">
   <div class="content-grid">
     <div>
       <div class="info-card">
-        <h3>&#128674; Getting There &amp; Around</h3>
-        <ul>
-          <li><span class="label">Ubud &rarr; Sanur Port:</span> Grab/Gojek <span class="price">$11&ndash;15</span> (1h)</li>
-          <li><span class="label">Sanur &rarr; Nusa Penida:</span> Fast boat <span class="price">$7&ndash;12/person</span> <span class="sep">|</span> 30&ndash;45 min</li>
+        <h3>&#128666; Getting There</h3>
+        <ul><li><span class="label">Ubud &rarr; Sanur Port:</span> Grab/Gojek <span class="price">$11&ndash;15</span> (1h)</li>
+          <li><span class="label">Sanur &rarr; Nusa Penida:</span> Fast boat <span class="price">$9&ndash;15/person</span> <span class="sep">|</span> 30&ndash;45 min</li>
           <li><span class="label">Penida &rarr; Seminyak:</span> Combined ferry+bus <span class="price">$12&ndash;17/person</span> <span class="sep">|</span> ~2.5h</li>
-          <li><span class="label">On island:</span> Scooter rental <span class="price">$5&ndash;8/day</span> <span class="sep">|</span> private driver <span class="price">$30&ndash;40/day</span></li>
-        </ul>
+          <li><span class="label">On island:</span> Private driver <span class="price">$30&ndash;45/day</span> recommended &mdash; roads are rough</li></ul>
       </div>
-
       <div class="info-card">
         <h3>&#127968; Where to Stay</h3>
-
         <div class="hotel-card">
-          <img class="hotel-card-img" src="https://images.unsplash.com/photo-1698904673701-533b64e59d7b?auto=format&fit=crop&w=260&q=80" alt="Kelingking view" loading="lazy" width="130" height="130">
-          <div class="hotel-card-body">
-            <div class="name-row"><h4>Pondok Kana &amp; Hostel</h4><span class="rating-badge"><span class="star">&#9733;</span> 8.3</span><span class="platform-badge">Booking.com</span></div>
-            <div class="price-line">Private room from <span class="price">$16</span> / night</div>
-            <div class="features"><span>Beachfront</span><span>Private bathroom</span><span>Garden</span><span>Free WiFi</span></div>
-            <div class="desc">Beachfront with private double rooms. Great value &amp; close to ferry drop-off.</div>
-            <div class="couples-note">&#9829; Couples rate it 8.7/10</div>
-          </div>
-        </div>
-
+  <img class="hotel-card-img" src="https://images.unsplash.com/photo-1621855970408-e8f226ed1512?auto=format&fit=crop&w=260&q=80" alt="Kamasan Cottage" loading="lazy" width="130" height="130">
+  <div class="hotel-card-body">
+    <div class="name-row">
+      <h4>Kamasan Cottage</h4>
+      <span class="rating-badge"><span class="star">&#9733;</span> 8.5</span>
+      <span class="platform-badge ">Booking.com</span>
+    </div>
+    <div class="price-line">from <span class="price">$25</span> / night</div>
+    <div class="features"><span>Pool</span><span>Garden</span><span>Breakfast</span><span>AC</span><span>Parking</span></div>
+    <div class="desc">The mid-range sweet spot &mdash; pool, breakfast included, great value, close to the west-side viewpoints.</div>
+    
+  </div>
+</div>
         <div class="hotel-card">
-          <img class="hotel-card-img" src="https://images.unsplash.com/photo-1578235169908-d9482dc9e76f?auto=format&fit=crop&w=260&q=80" alt="Maskot Penida" loading="lazy" width="130" height="130">
-          <div class="hotel-card-body">
-            <div class="name-row"><h4>Maskot Penida Cottage</h4><span class="rating-badge"><span class="star">&#9733;</span> 8.0</span><span class="platform-badge">Booking.com</span></div>
-            <div class="price-line">from <span class="price">$10</span> / night</div>
-            <div class="features"><span>Private bungalow</span><span>AC</span><span>Restaurant</span><span>Scooter rental</span></div>
-            <div class="desc">Cheapest decent private bungalow on the island. Basic but clean.</div>
-          </div>
-        </div>
-
+  <img class="hotel-card-img" src="https://images.unsplash.com/photo-1698904673701-533b64e59d7b?auto=format&fit=crop&w=260&q=80" alt="Pondok Kana &amp; Hostel" loading="lazy" width="130" height="130">
+  <div class="hotel-card-body">
+    <div class="name-row">
+      <h4>Pondok Kana &amp; Hostel</h4>
+      <span class="rating-badge"><span class="star">&#9733;</span> 8.3</span>
+      <span class="platform-badge ">Booking.com</span>
+    </div>
+    <div class="price-line">from <span class="price">$16</span> / night</div>
+    <div class="features"><span>Beachfront</span><span>Private bathroom</span><span>Garden</span><span>Free WiFi</span></div>
+    <div class="desc">Beachfront with private double rooms. Great value &amp; close to ferry drop-off.</div>
+    <div class="couples-note">&#9829; Couples rate it 8.7/10</div>
+  </div>
+</div>
         <div class="hotel-card">
-          <img class="hotel-card-img" src="https://images.unsplash.com/photo-1621855970408-e8f226ed1512?auto=format&fit=crop&w=260&q=80" alt="Kamasan Cottage" loading="lazy" width="130" height="130">
-          <div class="hotel-card-body">
-            <div class="name-row"><h4>Kamasan Cottage</h4><span class="rating-badge"><span class="star">&#9733;</span> 8.5</span><span class="platform-badge">Booking.com</span></div>
-            <div class="price-line">from <span class="price">$25</span> / night</div>
-            <div class="features"><span>Pool</span><span>Garden</span><span>Breakfast</span><span>AC</span><span>Parking</span></div>
-            <div class="desc">The mid-range sweet spot &mdash; pool, breakfast included, great value.</div>
-          </div>
-        </div>
-
-        <div class="tip-box">
-          <strong>&#128161; Pro Tip:</strong> Roads are rough &mdash; hire a <strong>private driver ($30&ndash;40/day)</strong> instead of a scooter. Book <strong>Kamasan Cottage</strong> for the best comfort-to-price ratio. Ferries from $7 on 12Go.asia.
-        </div>
+  <img class="hotel-card-img" src="https://images.unsplash.com/photo-1578235169908-d9482dc9e76f?auto=format&fit=crop&w=260&q=80" alt="Maskot Penida Cottage" loading="lazy" width="130" height="130">
+  <div class="hotel-card-body">
+    <div class="name-row">
+      <h4>Maskot Penida Cottage</h4>
+      <span class="rating-badge"><span class="star">&#9733;</span> 8.0</span>
+      <span class="platform-badge ">Booking.com</span>
+    </div>
+    <div class="price-line">from <span class="price">$10</span> / night</div>
+    <div class="features"><span>Private bungalow</span><span>AC</span><span>Restaurant</span><span>Scooter rental</span></div>
+    <div class="desc">Cheapest decent private bungalow on the island. Basic but clean.</div>
+    
+  </div>
+</div>
+        <div class="tip-box"><strong>&#128161; Pro Tip:</strong> Roads are rough &mdash; hire a <strong>private driver ($30&ndash;45/day)</strong> instead of a scooter. Book <strong>Kamasan Cottage</strong> for the best comfort-to-price ratio. Pre-book the fast boat from Sanur on 12Go.asia (from $9).</div>
       </div>
     </div>
-
     <div>
       <div class="info-card">
-        <h3>&#128247; What to Visit on Nusa Penida</h3>
-
+        <h3>&#128247; What to Visit in Nusa Penida</h3>
         <div class="spot-card">
-          <img class="spot-card-img" src="https://images.unsplash.com/photo-1697931728907-ae18fd18d864?auto=format&fit=crop&w=220&q=80" alt="Kelingking Beach" loading="lazy" width="110" height="110">
-          <div class="spot-card-body">
-            <h4>Kelingking Beach (T-Rex Cliff)</h4>
-            <div class="vibe">A cliff perfectly shaped like a T-Rex plunging into turquoise water &mdash; the most iconic view in all of Bali.</div>
-            <div class="detail">Steep 30&ndash;45 min hike down to a hidden white-sand beach.</div>
-            <span class="price-tag">$0.70 entry</span>
-          </div>
-        </div>
-
+  <img class="spot-card-img" src="https://images.unsplash.com/photo-1697931728907-ae18fd18d864?auto=format&fit=crop&w=220&q=80" alt="Kelingking Beach (T-Rex Cliff)" loading="lazy" width="110" height="110">
+  <div class="spot-card-body">
+    <h4>Kelingking Beach (T-Rex Cliff)</h4>
+    <div class="vibe">A cliff perfectly shaped like a T-Rex plunging into turquoise water &mdash; the most iconic view in all of Bali.</div>
+    <div class="detail">Arrive by 8am before tour boats. Treat as a viewpoint &mdash; the hike down is steep and the surf below is dangerous.</div>
+    <span class="price-tag">$0.70 entry</span>
+  </div>
+</div>
         <div class="spot-card">
-          <img class="spot-card-img" src="https://images.unsplash.com/photo-1604500693431-647f9e76dafc?auto=format&fit=crop&w=220&q=80" alt="Broken Beach" loading="lazy" width="110" height="110">
-          <div class="spot-card-body">
-            <h4>Angel's Billabong &amp; Broken Beach</h4>
-            <div class="vibe">A natural infinity pool carved into the cliff &mdash; at low tide it's a crystal-clear jacuzzi overlooking the ocean.</div>
-            <div class="detail">Two spots are 5 min apart &mdash; check tides before going.</div>
-            <span class="price-tag">Free</span>
-          </div>
-        </div>
-
+  <img class="spot-card-img" src="https://images.unsplash.com/photo-1604500693431-647f9e76dafc?auto=format&fit=crop&w=220&q=80" alt="Angel's Billabong &amp; Broken Beach" loading="lazy" width="110" height="110">
+  <div class="spot-card-body">
+    <h4>Angel's Billabong &amp; Broken Beach</h4>
+    <div class="vibe">A natural infinity pool carved into the cliff &mdash; at low tide it's a crystal-clear jacuzzi overlooking the ocean.</div>
+    <div class="detail">Two spots are 5 min apart &mdash; check tides before going (only swimmable at low tide).</div>
+    <span class="price-tag">Free</span>
+  </div>
+</div>
         <div class="spot-card">
-          <img class="spot-card-img" src="https://images.unsplash.com/photo-1755289445781-516b60f56616?auto=format&fit=crop&w=220&q=80" alt="Crystal Bay" loading="lazy" width="110" height="110">
-          <div class="spot-card-body">
-            <h4>Crystal Bay</h4>
-            <div class="vibe">Calm turquoise water with 300+ coral species just offshore &mdash; snorkel straight from the beach.</div>
-            <div class="detail">Best afternoon spot to relax after the morning cliff hikes.</div>
-            <span class="price-tag">Free</span>
-          </div>
-        </div>
-
+  <img class="spot-card-img" src="https://images.unsplash.com/photo-1755289445781-516b60f56616?auto=format&fit=crop&w=220&q=80" alt="Crystal Bay Snorkel &amp; Sunset" loading="lazy" width="110" height="110">
+  <div class="spot-card-body">
+    <h4>Crystal Bay Snorkel &amp; Sunset</h4>
+    <div class="vibe">Calm turquoise water with 300+ coral species just offshore &mdash; snorkel straight from the beach, then stay for the west-side sunset.</div>
+    <div class="detail">The afternoon spot to relax after the morning cliff hikes.</div>
+    <span class="price-tag">Free</span>
+  </div>
+</div>
         <div class="spot-card">
-          <img class="spot-card-img" src="https://images.unsplash.com/photo-1634337385991-9c28ad464e88?auto=format&fit=crop&w=220&q=80" alt="Diamond Beach" loading="lazy" width="110" height="110">
-          <div class="spot-card-body">
-            <h4>Diamond Beach &amp; Atuh Beach</h4>
-            <div class="vibe">White sand framed by jagged diamond-shaped cliffs &mdash; quieter than the west side, pure tropical paradise.</div>
-            <div class="detail">On the east coast &mdash; combine with Rumah Pohon treehouse.</div>
-            <span class="price-tag">$2 entry</span>
-          </div>
-        </div>
-
+  <img class="spot-card-img" src="https://images.unsplash.com/photo-1634337385991-9c28ad464e88?auto=format&fit=crop&w=220&q=80" alt="Diamond Beach &amp; Atuh Beach" loading="lazy" width="110" height="110">
+  <div class="spot-card-body">
+    <h4>Diamond Beach &amp; Atuh Beach</h4>
+    <div class="vibe">White sand framed by jagged diamond-shaped cliffs &mdash; quieter than the west side, pure tropical paradise.</div>
+    <div class="detail">East coast &mdash; combine with Rumah Pohon treehouse. Long drive (50 min).</div>
+    <span class="price-tag">$2 entry</span>
+  </div>
+</div>
         <div class="spot-card">
-          <img class="spot-card-img" src="https://images.unsplash.com/photo-1692810122329-2294f71543b6?auto=format&fit=crop&w=220&q=80" alt="Manta Ray Snorkeling" loading="lazy" width="110" height="110">
-          <div class="spot-card-body">
-            <h4>Snorkeling with Manta Rays</h4>
-            <div class="vibe">Gliding silently above a manta ray the size of a car as it sweeps past beneath you &mdash; one of those moments where time stops.</div>
-            <div class="detail">Manta Point tour &mdash; 2h, best March&ndash;November.</div>
-            <span class="price-tag">$13&ndash;22/person</span>
-          </div>
-        </div>
-
+  <img class="spot-card-img" src="https://images.unsplash.com/photo-1692810122329-2294f71543b6?auto=format&fit=crop&w=220&q=80" alt="Snorkeling with Manta Rays" loading="lazy" width="110" height="110">
+  <div class="spot-card-body">
+    <h4>Snorkeling with Manta Rays</h4>
+    <div class="vibe">Gliding silently above a manta ray the size of a car as it sweeps past beneath you &mdash; one of those moments where time stops.</div>
+    <div class="detail">Manta Point tour &mdash; 2h, year-round but best March&ndash;October.</div>
+    <span class="price-tag">$13&ndash;22/person</span>
+  </div>
+</div>
         <div class="spot-card">
-          <img class="spot-card-img" src="https://images.unsplash.com/photo-1747873202807-3fced6233f35?auto=format&fit=crop&w=220&q=80" alt="Teletubbies Hill" loading="lazy" width="110" height="110">
-          <div class="spot-card-body">
-            <h4>Teletubbies Hill &amp; Rumah Pohon</h4>
-            <div class="vibe">Rolling green hills that look like they belong in a fantasy film, with a wooden treehouse perched on the clifftop edge.</div>
-            <div class="detail">Rumah Pohon offers the "Thousand Islands" viewpoint.</div>
-            <span class="price-tag">Free</span>
-          </div>
-        </div>
+  <img class="spot-card-img" src="https://images.unsplash.com/photo-1747873202807-3fced6233f35?auto=format&fit=crop&w=220&q=80" alt="Teletubbies Hill &amp; Rumah Pohon" loading="lazy" width="110" height="110">
+  <div class="spot-card-body">
+    <h4>Teletubbies Hill &amp; Rumah Pohon</h4>
+    <div class="vibe">Rolling green hills that look like they belong in a fantasy film, with a wooden treehouse perched on the clifftop edge.</div>
+    <div class="detail">Rumah Pohon offers the &quot;Thousand Islands&quot; viewpoint.</div>
+    <span class="price-tag">Free</span>
+  </div>
+</div>
       </div>
+      <div class="local-quote"><em>&ldquo;Many travelers arrive in Nusa Penida with one goal — to see Kelingking Beach — but the island's magic is much wider. Don't try to cram every spot into one day; the roads are slow and the views deserve time.&rdquo;</em><cite>&mdash; nuzanthra.biz.id (translated from Bahasa Indonesia)</cite></div>
+      
     </div>
   </div>
 </section>
@@ -780,142 +945,131 @@
       <p>Days 10&ndash;14 &middot; 5 nights &middot; Sunsets, dining &amp; romance</p>
     </div>
   </div>
-  <img class="img-banner" src="https://images.unsplash.com/photo-1742226595493-e34465d05d67?auto=format&fit=crop&w=1100&q=80" alt="Seminyak Beach sunset Bali" width="1100" height="240" loading="lazy">
-
+  <img class="img-banner" src="https://images.unsplash.com/photo-1742226595493-e34465d05d67?auto=format&fit=crop&w=1100&q=80" alt="Seminyak" width="1100" height="240" loading="lazy">
   <div class="content-grid">
     <div>
       <div class="info-card">
-        <h3>&#128666; Getting There &amp; Around</h3>
-        <ul>
-          <li><span class="label">Nusa Penida &rarr; Seminyak:</span> Combined ferry+bus ticket <span class="price">$12&ndash;17/person</span> (2.5h)</li>
+        <h3>&#128666; Getting There</h3>
+        <ul><li><span class="label">Nusa Penida &rarr; Seminyak:</span> Combined ferry+bus ticket <span class="price">$12&ndash;17/person</span> (2.5h)</li>
           <li><span class="label">Seminyak &rarr; Airport:</span> Gojek/Grab <span class="price">$6&ndash;10</span> <span class="sep">|</span> 25&ndash;40 min (10 km)</li>
-          <li><span class="label">Getting around:</span> Walkable in central areas <span class="sep">|</span> Gojek <span class="price">$1&ndash;3</span></li>
-        </ul>
+          <li><span class="label">Getting around:</span> Walkable in central areas <span class="sep">|</span> Gojek <span class="price">$1&ndash;3</span></li></ul>
       </div>
-
       <div class="info-card">
         <h3>&#127968; Where to Stay</h3>
-
         <div class="hotel-card">
-          <img class="hotel-card-img" src="https://images.unsplash.com/photo-1742226595493-e34465d05d67?auto=format&fit=crop&w=260&q=80" alt="The Hepburn Seminyak" loading="lazy" width="130" height="130">
-          <div class="hotel-card-body">
-            <div class="name-row"><h4>The Hepburn Seminyak</h4><span class="rating-badge"><span class="star">&#9733;</span> 9.6</span><span class="platform-badge">Booking.com</span></div>
-            <div class="price-line">from <span class="price">$35&ndash;55</span> / night</div>
-            <div class="features"><span>Shared pool</span><span>Breakfast</span><span>Boutique</span><span>AC</span><span>12min beach</span></div>
-            <div class="desc">Recently renovated boutique guesthouse with stunning pool area. Top-rated on Booking.com.</div>
-            <div class="couples-note">&#9829; Couples rate it 9.8/10</div>
-          </div>
-        </div>
-
+  <img class="hotel-card-img" src="https://images.unsplash.com/photo-1742226595493-e34465d05d67?auto=format&fit=crop&w=260&q=80" alt="The Hepburn Seminyak" loading="lazy" width="130" height="130">
+  <div class="hotel-card-body">
+    <div class="name-row">
+      <h4>The Hepburn Seminyak</h4>
+      <span class="rating-badge"><span class="star">&#9733;</span> 9.6</span>
+      <span class="platform-badge ">Booking.com</span>
+    </div>
+    <div class="price-line">from <span class="price">$35&ndash;55</span> / night</div>
+    <div class="features"><span>Shared pool</span><span>Breakfast</span><span>Boutique</span><span>AC</span><span>12min beach</span></div>
+    <div class="desc">Recently renovated boutique guesthouse with stunning pool area. Top-rated on Booking.com.</div>
+    <div class="couples-note">&#9829; Couples rate it 9.8/10</div>
+  </div>
+</div>
         <div class="hotel-card">
-          <img class="hotel-card-img" src="https://images.unsplash.com/photo-1553881271-048146b55cff?auto=format&fit=crop&w=260&q=80" alt="Comoda Seminyak" loading="lazy" width="130" height="130">
-          <div class="hotel-card-body">
-            <div class="name-row"><h4>Comoda Seminyak</h4><span class="rating-badge"><span class="star">&#9733;</span> 9.6</span><span class="platform-badge agoda">Agoda</span></div>
-            <div class="price-line">from <span class="price">$40&ndash;60</span> / night</div>
-            <div class="features"><span>Pool view</span><span>Breakfast in room</span><span>Balcony</span><span>AC</span></div>
-            <div class="desc">Charming boutique hotel with pool-view rooms &amp; breakfast delivered to your room.</div>
-          </div>
-        </div>
-
+  <img class="hotel-card-img" src="https://images.unsplash.com/photo-1553881271-048146b55cff?auto=format&fit=crop&w=260&q=80" alt="Comoda Seminyak" loading="lazy" width="130" height="130">
+  <div class="hotel-card-body">
+    <div class="name-row">
+      <h4>Comoda Seminyak</h4>
+      <span class="rating-badge"><span class="star">&#9733;</span> 9.6</span>
+      <span class="platform-badge agoda">Agoda</span>
+    </div>
+    <div class="price-line">from <span class="price">$40&ndash;60</span> / night</div>
+    <div class="features"><span>Pool view</span><span>Breakfast in room</span><span>Balcony</span><span>AC</span></div>
+    <div class="desc">Charming boutique hotel with pool-view rooms &amp; breakfast delivered to your room.</div>
+    
+  </div>
+</div>
         <div class="hotel-card">
-          <img class="hotel-card-img" src="https://images.unsplash.com/photo-1621855970408-e8f226ed1512?auto=format&fit=crop&w=260&q=80" alt="K Hostel Seminyak" loading="lazy" width="130" height="130">
-          <div class="hotel-card-body">
-            <div class="name-row"><h4>K Hostel Seminyak</h4><span class="rating-badge"><span class="star">&#9733;</span> 9.1</span><span class="platform-badge">Booking.com</span></div>
-            <div class="price-line">Private double from <span class="price">$20&ndash;35</span> / night</div>
-            <div class="features"><span>Private rooms</span><span>AC</span><span>Super clean</span><span>19min beach</span></div>
-            <div class="desc">Adults-only with private doubles. Couples rate location 9.9 &mdash; best budget deal.</div>
-            <div class="couples-note">&#9829; Couples rate it 9.9/10</div>
-          </div>
-        </div>
-
-        <div class="tip-box">
-          <strong>&#128161; Pro Tip:</strong> <strong>The Hepburn</strong> (9.6 rating) is the top couples pick. For cheapest private room, <strong>K Hostel</strong> at $20/night is unbeatable. Seminyak is very walkable.
-        </div>
+  <img class="hotel-card-img" src="https://images.unsplash.com/photo-1621855970408-e8f226ed1512?auto=format&fit=crop&w=260&q=80" alt="K Hostel Seminyak" loading="lazy" width="130" height="130">
+  <div class="hotel-card-body">
+    <div class="name-row">
+      <h4>K Hostel Seminyak</h4>
+      <span class="rating-badge"><span class="star">&#9733;</span> 9.1</span>
+      <span class="platform-badge ">Booking.com</span>
+    </div>
+    <div class="price-line">from <span class="price">$20&ndash;35</span> / night</div>
+    <div class="features"><span>Private rooms</span><span>AC</span><span>Super clean</span><span>19min beach</span></div>
+    <div class="desc">Adults-only with private doubles. Couples rate location 9.9 &mdash; best budget deal.</div>
+    <div class="couples-note">&#9829; Couples rate it 9.9/10</div>
+  </div>
+</div>
+        <div class="tip-box"><strong>&#128161; Pro Tip:</strong> <strong>The Hepburn</strong> (9.6 rating) is the top couples pick. For cheapest private room, <strong>K Hostel</strong> at $20/night is unbeatable. Seminyak is very walkable.</div>
       </div>
     </div>
-
     <div>
       <div class="info-card">
-        <h3>&#128247; What to Do in Seminyak</h3>
-
+        <h3>&#128247; What to Visit in Seminyak</h3>
         <div class="spot-card">
-          <img class="spot-card-img" src="https://images.unsplash.com/photo-1571984405176-5958bd9ac31d?auto=format&fit=crop&w=220&q=80" alt="Potato Head" loading="lazy" width="110" height="110">
-          <div class="spot-card-body">
-            <h4>Sunset at Potato Head / KU DE TA</h4>
-            <div class="vibe">Lying on a daybed by the infinity pool as the sky turns orange over the ocean &mdash; cocktails in hand, your first sunset.</div>
-            <div class="detail">Potato Head is iconic &mdash; KU DE TA is more intimate.</div>
-            <span class="price-tag">Drinks from $8</span>
-          </div>
-        </div>
-
+  <img class="spot-card-img" src="https://images.unsplash.com/photo-1571984405176-5958bd9ac31d?auto=format&fit=crop&w=220&q=80" alt="Sunset at Potato Head / KU DE TA" loading="lazy" width="110" height="110">
+  <div class="spot-card-body">
+    <h4>Sunset at Potato Head / KU DE TA</h4>
+    <div class="vibe">Lying on a daybed by the infinity pool as the sky turns orange over the ocean &mdash; cocktails in hand, your first sunset.</div>
+    <div class="detail">Potato Head is iconic &mdash; KU DE TA is more intimate. Cover charge 250k IDR redeemable on food/drinks.</div>
+    <span class="price-tag">Drinks from $8</span>
+  </div>
+</div>
         <div class="spot-card">
-          <img class="spot-card-img" src="https://images.unsplash.com/photo-1662950267280-0cdf5f7139b4?auto=format&fit=crop&w=220&q=80" alt="Seminyak Beach" loading="lazy" width="110" height="110">
-          <div class="spot-card-body">
-            <h4>Seminyak Beach</h4>
-            <div class="vibe">Miles of golden sand stretching into the sunset &mdash; grab a colorful beanbag, order a Bintang, and just watch the waves roll in.</div>
-            <div class="detail">La Plancha has the beanbags &mdash; perfect for sunset.</div>
-            <span class="price-tag">Free</span>
-          </div>
-        </div>
-
+  <img class="spot-card-img" src="https://images.unsplash.com/photo-1662950267280-0cdf5f7139b4?auto=format&fit=crop&w=220&q=80" alt="Seminyak Beach &amp; La Plancha" loading="lazy" width="110" height="110">
+  <div class="spot-card-body">
+    <h4>Seminyak Beach &amp; La Plancha</h4>
+    <div class="vibe">Miles of golden sand stretching into the sunset &mdash; grab a colorful beanbag, order a Bintang, and just watch the waves roll in.</div>
+    <div class="detail">La Plancha has the rainbow beanbags &mdash; arrive 1h before sunset.</div>
+    <span class="price-tag">Free</span>
+  </div>
+</div>
         <div class="spot-card">
-          <img class="spot-card-img" src="https://images.unsplash.com/photo-1591192216392-6634923b93c7?auto=format&fit=crop&w=220&q=80" alt="Eat Street" loading="lazy" width="110" height="110">
-          <div class="spot-card-body">
-            <h4>Eat Street (Jalan Kayu Aya)</h4>
-            <div class="vibe">A lively street lined with candlelit restaurants, cocktail bars, and boutique stores &mdash; every night feels like date night.</div>
-            <div class="detail">From local warungs to fine dining &mdash; something for every mood.</div>
-            <span class="price-tag">Meals $3&ndash;30</span>
-          </div>
-        </div>
-
+  <img class="spot-card-img" src="https://images.unsplash.com/photo-1591192216392-6634923b93c7?auto=format&fit=crop&w=220&q=80" alt="Eat Street (Jalan Kayu Aya)" loading="lazy" width="110" height="110">
+  <div class="spot-card-body">
+    <h4>Eat Street (Jalan Kayu Aya)</h4>
+    <div class="vibe">A lively street lined with candlelit restaurants, cocktail bars, and boutique stores &mdash; every night feels like date night.</div>
+    <div class="detail">From local warungs to fine dining &mdash; something for every mood.</div>
+    <span class="price-tag">Meals $3&ndash;30</span>
+  </div>
+</div>
         <div class="spot-card">
-          <img class="spot-card-img" src="https://images.unsplash.com/photo-1668277155881-9d3bccb1683a?auto=format&fit=crop&w=220&q=80" alt="Brunch" loading="lazy" width="110" height="110">
-          <div class="spot-card-body">
-            <h4>Revolver Espresso / Sisterfields</h4>
-            <div class="vibe">The best brunch in Bali &mdash; smoothie bowls topped with fresh fruit, avocado toast, and flat whites that rival Melbourne.</div>
-            <div class="detail">Revolver has a speakeasy vibe &mdash; Sisterfields is bright and airy.</div>
-            <span class="price-tag">$5&ndash;10/person</span>
-          </div>
-        </div>
-
+  <img class="spot-card-img" src="https://images.unsplash.com/photo-1668277155881-9d3bccb1683a?auto=format&fit=crop&w=220&q=80" alt="Revolver Espresso / Sisterfields brunch" loading="lazy" width="110" height="110">
+  <div class="spot-card-body">
+    <h4>Revolver Espresso / Sisterfields brunch</h4>
+    <div class="vibe">The best brunch in Bali &mdash; smoothie bowls topped with fresh fruit, avocado toast, and flat whites that rival Melbourne.</div>
+    <div class="detail">Revolver has a speakeasy vibe &mdash; Sisterfields is bright and airy.</div>
+    <span class="price-tag">$5&ndash;10/person</span>
+  </div>
+</div>
         <div class="spot-card">
-          <img class="spot-card-img" src="https://images.unsplash.com/photo-1657339929654-999031103072?auto=format&fit=crop&w=220&q=80" alt="Seminyak sunset" loading="lazy" width="110" height="110">
-          <div class="spot-card-body">
-            <h4>Made's Warung &amp; Local Dining</h4>
-            <div class="vibe">A charming open-air restaurant serving proper Balinese food &mdash; nasi campur, satay lilit, and the best sambal on the island.</div>
-            <div class="detail">One of the original Seminyak institutions.</div>
-            <span class="price-tag">$3&ndash;6/person</span>
-          </div>
-        </div>
-
+  <img class="spot-card-img" src="https://images.unsplash.com/photo-1780541027382-cf422369bdaa?auto=format&fit=crop&w=220&q=80" alt="Couples Spa Day" loading="lazy" width="110" height="110">
+  <div class="spot-card-body">
+    <h4>Couples Spa Day</h4>
+    <div class="vibe">Side by side on a candlelit treatment table, frangipani-scented oil &mdash; this is the kind of spa day you'll both remember.</div>
+    <div class="detail">Prana Spa or Bodyworks &mdash; book a 2h couple's package.</div>
+    <span class="price-tag">$40&ndash;60 / couple</span>
+  </div>
+</div>
         <div class="spot-card">
-          <img class="spot-card-img" src="https://images.unsplash.com/photo-1780541027382-cf422369bdaa?auto=format&fit=crop&w=220&q=80" alt="Couples Spa" loading="lazy" width="110" height="110">
-          <div class="spot-card-body">
-            <h4>Couples Spa Day</h4>
-            <div class="vibe">Side by side on a candlelit treatment table, frangipani-scented oil &mdash; this is the kind of spa day you'll both remember.</div>
-            <div class="detail">Prana Spa or Bodyworks &mdash; book a 2h couple's package.</div>
-            <span class="price-tag">$40&ndash;60 / couple</span>
-          </div>
-        </div>
-
-        <div class="spot-card">
-          <img class="spot-card-img" src="https://images.unsplash.com/photo-1750532896483-f950177f0457?auto=format&fit=crop&w=220&q=80" alt="La Plancha" loading="lazy" width="110" height="110">
-          <div class="spot-card-body">
-            <h4>La Plancha</h4>
-            <div class="vibe">Dozens of colorful beanbags spread across the sand, a cold drink in hand, reggae music playing as the sun dips into the ocean.</div>
-            <div class="detail">The most photographed sunset spot in Seminyak.</div>
-            <span class="price-tag">Drinks from $5</span>
-          </div>
-        </div>
+  <img class="spot-card-img" src="https://images.unsplash.com/photo-1657339929654-999031103072?auto=format&fit=crop&w=220&q=80" alt="Uluwatu Sunset Kecak" loading="lazy" width="110" height="110">
+  <div class="spot-card-body">
+    <h4>Uluwatu Sunset Kecak</h4>
+    <div class="vibe">An ancient cliff temple at the southern tip of Bali, hosting the most dramatic Kecak fire dance as the sun sets behind dancers and ocean.</div>
+    <div class="detail">Show starts at 6pm &mdash; arrive by 5:15 for good seats.</div>
+    <span class="price-tag">$8 entry</span>
+  </div>
+</div>
       </div>
+      <div class="local-quote"><em>&ldquo;Who said Seminyak is always expensive? Hidden among the high-end glamour, Warung Marinda lets you eat a generous portion of nasi kuning or nasi ayam lalapan for just 10,000 rupiah &mdash; sambal nampol, kindness included.&rdquo;</em><cite>&mdash; baliinyourhands.com (translated from Bahasa Indonesia)</cite></div>
+      
     </div>
   </div>
 </section>
 
+
 <section id="budget">
   <div class="section-title">
     <h2>Budget Estimation</h2>
-    <p>For two people &middot; 14 days &middot; Budget-friendly style</p>
+    <p>For two people · 14 days · Budget-friendly with two luxury splurges</p>
   </div>
   <div class="budget-table-wrap">
     <table class="budget-table">
@@ -924,30 +1078,664 @@
       </thead>
       <tbody>
         <tr><td><strong>Flights</strong></td><td>Round-trip for 2 (varies by origin)</td><td class="num-col">$1,400&ndash;$2,000</td></tr>
-        <tr><td><strong>Accommodation</strong></td><td>13 nights &times; avg $35/night (guesthouses &amp; budget hotels)</td><td class="num-col">$455</td></tr>
-        <tr><td><strong>Food &amp; Drink</strong></td><td>$30/day for two (local warungs + a few nice dinners)</td><td class="num-col">$420</td></tr>
-        <tr><td><strong>Transport</strong></td><td>Airport transfers, ferries, Gojek, scooter rental</td><td class="num-col">$150</td></tr>
-        <tr><td><strong>Activities</strong></td><td>Cooking class, snorkeling, spa, temple entries, driver</td><td class="num-col">$200</td></tr>
-        <tr><td><strong>Travel Insurance</strong></td><td>Comprehensive for 2 weeks</td><td class="num-col">$80</td></tr>
-        <tr><td><strong>Miscellaneous</strong></td><td>SIM card, tips, souvenirs, laundry</td><td class="num-col">$100</td></tr>
+<tr><td><strong>Accommodation</strong></td><td>13 nights &middot; mostly guesthouses + 1&ndash;2 luxury villa nights</td><td class="num-col">$650</td></tr>
+<tr><td><strong>Food &amp; Drink</strong></td><td>$30/day for two (local warungs + 3 splurge dinners)</td><td class="num-col">$420</td></tr>
+<tr><td><strong>Transport</strong></td><td>Airport transfers, fast boat, Gojek, scooter rental, Penida driver</td><td class="num-col">$170</td></tr>
+<tr><td><strong>Activities</strong></td><td>Cooking class, manta snorkel, couples spa, temple &amp; waterfall fees</td><td class="num-col">$220</td></tr>
+<tr><td><strong>Travel Insurance</strong></td><td>Comprehensive for 2 weeks</td><td class="num-col">$80</td></tr>
+<tr><td><strong>Miscellaneous</strong></td><td>SIM card, tips, souvenirs, laundry</td><td class="num-col">$110</td></tr>
       </tbody>
-      <tfoot>
-        <tr class="total-row"><td colspan="2"><strong>Total (excluding flights)</strong></td><td class="num-col"><strong>$1,405</strong></td></tr>
-        <tr><td colspan="2"><strong>Total (including flights)</strong></td><td class="num-col"><strong>$2,805&ndash;$3,405</strong></td></tr>
-      </tfoot>
     </table>
   </div>
-  <p class="budget-note">
-    All prices approximate for March 2027 &middot; $1 &asymp; 16,000 IDR &middot;
-    Booking ahead on Agoda/Booking.com saves 15&ndash;30%
-  </p>
+  <p class="budget-note">All prices approximate for March 2027 &middot; $1 &asymp; 16,000 IDR &middot; Booking ahead on Agoda/Booking.com saves 15&ndash;30% &middot; Both luxury splurge nights bring the total to roughly $3,050&ndash;$3,650 (excluding flights)</p>
 </section>
 
 <footer>
   <div class="hearts">&hearts; &hearts; &hearts;</div>
-  <p style="margin-top:8px;">See you in Bali &mdash; March 2027</p>
+  <p style="margin-top:8px;">See you in Bali — March 2027</p>
   <p style="margin-top:4px;">Made with love for our honeymoon planning</p>
 </footer>
+
+<script id="trip-data" type="application/json">
+{
+  "tripSlug": "bali-march-2027",
+  "seed": 1,
+  "startDate": "2027-03-01",
+  "endDate": "2027-03-14",
+  "splurgeCount": 3,
+  "regions": [
+    {
+      "id": "ubud",
+      "name": "Ubud"
+    },
+    {
+      "id": "nusapenida",
+      "name": "Nusa Penida"
+    },
+    {
+      "id": "seminyak",
+      "name": "Seminyak"
+    }
+  ],
+  "regionHotel": {
+    "ubud": "eden-house",
+    "nusapenida": "kamasan",
+    "seminyak": "hepburn"
+  },
+  "activities": {
+    "ubud": [
+      {
+        "id": "tegalalang",
+        "name": "Tegalalang Rice Terraces",
+        "score": 9,
+        "drive": {
+          "eden-house": 22
+        }
+      },
+      {
+        "id": "campuhan",
+        "name": "Campuhan Ridge Walk",
+        "score": 8,
+        "drive": {
+          "eden-house": 5
+        }
+      },
+      {
+        "id": "monkey",
+        "name": "Sacred Monkey Forest",
+        "score": 8,
+        "drive": {
+          "eden-house": 8
+        }
+      },
+      {
+        "id": "tirta",
+        "name": "Tirta Empul Water Temple",
+        "score": 7,
+        "drive": {
+          "eden-house": 35
+        }
+      },
+      {
+        "id": "tibumana",
+        "name": "Tibumana Waterfall (hidden gem)",
+        "score": 8,
+        "drive": {
+          "eden-house": 30
+        }
+      },
+      {
+        "id": "cooking",
+        "name": "Balinese Cooking Class (Paon Bali)",
+        "score": 9,
+        "drive": {
+          "eden-house": 10
+        }
+      },
+      {
+        "id": "palace",
+        "name": "Ubud Palace &amp; Kecak Dance",
+        "score": 7,
+        "drive": {
+          "eden-house": 6
+        }
+      },
+      {
+        "id": "spa",
+        "name": "Couples Spa Treatment",
+        "score": 7,
+        "drive": {
+          "eden-house": 5
+        }
+      }
+    ],
+    "nusapenida": [
+      {
+        "id": "kelingking",
+        "name": "Kelingking Beach (T-Rex Cliff)",
+        "score": 10,
+        "drive": {
+          "kamasan": 35
+        }
+      },
+      {
+        "id": "broken",
+        "name": "Angel's Billabong &amp; Broken Beach",
+        "score": 8,
+        "drive": {
+          "kamasan": 40
+        }
+      },
+      {
+        "id": "crystal",
+        "name": "Crystal Bay Snorkel &amp; Sunset",
+        "score": 7,
+        "drive": {
+          "kamasan": 25
+        }
+      },
+      {
+        "id": "diamond",
+        "name": "Diamond Beach &amp; Atuh Beach",
+        "score": 8,
+        "drive": {
+          "kamasan": 50
+        }
+      },
+      {
+        "id": "manta",
+        "name": "Snorkeling with Manta Rays",
+        "score": 9,
+        "drive": {
+          "kamasan": 20
+        }
+      },
+      {
+        "id": "teletubbies",
+        "name": "Teletubbies Hill &amp; Rumah Pohon",
+        "score": 7,
+        "drive": {
+          "kamasan": 45
+        }
+      }
+    ],
+    "seminyak": [
+      {
+        "id": "potato",
+        "name": "Sunset at Potato Head / KU DE TA",
+        "score": 9,
+        "drive": {
+          "hepburn": 8
+        }
+      },
+      {
+        "id": "beach",
+        "name": "Seminyak Beach &amp; La Plancha",
+        "score": 8,
+        "drive": {
+          "hepburn": 5
+        }
+      },
+      {
+        "id": "eat-street",
+        "name": "Eat Street (Jalan Kayu Aya)",
+        "score": 7,
+        "drive": {
+          "hepburn": 3
+        }
+      },
+      {
+        "id": "brunch",
+        "name": "Revolver Espresso / Sisterfields brunch",
+        "score": 7,
+        "drive": {
+          "hepburn": 6
+        }
+      },
+      {
+        "id": "spa-sem",
+        "name": "Couples Spa Day",
+        "score": 8,
+        "drive": {
+          "hepburn": 4
+        }
+      },
+      {
+        "id": "uluwatu",
+        "name": "Uluwatu Sunset Kecak",
+        "score": 9,
+        "drive": {
+          "hepburn": 55
+        }
+      }
+    ]
+  },
+  "restaurants": {
+    "ubud": [
+      {
+        "id": "ibu-oka",
+        "name": "Warung Babi Guling Ibu Oka",
+        "tier": "cheap",
+        "drive": {
+          "eden-house": 8
+        }
+      },
+      {
+        "id": "nasi-mangku",
+        "name": "Nasi Ayam Kedewatan Ibu Mangku",
+        "tier": "cheap",
+        "drive": {
+          "eden-house": 15
+        }
+      },
+      {
+        "id": "warung-bu",
+        "name": "Warung Bu Mangku",
+        "tier": "cheap",
+        "drive": {
+          "eden-house": 12
+        }
+      },
+      {
+        "id": "pondok-madu",
+        "name": "Warung Pondok Madu",
+        "tier": "cheap",
+        "drive": {
+          "eden-house": 8
+        }
+      },
+      {
+        "id": "locavore",
+        "name": "Locavore",
+        "tier": "splurge",
+        "drive": {
+          "eden-house": 6
+        }
+      },
+      {
+        "id": "naughty-nu",
+        "name": "Naughty Nuri's",
+        "tier": "mid",
+        "drive": {
+          "eden-house": 9
+        }
+      }
+    ],
+    "nusapenida": [
+      {
+        "id": "penida-co",
+        "name": "Penida Colada",
+        "tier": "cheap",
+        "drive": {
+          "kamasan": 15
+        }
+      },
+      {
+        "id": "warung-pa",
+        "name": "Warung Pak Made",
+        "tier": "cheap",
+        "drive": {
+          "kamasan": 6
+        }
+      },
+      {
+        "id": "amok",
+        "name": "Amok Sunset",
+        "tier": "splurge",
+        "drive": {
+          "kamasan": 30
+        }
+      }
+    ],
+    "seminyak": [
+      {
+        "id": "made-warung",
+        "name": "Made's Warung",
+        "tier": "cheap",
+        "drive": {
+          "hepburn": 4
+        }
+      },
+      {
+        "id": "warung-marinda",
+        "name": "Warung Marinda",
+        "tier": "cheap",
+        "drive": {
+          "hepburn": 5
+        }
+      },
+      {
+        "id": "warung-eny",
+        "name": "Warung Eny",
+        "tier": "cheap",
+        "drive": {
+          "hepburn": 7
+        }
+      },
+      {
+        "id": "mejekawi",
+        "name": "Mejekawi at Ku De Ta",
+        "tier": "splurge",
+        "drive": {
+          "hepburn": 8
+        }
+      },
+      {
+        "id": "motel-mex",
+        "name": "Motel Mexicola",
+        "tier": "mid",
+        "drive": {
+          "hepburn": 5
+        }
+      },
+      {
+        "id": "sugarsand",
+        "name": "SugarSand (sunset Japanese)",
+        "tier": "mid",
+        "drive": {
+          "hepburn": 6
+        }
+      }
+    ]
+  },
+  "days": [
+    {
+      "n": 1,
+      "date": "2027-03-01",
+      "region": "ubud",
+      "status": "transfer",
+      "activityId": null,
+      "dinnerId": "ibu-oka",
+      "restSuggestion": null
+    },
+    {
+      "n": 2,
+      "date": "2027-03-02",
+      "region": "ubud",
+      "status": "rest",
+      "activityId": null,
+      "dinnerId": "ibu-oka",
+      "restSuggestion": "Sunset cocktail at hotel bar"
+    },
+    {
+      "n": 3,
+      "date": "2027-03-03",
+      "region": "ubud",
+      "status": "active",
+      "activityId": "tegalalang",
+      "dinnerId": "naughty-nu",
+      "restSuggestion": null
+    },
+    {
+      "n": 4,
+      "date": "2027-03-04",
+      "region": "ubud",
+      "status": "rest",
+      "activityId": null,
+      "dinnerId": "ibu-oka",
+      "restSuggestion": "Pool & book"
+    },
+    {
+      "n": 5,
+      "date": "2027-03-05",
+      "region": "ubud",
+      "status": "active",
+      "activityId": "cooking",
+      "dinnerId": "locavore",
+      "restSuggestion": null
+    },
+    {
+      "n": 6,
+      "date": "2027-03-06",
+      "region": "ubud",
+      "status": "rest",
+      "activityId": null,
+      "dinnerId": "ibu-oka",
+      "restSuggestion": "Short walk in the neighborhood"
+    },
+    {
+      "n": 7,
+      "date": "2027-03-07",
+      "region": "nusapenida",
+      "status": "transfer",
+      "activityId": null,
+      "dinnerId": "warung-pa",
+      "restSuggestion": null
+    },
+    {
+      "n": 8,
+      "date": "2027-03-08",
+      "region": "nusapenida",
+      "status": "rest",
+      "activityId": null,
+      "dinnerId": "warung-pa",
+      "restSuggestion": "Late breakfast and lazy morning"
+    },
+    {
+      "n": 9,
+      "date": "2027-03-09",
+      "region": "nusapenida",
+      "status": "active",
+      "activityId": "kelingking",
+      "dinnerId": "amok",
+      "restSuggestion": null
+    },
+    {
+      "n": 10,
+      "date": "2027-03-10",
+      "region": "seminyak",
+      "status": "transfer",
+      "activityId": null,
+      "dinnerId": "motel-mex",
+      "restSuggestion": null
+    },
+    {
+      "n": 11,
+      "date": "2027-03-11",
+      "region": "seminyak",
+      "status": "rest",
+      "activityId": null,
+      "dinnerId": "made-warung",
+      "restSuggestion": "Short walk in the neighborhood"
+    },
+    {
+      "n": 12,
+      "date": "2027-03-12",
+      "region": "seminyak",
+      "status": "rest",
+      "activityId": null,
+      "dinnerId": "made-warung",
+      "restSuggestion": "Sunset cocktail at hotel bar"
+    },
+    {
+      "n": 13,
+      "date": "2027-03-13",
+      "region": "seminyak",
+      "status": "active",
+      "activityId": "potato",
+      "dinnerId": "mejekawi",
+      "restSuggestion": null
+    },
+    {
+      "n": 14,
+      "date": "2027-03-14",
+      "region": "seminyak",
+      "status": "transfer",
+      "activityId": null,
+      "dinnerId": "sugarsand",
+      "restSuggestion": null
+    }
+  ]
+}
+</script>
+<script>
+// Inlined into every generated trip page. Pure ES2020, no dependencies.
+// Reads the trip-data JSON block (#trip-data), restores overrides from
+// localStorage, wires up swap / reset / shuffle / print buttons.
+
+(function () {
+  "use strict";
+
+  const dataEl = document.getElementById("trip-data");
+  if (!dataEl) return; // page has no plan
+  const trip = JSON.parse(dataEl.textContent);
+  const KEY = "trip:" + trip.tripSlug;
+
+  // Restore overrides if any
+  let overrides = {};
+  try { overrides = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch { overrides = {}; }
+
+  function applyOverrides(days) {
+    if (!overrides.days) return days;
+    return days.map((d) => {
+      const o = overrides.days.find((x) => x.n === d.n);
+      return o ? { ...d, ...o } : d;
+    });
+  }
+
+  function saveOverride(dayN, patch) {
+    overrides.days = overrides.days || [];
+    const i = overrides.days.findIndex((x) => x.n === dayN);
+    if (i >= 0) overrides.days[i] = { ...overrides.days[i], ...patch, n: dayN };
+    else overrides.days.push({ ...patch, n: dayN });
+    localStorage.setItem(KEY, JSON.stringify(overrides));
+  }
+
+  // ── eligibility ────────────────────────────────────────────────────────
+  function eligibleActivities(region, dayN, currentDays) {
+    const hotel = trip.regionHotel[region];
+    const usedIds = new Set(currentDays.filter((d) => d.region === region && d.activityId && d.n !== dayN).map((d) => d.activityId));
+    return (trip.activities[region] || [])
+      .filter((a) => (a.drive[hotel] ?? Infinity) <= 60)
+      .filter((a) => !usedIds.has(a.id));
+  }
+  function eligibleRestaurants(region) {
+    const hotel = trip.regionHotel[region];
+    return (trip.restaurants[region] || [])
+      .slice()
+      .sort((a, b) => (a.drive[hotel] ?? Infinity) - (b.drive[hotel] ?? Infinity));
+  }
+
+  // ── render helpers ─────────────────────────────────────────────────────
+  function findActivity(region, id) {
+    return ((trip.activities || {})[region] || []).find((a) => a.id === id);
+  }
+  function findRestaurant(region, id) {
+    return ((trip.restaurants || {})[region] || []).find((r) => r.id === id);
+  }
+
+  function renderActivityBlock(d) {
+    if (d.status === "rest") {
+      return `<div class="rest-suggestion"><span>🌿</span> ${d.restSuggestion || "Rest day"}</div>`;
+    }
+    if (d.status === "transfer") {
+      return `<div class="transfer-note"><span>✈️</span> Transfer day — travel logistics in the region section below.</div>`;
+    }
+    const a = findActivity(d.region, d.activityId);
+    if (!a) return `<em>(no activity)</em>`;
+    const hotel = trip.regionHotel[d.region];
+    const drive = a.drive[hotel] ?? "?";
+    const mapsLink = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(a.name)}`;
+    return `<div class="activity-row">
+      <strong>${a.name}</strong>
+      <div class="muted">🚗 ${drive} min from ${hotel} &middot; <a href="${mapsLink}" target="_blank" rel="noopener">map</a></div>
+      <button class="swap-btn" data-swap="activity" data-day="${d.n}" aria-expanded="false">swap activity ▾</button>
+      <div class="swap-pool" data-pool-day="${d.n}" data-pool-kind="activity"></div>
+    </div>`;
+  }
+
+  function renderDinnerBlock(d) {
+    const r = findRestaurant(d.region, d.dinnerId);
+    if (!r) return `<em>(no dinner)</em>`;
+    const hotel = trip.regionHotel[d.region];
+    return `<div class="dinner-row">
+      🍽 <strong>${r.name}</strong>
+      <div class="muted">${r.tier} &middot; ${r.drive[hotel] ?? "?"} min</div>
+      <button class="swap-btn" data-swap="dinner" data-day="${d.n}" aria-expanded="false">swap dinner ▾</button>
+      <div class="swap-pool" data-pool-day="${d.n}" data-pool-kind="dinner"></div>
+    </div>`;
+  }
+
+  function dayCardHtml(d) {
+    const statusBadge = d.status === "active" ? "📸 ACTIVE" : d.status === "rest" ? "🌿 REST" : "✈️ TRANSFER";
+    const region = (trip.regions || []).find((r) => r.id === d.region);
+    const regionName = region ? region.name : d.region;
+    const a = findActivity(d.region, d.activityId);
+    const dateShort = (() => { const dt = new Date(d.date + "T00:00:00Z"); return dt.toLocaleDateString("en", { month: "short", day: "numeric", timeZone: "UTC" }); })();
+    return `<article class="day-card day-card-${d.status}" data-day="${d.n}" aria-label="Day ${d.n}, ${d.status}, ${a ? a.name : d.status}">
+      <header class="day-card-head">
+        <div class="day-num">DAY ${String(d.n).padStart(2, "0")} &middot; ${dateShort}</div>
+        <div class="day-tags"><span class="region-tag">${regionName}</span><span class="status-badge">${statusBadge}</span></div>
+      </header>
+      <div class="day-card-activity">${renderActivityBlock(d)}</div>
+      <div class="day-card-dinner">${renderDinnerBlock(d)}</div>
+    </article>`;
+  }
+
+  function renderAllDays() {
+    const grid = document.querySelector(".day-grid");
+    if (!grid) return;
+    const days = applyOverrides(trip.days);
+    grid.innerHTML = days.map(dayCardHtml).join("\n");
+    wireUp();
+  }
+
+  function showSwapPool(btn, kind, dayN) {
+    const pool = btn.parentElement.querySelector(".swap-pool");
+    const isOpen = pool.classList.toggle("open");
+    btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    if (!isOpen) return;
+    const days = applyOverrides(trip.days);
+    const d = days.find((x) => x.n === dayN);
+    if (!d) return;
+    let options = [];
+    if (kind === "activity") {
+      options = eligibleActivities(d.region, dayN, days);
+      pool.innerHTML = options.length
+        ? options.map((a) => `<div class="swap-option" data-pick="${a.id}">${a.name} <span class="muted">${a.drive[trip.regionHotel[d.region]]}min</span></div>`).join("")
+        : `<em>No other eligible activities for this hotel. Try Shuffle or change another day first.</em>`;
+    } else {
+      options = eligibleRestaurants(d.region);
+      pool.innerHTML = options.map((r) => `<div class="swap-option" data-pick="${r.id}">${r.name} <span class="muted">${r.tier} &middot; ${r.drive[trip.regionHotel[d.region]] ?? "?"}min</span></div>`).join("");
+    }
+    pool.querySelectorAll(".swap-option").forEach((opt) => {
+      opt.addEventListener("click", () => {
+        const id = opt.getAttribute("data-pick");
+        if (kind === "activity") saveOverride(dayN, { activityId: id });
+        else saveOverride(dayN, { dinnerId: id });
+        renderAllDays();
+      });
+    });
+  }
+
+  function wireUp() {
+    document.querySelectorAll(".swap-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const kind = btn.getAttribute("data-swap");
+        const dayN = Number(btn.getAttribute("data-day"));
+        showSwapPool(btn, kind, dayN);
+      });
+    });
+  }
+
+  const resetBtn = document.getElementById("plan-reset");
+  if (resetBtn) resetBtn.addEventListener("click", () => {
+    localStorage.removeItem(KEY);
+    overrides = {};
+    renderAllDays();
+  });
+
+  const printBtn = document.getElementById("plan-print");
+  if (printBtn) printBtn.addEventListener("click", () => window.print());
+
+  const shuffleBtn = document.getElementById("plan-shuffle");
+  if (shuffleBtn) shuffleBtn.addEventListener("click", () => {
+    // Client-side shuffle: rotate eligible activities through active days within each region.
+    const days = applyOverrides(trip.days);
+    const rng = Math.random;
+    const byRegion = {};
+    for (const d of days) {
+      if (d.status === "active") (byRegion[d.region] = byRegion[d.region] || []).push(d);
+    }
+    for (const region in byRegion) {
+      const activeDays = byRegion[region];
+      const pool = eligibleActivities(region, -1, []).slice();
+      for (let i = pool.length - 1; i > 0; i--) {
+        const j = Math.floor(rng() * (i + 1));
+        [pool[i], pool[j]] = [pool[j], pool[i]];
+      }
+      for (let i = 0; i < activeDays.length; i++) {
+        if (pool[i]) saveOverride(activeDays[i].n, { activityId: pool[i].id });
+      }
+    }
+    renderAllDays();
+  });
+
+  // Initial render replaces server-rendered static cards
+  renderAllDays();
+})();
+
+</script>
 
 </body>
 </html>
